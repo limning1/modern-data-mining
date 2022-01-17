@@ -1,0 +1,67 @@
+---
+title: "hw1"
+author: "Liming Ning"
+date: "2022/1/16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = 'E:/courses/modern data mining/hw/Homework 1')
+library(data.table)
+library(tidyverse)
+library(ggplot2)
+```
+
+# Case Study 1: Audience Size
+## Data Preparation
+```{r}
+# selection
+talkdata = fread("data/Survey_results_final.csv", encoding = "UTF-8")
+talkdata.selected = 
+  talkdata[,.(age = Answer.Age, # Note: some answers in Age are not numerics. Therefore, typeof Answer.Age is character.
+              gender = Answer.Gender, 
+              education = Answer.Education, 
+              income = Answer.HouseHoldIncome,
+              sirius = `Answer.Sirius Radio`, 
+              wharton = `Answer.Wharton Radio`, 
+              worktime = WorkTimeInSeconds)]
+
+# detect suspect observations
+## age
+talkdata.selected[!age %in% 10:100] # automatic type coersion when matching
+talkdata.selected[age == "Eighteen (18)", age := "18"] # imputation
+talkdata.selected[age == "27`", age := "27"] # imputation
+talkdata.selected = talkdata.selected[age %in% 10:100] # delete NAs
+talkdata.selected[,age := as.numeric(age)]
+
+## gender
+unique(talkdata.selected$gender)
+talkdata.selected[!gender %in% c("Male","Female")]
+talkdata.selected = talkdata.selected[gender != ""] # delete blanks
+
+## education
+unique(talkdata.selected$education)
+talkdata.selected = talkdata.selected[!education %in% c("Other","select one")] # delete because they are meaningless
+
+## income
+unique(talkdata.selected$income)
+talkdata.selected = talkdata.selected[income != ""] # delete blanks
+
+## sirius
+unique(talkdata.selected$sirius)
+talkdata.selected = talkdata.selected[sirius != ""] # delete blanks
+
+## wharton
+unique(talkdata.selected$wharton)
+talkdata.selected = talkdata.selected[wharton != ""] # delete blanks
+
+## worktime: automatically recorded.
+# possible improvements: use dplyr. get summary stats in one go and make imputation/dropping them.
+# alternatives: do not delete some obs which seems to be valid expect for some missings/errors while we're not running a regression with the covariates
+
+# summary stats
+ggplot(talkdata.selected,aes(x=age))+
+  geom_histogram()
+
+```
