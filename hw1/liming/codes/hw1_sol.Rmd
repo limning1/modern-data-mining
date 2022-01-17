@@ -1,0 +1,149 @@
+---
+title: "hw1"
+author: "Liming Ning"
+date: "2022/1/16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F)
+knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw1/liming')
+library(data.table)
+library(tidyverse)
+library(cowplot)
+library(kableExtra)
+```
+
+# Case Study 1: Audience Size
+## Data Preparation
+### cleaning
+```{r}
+# selection
+talkdata = fread("data/Survey_results_final.csv", encoding = "UTF-8")
+talkdata.selected = 
+  talkdata[,.(age = Answer.Age, # Note: some answers in Age are not numerics. Therefore, typeof Answer.Age is character.
+              gender = Answer.Gender, 
+              education = Answer.Education, 
+              income = Answer.HouseHoldIncome,
+              sirius = `Answer.Sirius Radio`, 
+              wharton = `Answer.Wharton Radio`, 
+              worktime = WorkTimeInSeconds)]
+talkdata$Reward[1:10] # question: 5 cents or 10 cents?
+
+# detect suspect observations
+## age
+talkdata.selected[!age %in% 10:100] # automatic type coersion when matching
+talkdata.selected[age == "Eighteen (18)", age := "18"] # imputation
+talkdata.selected[age == "27`", age := "27"] # imputation
+talkdata.selected = talkdata.selected[age %in% 10:100] # delete NAs
+talkdata.selected[,age := as.numeric(age)]
+
+## gender
+unique(talkdata.selected$gender)
+talkdata.selected[!gender %in% c("Male","Female")]
+talkdata.selected = talkdata.selected[gender != ""] # delete blanks
+
+## education
+unique(talkdata.selected$education)
+talkdata.selected = talkdata.selected[!education %in% c("Other","select one")] # delete because they are meaningless
+
+## income
+unique(talkdata.selected$income)
+talkdata.selected = talkdata.selected[income != ""] # delete blanks
+
+## sirius
+unique(talkdata.selected$sirius)
+talkdata.selected = talkdata.selected[sirius != ""] # delete blanks
+
+## wharton
+unique(talkdata.selected$wharton)
+talkdata.selected = talkdata.selected[wharton != ""] # delete blanks
+
+fwrite(talkdata.selected,"data/talkdata_cleaned.csv",row.names = F)
+rm(list = ls())
+## worktime: automatically recorded.
+# possible improvements: use dplyr. get summary stats in one go and make imputation/dropping them.
+# alternatives: do not delete some obs which seems to be valid expect for some missings/errors while we're not running a regression with the covariates
+```
+
+### summary stats
+```{r}
+# age and worktime, integer
+talkdata.selected = fread("data/talkdata_cleaned.csv",encoding = "UTF-8")
+age.stat = talkdata.selected %>% 
+  summarise(mean = mean(age),min = min(age),median = median(age),max = max(age),"std. dev." = sd(age))
+worktime.stat = talkdata.selected %>% 
+  summarise(mean = mean(worktime),min = min(age),median = median(worktime),max = max(age), "std. dev." = sd(worktime))
+cont.var.stat = rbind(age.stat,worktime.stat)
+rownames(cont.var.stat) = c("age","worktime")
+talkdata.size = nrow(talkdata.selected)
+kbl(cont.var.stat, caption = "Summary Statistics for Non-categorical Variables", digits = 2, booktabs = T) %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = paste("The table reports the summary statistics for non-categorical variables in the talkshow data. The valid sample size is ",talkdata.size,".",sep = ""),
+            threeparttable = T)
+
+age.hist = ggplot(talkdata.selected,aes(x=age))+
+  geom_histogram()+
+  labs(title = "Histogram for Ages")
+worktime.hist = ggplot(talkdata.selected,aes(x=worktime))+
+  geom_histogram()+
+  labs(title = "Histogram for Worktime")
+plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
+
+# categorical variables
+## mapping
+keywords.edu = data.table(education = unique(talkdata.selected$education))
+keywords.edu[,order := c(3,5,4,2,1)]
+keywords.edu = keywords.edu[order(order)]
+for (i in 1:nrow(keywords.edu)) {
+  talkdata.selected[education==keywords.edu$education[i],education:=keywords.edu$order[i]]
+} # for education
+
+keywords.income = data.table(income = unique(talkdata.selected$income))
+keywords.income[,order := c(3,2,4,6,1,5)]
+keywords.income = keywords.income[order(order)]
+for (i in 1:nrow(keywords.income)) {
+  talkdata.selected[income==keywords.income$income[i],income:=keywords.income$order[i]]
+} # for income
+
+## plots
+get.bar = function(data,varname,x.label = varname,y.label = "count",...){
+
+  ggplot(data,aes(x=eval(parse(text = varname))))+
+    geom_bar(...)+
+    xlab(x.label)+
+    labs(title = paste("Barplot of ",varname,sep = ""))
+}
+
+bar.list = list()
+key.catevar = c("gender","education","income","sirius","wharton")
+for (i in 1:length(key.catevar)) {
+  bar.list[[i]] = get.bar(talkdata.selected,key.catevar[i])
+}
+plot_grid(plotlist = bar.list,nrow = 2)
+```
+
+\textbf{Notes}: We map the education and income levels into integers for better exhibition. For education, 1 means \textit {less than 12 years; no high school diploma}, 2 means \textit{	
+High school graduate (or equivalent)}, 3 means \textit{Some college, no diploma; or Associate’s degree}, 4 means \textit{Bachelor’s degree or other 4-year degree}, 5 means \textit{	
+Graduate or professional degree}. For income, 1 means \textit{Less than \$15,000}, 2 means \textit{	
+\$15,000 - \$30,000}, 3 means \textit{\$30,000 - \$50,000}, 4 means \textit{	
+\$50,000 - \$75,000}, 5 means \textit{
+\$75,000 - \$150,000}, 6 means \textit{Above \$150,000}.
+
+## Sample Properties
+```{r}
+# what's the dist? to be found
+# multivariate t-stats
+```
+
+## Final Estimates
+```{r}
+
+```
+
+## New Task
+```{r}
+# why not contact Sirius for data?
+```
+
+# Case Study 2: Women in Science

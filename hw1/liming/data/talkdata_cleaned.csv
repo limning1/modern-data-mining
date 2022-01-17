@@ -1,0 +1,1726 @@
+age,gender,education,income,sirius,wharton,worktime
+21,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,12
+56,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,25
+40,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,13
+52,Female,Graduate or professional degree,"Above $150,000",Yes,Yes,33
+33,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,13
+55,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,24
+24,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,32
+40,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+35,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,20
+62,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,89
+50,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,20
+35,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+50,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,32
+30,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,20
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+63,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,31
+44,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,21
+30,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,27
+31,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,35
+26,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,23
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+41,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,Yes,16
+23,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,21
+29,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,12
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+22,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,22
+41,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,20
+28,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,36
+39,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+53,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,25
+46,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,22
+31,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,30
+40,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+25,Male,High school graduate (or equivalent),"$30,000 - $50,000",No,No,30
+43,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+31,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,26
+24,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,15
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+35,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,22
+22,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,16
+34,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,27
+44,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,28
+38,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,44
+28,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+33,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,20
+28,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+36,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+27,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,15
+46,Female,Graduate or professional degree,"$75,000 - $150,000",No,No,24
+37,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,25
+23,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,13
+27,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,26
+24,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,16
+24,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,16
+38,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+23,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+41,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,15
+29,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+24,Male,Graduate or professional degree,"$15,000 - $30,000",Yes,No,14
+44,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,23
+31,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,14
+52,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,26
+28,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+24,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,24
+33,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,14
+38,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,23
+51,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,37
+30,Male,Less than 12 years; no high school diploma,"$15,000 - $30,000",Yes,No,19
+21,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,Yes,25
+49,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,25
+24,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,27
+43,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,25
+36,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,15
+46,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,22
+36,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+30,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,24
+34,Male,Graduate or professional degree,"Above $150,000",No,No,27
+27,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,17
+31,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,16
+43,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,23
+26,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,24
+26,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,21
+54,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,26
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,17
+43,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,47
+29,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,21
+22,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,16
+46,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+33,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,22
+22,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,13
+50,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,29
+28,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,13
+35,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,31
+21,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,23
+43,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+49,Male,High school graduate (or equivalent),"Above $150,000",No,No,40
+32,Female,High school graduate (or equivalent),"$30,000 - $50,000",No,No,23
+32,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,15
+34,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,40
+32,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,23
+58,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,21
+28,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,19
+32,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,Yes,17
+25,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,14
+26,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,14
+42,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,25
+47,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,22
+31,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,12
+29,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,20
+39,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,25
+23,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,23
+26,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,40
+22,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,31
+24,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,48
+36,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,25
+18,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,Yes,15
+49,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,18
+30,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,15
+31,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,24
+40,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,36
+39,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,20
+40,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,66
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,19
+21,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,18
+49,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+40,Male,Graduate or professional degree,"$15,000 - $30,000",No,No,39
+26,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+38,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,17
+34,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,47
+31,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,13
+24,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,14
+29,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,16
+34,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,25
+26,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,42
+48,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,17
+30,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,15
+41,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,19
+30,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,15
+29,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,24
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,13
+38,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,17
+38,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,27
+35,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,25
+34,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,12
+24,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,Yes,9
+41,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,Yes,32
+22,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+19,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,25
+35,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,53
+39,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+21,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+23,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,23
+45,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,16
+34,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,11
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,29
+26,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,13
+24,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+22,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+29,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,17
+23,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,Yes,40
+38,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,23
+31,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,Yes,21
+25,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,30
+60,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,20
+28,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,23
+28,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,28
+18,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,33
+29,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,Yes,14
+31,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+27,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,11
+35,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,24
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+48,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,36
+38,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,32
+23,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,24
+25,Male,Less than 12 years; no high school diploma,"Less than $15,000",Yes,No,23
+29,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,Yes,39
+33,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,26
+32,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+34,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+21,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,35
+39,Female,Less than 12 years; no high school diploma,"$15,000 - $30,000",No,No,29
+22,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,14
+35,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,42
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,15
+25,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+26,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,18
+34,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,15
+26,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,49
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,14
+25,Female,High school graduate (or equivalent),"$30,000 - $50,000",No,No,10
+23,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,12
+36,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,77
+21,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,32
+47,Female,High school graduate (or equivalent),"$75,000 - $150,000",No,No,28
+34,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,36
+29,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,23
+27,Female,High school graduate (or equivalent),"$30,000 - $50,000",No,No,21
+28,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,20
+44,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,15
+19,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,18
+34,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+23,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,15
+24,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,14
+32,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,16
+31,Male,High school graduate (or equivalent),"$30,000 - $50,000",No,No,17
+24,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,21
+25,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,10
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+35,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+22,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,12
+22,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,19
+29,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,13
+27,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,20
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,29
+66,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,34
+27,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,27
+45,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,24
+36,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+28,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,20
+28,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,Yes,18
+22,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,13
+18,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,13
+30,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,22
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,Yes,39
+18,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,20
+22,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,20
+21,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,12
+28,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+33,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+39,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,20
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+24,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,18
+41,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,10
+25,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+37,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,36
+20,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",No,No,30
+66,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,37
+33,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,31
+30,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,16
+27,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+49,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,27
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,16
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+31,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,26
+45,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,24
+28,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+34,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,14
+46,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,20
+33,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,22
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,38
+29,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,39
+42,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,35
+28,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,15
+41,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,19
+23,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,20
+33,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,48
+24,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,24
+26,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,19
+23,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+25,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,13
+28,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,Yes,12
+28,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,20
+27,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+32,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,20
+20,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,11
+30,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+22,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,24
+39,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+33,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,20
+34,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+19,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,24
+43,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,14
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,14
+22,Male,High school graduate (or equivalent),"Less than $15,000",Yes,Yes,28
+57,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,27
+26,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,17
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,8
+19,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,20
+31,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,20
+26,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,13
+25,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,18
+26,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,28
+19,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,17
+31,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+33,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,15
+33,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,24
+31,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,20
+27,Male,Graduate or professional degree,"$15,000 - $30,000",Yes,No,27
+20,Male,High school graduate (or equivalent),"Less than $15,000",Yes,No,27
+29,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,23
+34,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+20,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,15
+22,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,11
+26,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,26
+21,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,23
+68,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,34
+26,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,28
+23,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,13
+32,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,18
+20,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+40,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+25,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,15
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,24
+25,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+34,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+25,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,16
+27,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,27
+19,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,17
+41,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,29
+25,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,29
+26,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,11
+62,Male,Graduate or professional degree,"$75,000 - $150,000",No,No,16
+29,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,17
+33,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,22
+27,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,17
+24,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,24
+27,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,31
+58,Male,High school graduate (or equivalent),"$50,000 - $75,000",No,No,26
+25,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,12
+44,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,33
+30,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,13
+21,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+21,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,14
+34,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,58
+24,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,23
+24,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,12
+41,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,23
+38,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,Yes,12
+36,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,30
+41,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,20
+25,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,37
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,12
+27,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+27,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+26,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,14
+28,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,26
+23,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,19
+25,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,14
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+20,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,22
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+62,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,36
+25,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,16
+33,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,14
+22,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,30
+24,Female,Graduate or professional degree,"$15,000 - $30,000",Yes,No,16
+20,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,39
+50,Male,Less than 12 years; no high school diploma,"$30,000 - $50,000",No,No,34
+45,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,23
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,11
+22,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,20
+48,Male,Graduate or professional degree,"Less than $15,000",No,No,27
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,20
+25,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+31,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,25
+21,Male,High school graduate (or equivalent),"$30,000 - $50,000",No,No,17
+18,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,12
+28,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,19
+24,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,37
+20,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,21
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,25
+50,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,34
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,20
+24,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,14
+24,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,22
+32,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,16
+24,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+19,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+23,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,33
+39,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,23
+60,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+22,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,18
+45,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,30
+55,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,23
+26,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,13
+25,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,21
+28,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,27
+24,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,16
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,22
+20,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+53,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,23
+24,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,19
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,13
+26,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+41,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,12
+26,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,20
+50,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,23
+21,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,30
+26,Male,Graduate or professional degree,"$30,000 - $50,000",No,No,31
+76,Female,High school graduate (or equivalent),"$15,000 - $30,000",No,No,25
+27,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,21
+19,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,29
+43,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,14
+26,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,15
+27,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+25,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,14
+54,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,23
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,14
+33,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,22
+26,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,13
+21,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,15
+50,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,36
+33,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+24,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,18
+32,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,24
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,28
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+24,Male,High school graduate (or equivalent),"Less than $15,000",No,No,42
+22,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,34
+29,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,14
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,15
+20,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,20
+18,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,19
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+27,Male,Graduate or professional degree,"$30,000 - $50,000",No,No,26
+31,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,39
+32,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,15
+22,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,19
+35,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,26
+26,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,24
+26,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+22,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,24
+27,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,23
+19,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,Yes,13
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,13
+66,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+27,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,35
+31,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,28
+25,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,36
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,14
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,76
+32,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,30
+22,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,17
+29,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,12
+45,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,24
+33,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,16
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,37
+23,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,Yes,9
+21,Female,High school graduate (or equivalent),"Less than $15,000",No,No,22
+18,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,29
+28,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+31,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,15
+25,Male,Graduate or professional degree,"$15,000 - $30,000",Yes,No,17
+35,Male,High school graduate (or equivalent),"$30,000 - $50,000",No,No,19
+34,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+20,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,13
+54,Male,Graduate or professional degree,"$50,000 - $75,000",No,No,33
+29,Male,Graduate or professional degree,"Less than $15,000",No,No,25
+50,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,25
+24,Male,Graduate or professional degree,"$75,000 - $150,000",No,No,43
+38,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,18
+26,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,28
+20,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,17
+34,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,28
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,23
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,20
+28,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+28,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,33
+23,Male,High school graduate (or equivalent),"$75,000 - $150,000",No,No,24
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,13
+33,Male,High school graduate (or equivalent),"Less than $15,000",Yes,No,40
+31,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,43
+31,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,27
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,16
+32,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+48,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,23
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+47,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,34
+26,Male,High school graduate (or equivalent),"$75,000 - $150,000",No,No,16
+18,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,20
+32,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,Yes,11
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,27
+37,Male,Less than 12 years; no high school diploma,"$30,000 - $50,000",Yes,No,34
+32,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,22
+23,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,32
+22,Male,High school graduate (or equivalent),"$50,000 - $75,000",No,No,26
+32,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,32
+28,Female,Graduate or professional degree,"$50,000 - $75,000",No,No,17
+22,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",No,No,26
+25,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,13
+25,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,11
+25,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,17
+28,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,21
+28,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,23
+32,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,23
+25,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+29,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,23
+30,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+38,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",No,No,21
+24,Male,High school graduate (or equivalent),"Less than $15,000",No,No,19
+26,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,11
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,15
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+50,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,15
+26,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,32
+26,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,23
+29,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,19
+23,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+21,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,24
+21,Male,High school graduate (or equivalent),"$30,000 - $50,000",No,No,16
+26,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,14
+59,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,17
+20,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,19
+61,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,44
+24,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,20
+32,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,29
+19,Male,High school graduate (or equivalent),"Less than $15,000",Yes,No,21
+29,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+30,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+31,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,20
+29,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,12
+25,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,14
+22,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+38,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,21
+22,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,108
+25,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,25
+24,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,23
+21,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,24
+31,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+22,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,22
+22,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,18
+25,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+48,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,17
+51,Female,High school graduate (or equivalent),"$30,000 - $50,000",No,No,38
+29,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,13
+57,Female,High school graduate (or equivalent),"$30,000 - $50,000",No,No,34
+24,Female,Bachelor’s degree or other 4-year degree,"Above $150,000",No,No,13
+41,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,18
+19,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,15
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+18,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+19,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,14
+34,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,20
+23,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,18
+39,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,21
+24,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,28
+25,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+24,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,10
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,18
+26,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+21,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,18
+23,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,19
+31,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,19
+41,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,28
+34,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,17
+31,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+29,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,31
+22,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,14
+27,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+34,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+28,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+28,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,19
+38,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,21
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,18
+20,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+30,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,22
+23,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,29
+27,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+25,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,22
+46,Female,High school graduate (or equivalent),"Less than $15,000",No,No,20
+43,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,39
+34,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,Yes,21
+22,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,36
+27,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,24
+31,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,22
+39,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,25
+22,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,11
+35,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,31
+59,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,26
+48,Female,High school graduate (or equivalent),"Less than $15,000",Yes,No,18
+26,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,22
+34,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,15
+44,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,28
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,13
+22,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,18
+27,Female,Less than 12 years; no high school diploma,"$75,000 - $150,000",Yes,No,21
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,22
+18,Female,High school graduate (or equivalent),"$15,000 - $30,000",No,No,10
+26,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,14
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,26
+45,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,32
+20,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,42
+29,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,24
+25,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,12
+28,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,28
+34,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,32
+31,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,25
+29,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,58
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,27
+24,Male,Graduate or professional degree,"$15,000 - $30,000",No,No,13
+23,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,18
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+24,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,28
+32,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,20
+28,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,17
+28,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+26,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,24
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,16
+44,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+29,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,22
+29,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,10
+25,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,16
+34,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,18
+27,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+43,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,28
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,43
+29,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,Yes,17
+37,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,32
+19,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,14
+24,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,28
+33,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+18,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,14
+31,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,11
+45,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,36
+62,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,59
+50,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,53
+26,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,13
+32,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,25
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,23
+23,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,24
+43,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,22
+29,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,30
+54,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,27
+30,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+25,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,18
+29,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,26
+26,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,20
+49,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,25
+28,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,17
+24,Female,Graduate or professional degree,"$15,000 - $30,000",Yes,No,21
+30,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+50,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,25
+54,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,31
+34,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,13
+37,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,22
+25,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,19
+26,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+25,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,25
+31,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+31,Male,High school graduate (or equivalent),"$30,000 - $50,000",No,No,21
+28,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,23
+51,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,27
+19,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,29
+26,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,Yes,11
+24,Male,High school graduate (or equivalent),"$50,000 - $75,000",No,No,14
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,26
+21,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,15
+23,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,18
+42,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,48
+22,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,Yes,12
+25,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+47,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,29
+23,Male,Graduate or professional degree,"$15,000 - $30,000",Yes,No,24
+25,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+27,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+23,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,9
+26,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,27
+29,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,28
+28,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,20
+25,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,34
+21,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,16
+40,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,38
+26,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,20
+28,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,34
+28,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,10
+48,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,19
+24,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,29
+23,Male,High school graduate (or equivalent),"$30,000 - $50,000",No,No,22
+36,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,34
+25,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,Yes,32
+30,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,25
+34,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,16
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,30
+25,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,22
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,41
+25,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,Yes,9
+41,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+21,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+32,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,25
+50,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,44
+27,Female,High school graduate (or equivalent),"$50,000 - $75,000",No,No,15
+40,Female,High school graduate (or equivalent),"Less than $15,000",Yes,No,16
+20,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,10
+20,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,15
+24,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,41
+31,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,20
+25,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,Yes,16
+29,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,19
+22,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,23
+35,Female,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,18
+27,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+27,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,19
+31,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,20
+19,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+30,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,32
+30,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,42
+19,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,27
+27,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,24
+46,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,14
+29,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,Yes,16
+22,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,19
+23,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,26
+29,Male,Graduate or professional degree,"$50,000 - $75,000",No,No,18
+25,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,19
+25,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+21,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+33,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,56
+25,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,27
+28,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,25
+24,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,15
+29,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,40
+21,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,Yes,22
+27,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+44,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,19
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,25
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,26
+31,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+26,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+34,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,26
+30,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,28
+22,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,22
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,21
+30,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,29
+25,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,23
+48,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,23
+22,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,18
+21,Male,High school graduate (or equivalent),"Less than $15,000",Yes,No,16
+31,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+26,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,25
+25,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,24
+21,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,16
+29,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,Yes,10
+29,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,35
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,20
+23,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,13
+31,Female,High school graduate (or equivalent),"$75,000 - $150,000",No,No,24
+25,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,14
+50,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,44
+32,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,20
+36,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,19
+39,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,39
+51,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,31
+22,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,14
+25,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,17
+35,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,12
+23,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,19
+30,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,20
+39,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,18
+25,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,26
+31,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+48,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,23
+40,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,29
+38,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,24
+24,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+21,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+22,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,13
+32,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,41
+31,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+23,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,12
+38,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,33
+24,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,22
+53,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,24
+55,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,29
+30,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,36
+29,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,71
+18,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,18
+25,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,28
+40,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,18
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+26,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,19
+41,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+24,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,21
+25,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,21
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,24
+47,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,22
+26,Female,High school graduate (or equivalent),"$30,000 - $50,000",No,No,17
+34,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,21
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,29
+59,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,23
+27,Male,Graduate or professional degree,"$30,000 - $50,000",No,No,19
+40,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,28
+31,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,14
+59,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,41
+34,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,15
+30,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,16
+30,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,21
+47,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,27
+35,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,37
+26,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,15
+22,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,18
+27,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,18
+27,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,24
+29,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+23,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,21
+34,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,17
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,25
+26,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,14
+19,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,19
+34,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,22
+25,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,19
+42,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,32
+39,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+25,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,24
+34,Male,Graduate or professional degree,"Above $150,000",Yes,No,25
+20,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,27
+28,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,22
+74,Male,Graduate or professional degree,"Above $150,000",Yes,Yes,23
+22,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,20
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,17
+22,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,15
+27,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,17
+24,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,18
+22,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+23,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,30
+49,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,40
+25,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,14
+33,Female,Graduate or professional degree,"$15,000 - $30,000",Yes,No,22
+28,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,26
+26,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+29,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,14
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,18
+28,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,31
+58,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,47
+28,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,27
+29,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,44
+33,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,32
+29,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,14
+19,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+19,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,51
+28,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,21
+62,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,20
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,36
+20,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,33
+30,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,23
+27,Female,High school graduate (or equivalent),"Above $150,000",No,No,19
+25,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,13
+32,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,17
+21,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,23
+29,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,18
+28,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+21,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,22
+27,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,18
+29,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,12
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,18
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,31
+24,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,24
+25,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,14
+32,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,26
+21,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,22
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,16
+24,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,15
+29,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+47,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,36
+57,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,22
+18,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,13
+43,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,35
+32,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,24
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,15
+18,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,25
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,13
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,15
+44,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,33
+36,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,27
+33,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+57,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,24
+58,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,28
+19,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,20
+23,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,9
+36,Male,Graduate or professional degree,"Above $150,000",No,No,30
+55,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,Yes,38
+32,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,17
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,15
+21,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,51
+18,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,30
+22,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,16
+25,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,30
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,24
+39,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,26
+19,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,13
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+52,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,21
+39,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,28
+21,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,15
+20,Female,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,22
+23,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,30
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+25,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,39
+33,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,18
+44,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,18
+34,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+22,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,16
+63,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,29
+32,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+22,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,16
+37,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,22
+21,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+56,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+38,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+31,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,22
+22,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,Yes,13
+29,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,30
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,28
+34,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,22
+24,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,11
+22,Female,High school graduate (or equivalent),"Less than $15,000",Yes,Yes,16
+26,Male,High school graduate (or equivalent),"Less than $15,000",Yes,Yes,13
+23,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,17
+38,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,24
+36,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,9
+26,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,22
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,Yes,25
+28,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+33,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,29
+28,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+27,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,26
+29,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,23
+26,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,20
+18,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,22
+59,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+22,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,15
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+35,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+28,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,17
+31,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,28
+35,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+48,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,22
+40,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,33
+28,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,25
+35,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,18
+68,Female,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,26
+23,Female,High school graduate (or equivalent),"$15,000 - $30,000",No,No,13
+28,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,28
+41,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,21
+47,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,39
+19,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,12
+36,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,26
+25,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,16
+27,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+39,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,43
+19,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,28
+22,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,30
+25,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,27
+28,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,21
+33,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+18,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+24,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,16
+20,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,24
+56,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,28
+66,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,40
+23,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,28
+30,Female,Graduate or professional degree,"$50,000 - $75,000",No,No,16
+31,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,21
+25,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,14
+22,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,30
+35,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+57,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,28
+28,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,29
+19,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,13
+24,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,35
+32,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,24
+36,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,26
+20,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,14
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,24
+20,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+47,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,90
+36,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,24
+42,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,14
+18,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,29
+56,Female,Graduate or professional degree,"$50,000 - $75,000",No,No,19
+45,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+30,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,25
+24,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,19
+37,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,20
+32,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+29,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+51,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,29
+35,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,58
+33,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,26
+24,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,56
+54,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,Yes,23
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,17
+23,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,21
+20,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,15
+31,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,16
+37,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,31
+24,Male,High school graduate (or equivalent),"Less than $15,000",No,No,18
+18,Male,High school graduate (or equivalent),"Less than $15,000",Yes,No,13
+62,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,54
+23,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,18
+35,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,27
+29,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+35,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,12
+55,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+33,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,27
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,17
+67,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,30
+31,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,31
+19,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,21
+21,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,15
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+47,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,14
+31,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,26
+25,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,25
+32,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,14
+19,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,27
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,26
+19,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,25
+33,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,27
+55,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,18
+23,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+22,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,17
+24,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,18
+29,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,24
+28,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,22
+23,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,15
+23,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+21,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,11
+49,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,16
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,19
+51,Male,Graduate or professional degree,"$75,000 - $150,000",No,No,26
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,15
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,25
+24,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+59,Female,High school graduate (or equivalent),"$15,000 - $30,000",No,No,24
+59,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,22
+31,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+29,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,51
+33,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,19
+26,Female,Less than 12 years; no high school diploma,"$15,000 - $30,000",No,No,18
+53,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,35
+32,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,23
+25,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,24
+24,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,23
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,20
+36,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,25
+29,Female,Graduate or professional degree,"Less than $15,000",No,No,19
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,9
+50,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,22
+46,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+36,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,Yes,25
+21,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,20
+51,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,20
+47,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,13
+45,Male,High school graduate (or equivalent),"$75,000 - $150,000",No,No,23
+25,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,Yes,31
+47,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,48
+28,Female,Graduate or professional degree,"$15,000 - $30,000",Yes,No,21
+44,Female,Bachelor’s degree or other 4-year degree,"Above $150,000",No,No,21
+25,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,32
+18,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,14
+53,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,37
+20,Female,High school graduate (or equivalent),"Less than $15,000",Yes,No,25
+30,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,20
+28,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,14
+36,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,29
+27,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+39,Male,Graduate or professional degree,"Above $150,000",No,No,26
+25,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,23
+29,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+21,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,14
+35,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+35,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+48,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,35
+41,Female,Graduate or professional degree,"$15,000 - $30,000",Yes,No,37
+25,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+23,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,13
+21,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,36
+37,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,30
+29,Male,Graduate or professional degree,"Above $150,000",Yes,No,25
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,32
+25,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,Yes,20
+46,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,20
+60,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,56
+46,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,26
+51,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,32
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+30,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,20
+40,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,38
+28,Male,Graduate or professional degree,"Less than $15,000",Yes,No,17
+47,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,40
+27,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+50,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,27
+28,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,20
+42,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,21
+29,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,27
+25,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,17
+18,Male,High school graduate (or equivalent),"$50,000 - $75,000",No,No,11
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,11
+49,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,28
+32,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,27
+25,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+30,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,29
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,31
+45,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,21
+28,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,57
+26,Male,High school graduate (or equivalent),"Less than $15,000",Yes,No,16
+34,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,24
+20,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,13
+37,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,26
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,34
+55,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,21
+48,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,30
+27,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,30
+33,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,30
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,14
+34,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,22
+62,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,16
+32,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,44
+19,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,31
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,Yes,42
+32,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,Yes,20
+26,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+37,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,20
+22,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,18
+42,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,28
+19,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,25
+41,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,16
+31,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+39,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+19,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,14
+35,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+32,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,25
+30,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,20
+26,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,12
+22,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,15
+34,Male,Graduate or professional degree,"$15,000 - $30,000",Yes,No,11
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,30
+26,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,19
+30,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,14
+27,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,24
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,18
+22,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,20
+29,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,24
+33,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,29
+23,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,34
+25,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,21
+46,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,60
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,28
+51,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,26
+36,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,31
+20,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+41,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,20
+18,Female,High school graduate (or equivalent),"$15,000 - $30,000",No,No,29
+40,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,17
+24,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,32
+25,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,22
+29,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,64
+38,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,16
+37,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,18
+33,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,23
+35,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,22
+30,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,21
+28,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+27,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,13
+24,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,20
+25,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,24
+35,Female,Graduate or professional degree,"Less than $15,000",Yes,No,21
+28,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,28
+24,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,Yes,11
+19,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,18
+50,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,29
+32,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,19
+31,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,16
+42,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,27
+30,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,17
+26,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,23
+29,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,26
+24,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+32,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+35,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,Yes,20
+47,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,25
+24,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,37
+29,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,21
+22,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+25,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+47,Female,High school graduate (or equivalent),"Less than $15,000",Yes,No,27
+60,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,36
+21,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,19
+23,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,22
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,11
+34,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,14
+20,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,32
+22,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,20
+26,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+30,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,21
+20,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,16
+29,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,18
+22,Male,High school graduate (or equivalent),"$50,000 - $75,000",No,No,15
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,18
+23,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,16
+27,Male,Less than 12 years; no high school diploma,"$15,000 - $30,000",Yes,No,29
+54,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,30
+19,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,21
+36,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+25,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,13
+26,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,18
+25,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,15
+41,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,23
+26,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,27
+35,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,Yes,13
+40,Female,Graduate or professional degree,"$15,000 - $30,000",Yes,No,26
+22,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,25
+24,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+22,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,16
+31,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,11
+32,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+32,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,21
+29,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,27
+38,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,9
+49,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,24
+30,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,20
+48,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,37
+31,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+20,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,19
+27,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,56
+25,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,13
+22,Male,Graduate or professional degree,"Above $150,000",Yes,Yes,15
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,14
+19,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,19
+34,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,37
+49,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,42
+37,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,22
+28,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,17
+28,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,46
+35,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,23
+32,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,19
+25,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,13
+34,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,22
+32,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,42
+38,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,39
+28,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,22
+34,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,22
+31,Female,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,19
+29,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,Yes,60
+31,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,24
+42,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,40
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+24,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,10
+45,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,17
+29,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,22
+32,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+23,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,Yes,37
+32,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,24
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+33,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,42
+31,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,16
+25,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+40,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,29
+35,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,31
+23,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,23
+18,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,19
+32,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,20
+28,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,34
+52,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,23
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,16
+25,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,31
+52,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,23
+37,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+22,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,10
+24,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,17
+27,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,14
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+21,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,18
+40,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+23,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+26,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,14
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,26
+31,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,15
+26,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,11
+37,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,29
+22,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,21
+36,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,13
+32,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+25,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,18
+27,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,14
+26,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,18
+24,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,18
+46,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,15
+26,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,19
+33,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,18
+34,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,33
+19,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,16
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,14
+23,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,17
+37,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,27
+21,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,20
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,21
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,25
+31,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,21
+28,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,20
+21,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,Yes,13
+41,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,21
+49,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,22
+23,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+26,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,26
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+25,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+36,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,17
+25,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+35,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,17
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,Yes,25
+28,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,Yes,21
+28,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,24
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+24,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,20
+29,Male,Graduate or professional degree,"Less than $15,000",Yes,No,32
+28,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,15
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,31
+36,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,27
+33,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,11
+31,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,20
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,19
+27,Female,High school graduate (or equivalent),"$15,000 - $30,000",No,No,24
+25,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,22
+22,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,13
+49,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,25
+34,Male,High school graduate (or equivalent),"$75,000 - $150,000",No,No,27
+38,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,35
+24,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,Yes,9
+21,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,18
+40,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,52
+21,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,27
+25,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,20
+25,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,17
+35,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,14
+26,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,26
+29,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,30
+24,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,17
+27,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,25
+55,Female,High school graduate (or equivalent),"$30,000 - $50,000",No,No,15
+29,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,22
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,15
+34,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,20
+22,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,14
+38,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,48
+30,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+21,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,18
+27,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,13
+29,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,27
+27,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,12
+25,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+34,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,20
+23,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,28
+49,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,40
+28,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+26,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,14
+51,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,26
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,13
+23,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,26
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,13
+36,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,39
+21,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,13
+34,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,31
+20,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,16
+26,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,22
+40,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,24
+38,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+25,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,27
+36,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,18
+51,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,27
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,15
+27,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,21
+30,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,28
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,Yes,19
+23,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,30
+27,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,17
+35,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,Yes,19
+21,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,95
+39,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,Yes,24
+32,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,19
+25,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+53,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,32
+35,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,20
+26,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,27
+19,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+24,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,13
+32,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,22
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,16
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+46,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,23
+37,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,22
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+28,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,23
+37,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,27
+32,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,24
+28,Female,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,24
+19,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,16
+29,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,17
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+44,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,25
+41,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+18,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,14
+29,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,22
+27,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+59,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,19
+35,Male,Graduate or professional degree,"$30,000 - $50,000",No,No,14
+21,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,18
+26,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+29,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,15
+24,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+21,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,22
+31,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,15
+24,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,20
+30,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,20
+28,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,40
+24,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+21,Female,High school graduate (or equivalent),"Less than $15,000",Yes,No,33
+43,Male,Graduate or professional degree,"$50,000 - $75,000",No,No,22
+30,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,18
+23,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,14
+27,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,23
+45,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,19
+36,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,17
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,21
+26,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,23
+27,Female,High school graduate (or equivalent),"Less than $15,000",Yes,No,30
+20,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,16
+38,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+36,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,48
+31,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,16
+46,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,24
+35,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,27
+34,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,13
+31,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,12
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,19
+18,Male,High school graduate (or equivalent),"Above $150,000",Yes,No,16
+27,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+22,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,17
+24,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,No,21
+22,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,30
+31,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,24
+19,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,22
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,14
+24,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,25
+28,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,17
+27,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,24
+22,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,16
+36,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,19
+50,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",No,No,19
+62,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,40
+30,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,13
+20,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,27
+30,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,18
+21,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,13
+21,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,28
+18,Male,High school graduate (or equivalent),"Above $150,000",Yes,No,21
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,13
+27,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,26
+25,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+22,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,21
+26,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,Yes,25
+26,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,43
+28,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,22
+24,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+31,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,28
+40,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,17
+23,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,14
+30,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,22
+21,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,15
+25,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,16
+41,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,26
+38,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,24
+32,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,18
+23,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,17
+26,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,18
+25,Female,Graduate or professional degree,"$50,000 - $75,000",No,No,14
+19,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,17
+23,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,17
+55,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,20
+43,Female,Graduate or professional degree,"$15,000 - $30,000",No,No,27
+19,Male,High school graduate (or equivalent),"$75,000 - $150,000",No,No,17
+43,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,15
+29,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,33
+24,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,28
+27,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,20
+43,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,20
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,13
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,15
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,11
+21,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,31
+24,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,31
+33,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,15
+21,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,31
+26,Male,High school graduate (or equivalent),"Less than $15,000",Yes,No,21
+29,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,17
+24,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",No,No,14
+21,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+28,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,18
+34,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,19
+23,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,20
+26,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,21
+26,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,20
+31,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,26
+18,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,22
+28,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,22
+27,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,15
+23,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,13
+27,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+54,Female,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,21
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,16
+34,Male,High school graduate (or equivalent),"$50,000 - $75,000",No,No,23
+20,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,18
+20,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,22
+30,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,28
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,25
+29,Female,High school graduate (or equivalent),"$15,000 - $30,000",No,No,19
+20,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,26
+26,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,28
+18,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,19
+23,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,21
+22,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,Yes,33
+34,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,28
+20,Male,"Some college, no diploma; or Associate’s degree","Above $150,000",Yes,No,24
+23,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,20
+29,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+32,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,18
+22,Female,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,20
+25,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,26
+19,Female,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,16
+28,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,47
+39,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,27
+24,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,23
+22,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,11
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,17
+26,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,16
+22,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,12
+37,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,22
+33,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,27
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,12
+24,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,13
+28,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,22
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,19
+42,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+20,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,27
+29,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,16
+22,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,Yes,18
+26,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,16
+31,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,27
+19,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,18
+27,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,29
+18,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,28
+42,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+35,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,32
+31,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,15
+21,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,19
+42,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,24
+31,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,77
+29,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,17
+26,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,14
+25,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,35
+32,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,18
+25,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+21,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",No,No,13
+28,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,18
+55,Male,Graduate or professional degree,"$50,000 - $75,000",Yes,No,35
+24,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+23,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,25
+18,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,19
+23,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,17
+24,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,15
+27,Male,Graduate or professional degree,"$30,000 - $50,000",Yes,No,18
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+30,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,27
+27,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,22
+26,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+29,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,34
+34,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+26,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,21
+30,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,25
+35,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",Yes,No,18
+26,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,26
+24,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,34
+28,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,13
+18,Male,Less than 12 years; no high school diploma,"$75,000 - $150,000",Yes,No,14
+28,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,16
+23,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,23
+22,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,26
+29,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,17
+18,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,16
+29,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,20
+23,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,23
+33,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,21
+50,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,30
+22,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,35
+27,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,17
+27,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,23
+23,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,16
+35,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,23
+22,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,21
+23,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,28
+24,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,Yes,15
+22,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,20
+28,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,13
+31,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,21
+29,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,18
+42,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,16
+28,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,18
+41,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,28
+30,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,12
+26,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,41
+20,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,18
+24,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,15
+25,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,21
+32,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,19
+35,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,30
+21,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,20
+31,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,19
+42,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+26,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,16
+27,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,13
+21,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,29
+23,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,13
+28,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,26
+26,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,12
+34,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,18
+32,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,21
+23,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,18
+37,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,21
+37,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,23
+44,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+26,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,24
+53,Female,Graduate or professional degree,"$75,000 - $150,000",Yes,No,34
+28,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,12
+34,Male,High school graduate (or equivalent),"$75,000 - $150,000",Yes,No,26
+33,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,21
+27,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,26
+32,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",No,No,15
+27,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,15
+38,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,14
+34,Male,High school graduate (or equivalent),"$50,000 - $75,000",Yes,No,16
+54,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,48
+33,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,17
+27,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,19
+18,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,33
+27,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,17
+23,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,15
+47,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+30,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,25
+19,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,16
+20,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,15
+28,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,13
+28,Female,Graduate or professional degree,"$50,000 - $75,000",Yes,No,14
+24,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,17
+25,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,25
+32,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,19
+28,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,19
+33,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,25
+23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,57
+18,Female,High school graduate (or equivalent),"$75,000 - $150,000",No,No,18
+27,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,12
+28,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
+38,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,32
+20,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,14
+21,Female,Less than 12 years; no high school diploma,"Less than $15,000",No,No,18
+24,Female,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",No,No,17
+27,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,28
+22,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,21
+32,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+23,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,23
+22,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,23
+23,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,22
+24,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,16
+27,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,21
+25,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,19
+18,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,22
+28,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,Yes,24
+38,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,21
+24,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,12
+28,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,22
+23,Female,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,36
+22,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,37
+33,Male,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,26
+28,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
+42,Male,Graduate or professional degree,"$15,000 - $30,000",No,No,19
+19,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",No,No,17
+21,Male,Bachelor’s degree or other 4-year degree,"Above $150,000",No,No,15
+61,Male,Graduate or professional degree,"$75,000 - $150,000",Yes,No,31
+27,Male,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,24
+32,Female,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",Yes,No,19
+58,Female,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",Yes,No,25
+26,Female,Graduate or professional degree,"$15,000 - $30,000",Yes,No,22
+25,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,18
+49,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,60
+19,Female,"Some college, no diploma; or Associate’s degree","$75,000 - $150,000",Yes,No,20
+33,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,27
+46,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,Yes,20
+23,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+26,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",No,No,20
+29,Male,Bachelor’s degree or other 4-year degree,"$75,000 - $150,000",No,No,16
+21,Male,"Some college, no diploma; or Associate’s degree","$30,000 - $50,000",No,No,16
+21,Male,"Some college, no diploma; or Associate’s degree","Less than $15,000",No,No,17
+27,Female,Graduate or professional degree,"$30,000 - $50,000",No,No,34
+28,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,19
+24,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,29
+22,Male,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,18
+46,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,38
+56,Male,High school graduate (or equivalent),"$30,000 - $50,000",Yes,No,33
+65,Male,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,32
+56,Female,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,48
+22,Female,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",Yes,No,23
+39,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,37
