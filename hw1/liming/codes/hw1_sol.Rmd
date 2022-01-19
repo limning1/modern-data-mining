@@ -6,7 +6,7 @@ geometry: margin=1in
 output:
   pdf_document: 
     fig_caption: yes
-    fig_height: 3
+    fig_height: 4.5
     fig_width: 6
     number_sections: no
     toc: yes
@@ -98,7 +98,8 @@ worktime.stat = talkdata.selected %>%
 cont.var.stat = rbind(age.stat,worktime.stat)
 rownames(cont.var.stat) = c("age","worktime")
 talkdata.size = nrow(talkdata.selected)
-kbl(cont.var.stat, caption = "Summary Statistics for Non-categorical Variables", digits = 2, booktabs = T) %>%
+kbl(cont.var.stat, caption = "Summary Statistics for Non-categorical Variables", digits = 2, booktabs = T,
+    align = "lccccc") %>%
   kable_styling(latex_options = c("HOLD_position"))%>%
    footnote(general = paste("The table reports the summary statistics for non-categorical variables in the talkshow data. The valid sample size is ",talkdata.size,".",sep = ""),
             threeparttable = T)
