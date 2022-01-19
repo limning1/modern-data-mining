@@ -2,16 +2,35 @@
 title: "hw1"
 author: "Liming Ning"
 date: "2022/1/16"
-output: pdf_document
+geometry: margin=1in
+output:
+  pdf_document: 
+    fig_caption: yes
+    fig_height: 3
+    fig_width: 6
+    number_sections: no
+    toc: yes
+  html_document: 
+    number_sections: true
+  html_notebook: 
+    number_sections: true
+  word_document: default
+always_allow_html: true
+keep_tex: true
+indent: true 
+fontsize: 12pt
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = F)
 knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw1/liming')
 library(data.table)
+library(reshape2)
+library(readxl)
 library(tidyverse)
 library(cowplot)
 library(kableExtra)
+library(ggrepel)
 ```
 
 # Case Study 1: Audience Size
@@ -58,6 +77,8 @@ talkdata.selected = talkdata.selected[sirius != ""] # delete blanks
 ## wharton
 unique(talkdata.selected$wharton)
 talkdata.selected = talkdata.selected[wharton != ""] # delete blanks
+talkdata.selected[sirius == "No" & wharton == "Yes"] # These two are weird. Delete
+talkdata.selected = talkdata.selected[!(sirius == "No" & wharton == "Yes")]
 
 fwrite(talkdata.selected,"data/talkdata_cleaned.csv",row.names = F)
 rm(list = ls())
@@ -84,9 +105,11 @@ kbl(cont.var.stat, caption = "Summary Statistics for Non-categorical Variables",
 
 age.hist = ggplot(talkdata.selected,aes(x=age))+
   geom_histogram()+
+  theme_bw()+
   labs(title = "Histogram for Ages")
 worktime.hist = ggplot(talkdata.selected,aes(x=worktime))+
   geom_histogram()+
+  theme_bw()+
   labs(title = "Histogram for Worktime")
 plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
 
@@ -112,6 +135,7 @@ get.bar = function(data,varname,x.label = varname,y.label = "count",...){
   ggplot(data,aes(x=eval(parse(text = varname))))+
     geom_bar(...)+
     xlab(x.label)+
+    theme_bw()+
     labs(title = paste("Barplot of ",varname,sep = ""))
 }
 
@@ -138,7 +162,9 @@ Graduate or professional degree}. For income, 1 means \textit{Less than \$15,000
 
 ## Final Estimates
 ```{r}
-
+p = sum(talkdata.selected$wharton=="Yes")/sum(talkdata.selected$sirius=="Yes")
+sigma = sqrt(p*(1-p)/sum(talkdata.selected$sirius=="Yes")) # use clt
+paste("95% CI: [",round(p-1.96*sigma,digits = 3),", ",round(p+1.96*sigma,digits = 3),"].",sep = "")
 ```
 
 ## New Task
@@ -146,4 +172,348 @@ Graduate or professional degree}. For income, 1 means \textit{Less than \$15,000
 # why not contact Sirius for data?
 ```
 
+```{r}
+rm(list = ls())
+```
+
 # Case Study 2: Women in Science
+## Data Preparation
+```{r}
+degreedata = read_excel("Data/WomenData_06_16.xlsx")
+degreedata = data.table(degreedata)
+setnames(degreedata,1:5,c("field","degree","sex","year","number"))
+
+# cleaning & summary
+which(rowSums(is.na(degreedata))==1) # no NA
+unique(degreedata$field)
+unique(degreedata$degree)
+unique(degreedata$sex) # no a third sex
+unique(degreedata$year) # conform to the data description
+
+summary(degreedata$number)
+ggplot(degreedata,aes(x=number))+
+  geom_histogram()+
+  theme_bw()+
+  labs(title = "Histogram of Granted Degree Number, Pool of All Years") # outliers
+
+```
+## BS degrees in 2015
+```{r}
+degreedata[,sci := field != "Non-S&E"]
+
+degreedata.bs.2015 = degreedata[degree == "BS" & year == 2015]
+summary.bs.2015 = 
+  degreedata.bs.2015[,.(number = sum(number)),by = .(sex,sci)]
+summary.bs.2015[, percent := number/sum(number),by = sci]
+summary.bs.2015.wide = data.frame(acast(summary.bs.2015,sci~sex,value.var = "number"))
+rownames(summary.bs.2015.wide) = c("Non-sci","Sci")
+summary.bs.2015.wide = mutate(summary.bs.2015.wide,Female.per = 
+                                paste(sprintf('%0.1f',round(summary.bs.2015$percent[c(2,1)]*100,digits = 1)),"%",sep = ""))
+
+# summary table
+kbl(summary.bs.2015.wide, caption = "Summary Statistics for BS Degrees Granted in 2015 by Sex", digits = 2, booktabs = T,align = "lccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = "The table reports the summary statistics for the amount of BS degrees granted in 2015 by sex in the US degree data.",
+            threeparttable = T)
+
+# bar plot
+ggplot(summary.bs.2015,aes(x=sci,weight=number,fill=sex))+
+  geom_bar(color = "black", width = .7,position = 'dodge')+
+  theme_classic()+
+  ylab('Number')+
+  xlab('Sci field')+
+  scale_fill_brewer(palette = "Set1")+
+  labs(title = "The Barplot of BS Degrees Granted in 2015, by Sex")
+```
+
+## Bring in Type of Degree
+```{r}
+summary.2015.sex.degree = degreedata[year==2015,
+                          .(number = sum(number)),
+                          by = .(sex,degree)]
+
+# table
+summary.2015.sex.degree.wide = data.frame(acast(summary.2015.sex.degree,degree~sex))
+summary.2015.sex.degree.wide = mutate(summary.2015.sex.degree.wide,
+                                      Female.per = paste(sprintf('%0.1f',round(Female/(Female+Male)*100,digits = 1)),"%",sep = ""))
+kbl(summary.2015.sex.degree.wide, caption = "Summary Statistics for Degrees Granted in 2015 by Sex", digits = 2, booktabs = T,align = "lccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = "The table reports the summary statistics for the amount of degrees granted in 2015 by sex in the US degree data.",
+            threeparttable = T)
+
+# barplot
+ggplot(summary.2015.sex.degree,aes(x=degree,weight=number,fill=sex))+
+  geom_bar(color = "black", width = .7,position = 'dodge')+
+  theme_classic()+
+  ylab('Number')+
+  xlab('Degree')+
+  scale_fill_brewer(palette = "Set1")+
+  labs(title = "The Barplot of Degrees Granted in 2015, by Sex")
+```
+
+## Bring All Variables
+```{r}
+summary.sex.time = degreedata[,
+                          .(number = sum(number)),
+                          by = .(sex,year)]
+summary.sex.time[,percent := number/sum(number),by = year]
+
+# table
+summary.sex.time.wide = data.frame(acast(summary.sex.time,year~sex,value.var = "number"))
+summary.sex.time.wide = mutate(summary.sex.time.wide,
+                                      Female.per = paste(sprintf('%0.1f',round(Female/(Female+Male)*100,digits = 1)),"%",sep = ""))
+kbl(summary.sex.time.wide, caption = "Summary Statistics for Degrees Granted by Sex, 2006-2016", digits = 2, booktabs = T,align = "lccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = "The table reports the summary statistics for the amount of degrees granted within 2006-2016 by sex in the US degree data.",
+            threeparttable = T)
+
+# barplot
+ggplot()+
+  geom_bar(data = summary.sex.time,aes(x=as.factor(year),weight=number,fill=sex),
+           color = "black", width = .7,position = 'dodge')+
+  theme_classic()+
+  ylab('Number')+
+  scale_y_continuous(limits = c(0,2000000),
+                     sec.axis = sec_axis(~./10000000+0.4, name = "Female Percent"))+
+  geom_line(data = summary.sex.time[sex=="Female"],
+            aes(x=as.factor(year),y=10000000*(percent-0.4),group=1))+
+  xlab('Year')+
+  scale_fill_brewer(palette = "Set1")+
+  labs(title = "The Barplot of Degrees Granted in 2006-2016, by Sex")
+```
+## Focus on Data Science 
+```{r}
+degreedata[, datasci := field %in% c("Computer sciences","Mathematics and statistics")]
+summary.ds = degreedata[,
+                             .(number = sum(number)),
+                             by = .(sci,datasci,sex,year)]
+summary.ds.timeagg = summary.ds[,.(number = sum(number)),by = .(sci,datasci,sex)]
+summary.ds.timeagg[, percent := number/sum(number),by = .(datasci,sci)]
+
+# sci vs non-sci: we have conclusions before. We want to know whether it's more severe in ds compared to other sci.
+summary.ds.timeagg.wide = data.frame(acast(summary.ds.timeagg[sci==T],datasci~sex,value.var = "number"))
+rownames(summary.ds.timeagg.wide) = c("non-data sci"," data sci")
+summary.ds.timeagg.wide = mutate(summary.ds.timeagg.wide,Female.per = 
+                                paste(sprintf('%0.1f',round(summary.ds.timeagg$percent[1:2]*100,digits = 1)),"%",sep = ""))
+
+# summary table
+kbl(summary.ds.timeagg.wide, caption = "Summary Statistics for Degrees Granted in SCI Field by Sex", digits = 2, booktabs = T,align = "lccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = "The table reports the summary statistics for the amount of sci degrees granted over the sample period, separated by sex and data science or not.",
+            threeparttable = T)
+
+# barplot
+ggplot(summary.ds.timeagg[sci==T],aes(x=datasci,weight=number,fill=sex))+
+  geom_bar(color = "black", width = .7,position = 'dodge')+
+  theme_classic()+
+  ylab('Number')+
+  xlab('data science')+
+  scale_fill_brewer(palette = "Set1")+
+  labs(title = "The Barplot of Degrees Granted in SCI Field, by Sex")
+```
+
+### By Degree
+```{r}
+## 
+summary.ds.bs = degreedata[sci==TRUE&degree=="BS",.(
+  number = sum(number)
+), by = .(datasci,sex)]
+summary.ds.bs[, percent := number/sum(number),by = .(datasci)]
+summary.ds.ms = degreedata[sci==TRUE&degree=="MS",.(
+  number = sum(number)
+), by = .(datasci,sex)]
+summary.ds.ms[, percent := number/sum(number),by = .(datasci)]
+summary.ds.phd = degreedata[sci==TRUE&degree=="PhD",.(
+  number = sum(number)
+), by = .(datasci,sex)]
+summary.ds.phd[, percent := number/sum(number),by = .(datasci)]
+
+# sci vs non-sci: we have conclusions before. We want to know whether it's more severe in ds compared to other sci.
+summary.ds.bs.wide = data.frame(acast(summary.ds.bs,datasci~sex,value.var = "number"))
+rownames(summary.ds.bs.wide) = c("non-data sci"," data sci")
+summary.ds.bs.wide = mutate(summary.ds.bs.wide,Female.per = 
+                                paste(sprintf('%0.1f',round(summary.ds.bs$percent[1:2]*100,digits = 1)),"%",sep = ""))
+summary.ds.ms.wide = data.frame(acast(summary.ds.ms,datasci~sex,value.var = "number"))
+rownames(summary.ds.ms.wide) = c("non-data sci"," data sci")
+summary.ds.ms.wide = mutate(summary.ds.ms.wide,Female.per = 
+                                paste(sprintf('%0.1f',round(summary.ds.ms$percent[1:2]*100,digits = 1)),"%",sep = ""))
+summary.ds.phd.wide = data.frame(acast(summary.ds.phd,datasci~sex,value.var = "number"))
+rownames(summary.ds.phd.wide) = c("non-data sci"," data sci")
+summary.ds.phd.wide = mutate(summary.ds.phd.wide,Female.per = 
+                                paste(sprintf('%0.1f',round(summary.ds.phd$percent[1:2]*100,digits = 1)),"%",sep = ""))
+
+# summary table
+kbl(summary.ds.bs.wide, caption = "Summary Statistics for BS Degrees Granted in SCI Field by Sex", digits = 2, booktabs = T,align = "lccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = "The table reports the summary statistics for the amount of BS sci degrees granted over the sample period, separated by sex and data science or not.",
+            threeparttable = T)
+kbl(summary.ds.ms.wide, caption = "Summary Statistics for MS Degrees Granted in SCI Field by Sex", digits = 2, booktabs = T,align = "lccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = "The table reports the summary statistics for the amount of MS sci degrees granted over the sample period, separated by sex and data science or not.",
+            threeparttable = T)
+kbl(summary.ds.phd.wide, caption = "Summary Statistics for PhD Degrees Granted in SCI Field by Sex", digits = 2, booktabs = T,align = "lccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))%>%
+   footnote(general = "The table reports the summary statistics for the amount of PhD sci degrees granted over the sample period, separated by sex and data science or not.",
+            threeparttable = T)
+
+# barplot
+ggplot(summary.ds.bs,aes(x=datasci,weight=number,fill=sex))+
+  geom_bar(color = "black", width = .7,position = 'dodge')+
+  theme_classic()+
+  ylab('Number')+
+  xlab('data science')+
+  scale_fill_brewer(palette = "Set1")+
+  labs(title = "The Barplot of BS Degrees Granted in SCI Field, by Sex")
+ggplot(summary.ds.ms,aes(x=datasci,weight=number,fill=sex))+
+  geom_bar(color = "black", width = .7,position = 'dodge')+
+  theme_classic()+
+  ylab('Number')+
+  xlab('data science')+
+  scale_fill_brewer(palette = "Set1")+
+  labs(title = "The Barplot of MS Degrees Granted in SCI Field, by Sex")
+ggplot(summary.ds.phd,aes(x=datasci,weight=number,fill=sex))+
+  geom_bar(color = "black", width = .7,position = 'dodge')+
+  theme_classic()+
+  ylab('Number')+
+  xlab('data science')+
+  scale_fill_brewer(palette = "Set1")+
+  labs(title = "The Barplot of PhD Degrees Granted in SCI Field, by Sex")
+```
+## Final Report
+```{r}
+
+```
+## Appendix
+
+# Case Study 3: Major League Baseball
+## Data Preparation
+```{r}
+rm(list = ls())
+paydata.wide = fread("data/MLPayData_Total.csv", encoding = "UTF-8")
+setnames(paydata.wide,"Team.name.2014","team")
+
+paydata.long = fread("data/baseball.csv", encoding = "UTF-8")
+
+# test conversion
+# paydata.wide[,.(p1998:p2014)] # do not try to use .() and : simultaneously. otherwise return a vector step by +1
+
+# pay = paydata.wide[,team,p1998:p2014] %>%
+#   pivot_longer(cols = p1998:p2014,
+#                names_prefix = "p",
+#                names_to = "year",
+#                values_to = "payroll")
+# win.num = paydata.wide[,team,X1998:X2014] %>%
+#   pivot_longer(cols = X1998:X2014,
+#                names_prefix = "X",
+#                names_to = "year",
+#                values_to = "win.num")
+# win.per = paydata.wide[,team,X1998.pct:X2014.pct] %>%
+#   pivot_longer(cols = X1998.pct:X2014.pct,
+#                names_prefix = "X",
+#                names_to = "year",
+#                values_to = "win.pct") %>%
+#   mutate(year = substr(year,1,4))
+# test.long = pay %>%
+#   right_join(win.num, by = c("year","team")) %>%
+#   right_join(win.per, by = c("year","team"))
+
+# create increments
+paydata.long[order(team,year),log.pay := log(payroll)]
+paydata.long[,pay.diff := c(NA,diff(payroll)),by = team]
+paydata.long[,log.pay.diff := c(NA,diff(log.pay)),by = team]
+paydata.new = paydata.long[,.(team,year,diff_log=log.pay.diff,win_pct)]
+```
+
+The log difference is more appropriate in this setup because it measures the proportional (relative) change in the payroll. The base payrolls in all teams are not the same, so a same increase in absolute amount may incentivize players differently in different teams; the incentive may be bigger in teams with a smaller payroll, but smaller in teams with a larger payroll. The relative changes measured by the difference of logarithm of payroll can alleviate this problem. 
+
+## Exploratory Questions
+```{r}
+increase.data = paydata.new[year %in% 2010:2014,.(
+  pay.increase = sum(diff_log[-1]), # from 2010 to 2014, increase in log(payroll)
+  win.pct.increase = win_pct[length(win_pct)]-win_pct[1] 
+), by = team]
+increase.data %>%
+  filter(rank(-pay.increase)<6) %>%
+  select(team) # top 5 teams in payroll increase
+increase.data %>%
+  filter(rank(-win.pct.increase)<6) %>%
+  select(team) # top 5 teams in winning percentage increase
+```
+
+## prediction
+```{r}
+# 2010-2014
+ggplot(increase.data,aes(x=pay.increase,y=win.pct.increase))+
+  geom_point(color="blue",size=1.5)+
+  geom_smooth(method = "lm",formula = y~x, color="red")+
+  geom_text_repel(aes(label = team))+
+  xlab("increase in payroll, 2010-2014")+
+  ylab("increase in winning percentage, 2010-2014")+
+  theme_bw()+
+  labs("Relationship between Payroll Increase and Performance Increase, 2010-2014")
+  
+# all years, year-on-year basis
+paydata.long[,diff_win_pct := c(NA,diff(win_pct)), by = team]
+
+ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct))+
+  geom_point(color="blue",size=1.5)+
+  geom_smooth(method = "lm", formula = y~x, color="red")+
+  xlab("increase in payroll, year on year")+
+  ylab("increase in winning percentage, year on year")+
+  theme_bw()+
+  labs("Relationship between Payroll Increase and Performance Increase, All Years")
+summary(lm(diff_win_pct~log.pay.diff,data = paydata.long)) # not significant
+
+# how about next year?
+paydata.long[,diff_win_pct_next := c(diff(win_pct),NA), by = team]
+
+ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct_next))+
+  geom_point(color="blue",size=1.5)+
+  geom_smooth(method = "lm", formula = y~x, color="red")+
+  xlab("increase in payroll, year on year")+
+  ylab("increase in winning percentage next year, year on year")+
+  theme_bw()+
+  labs("Relationship between Payroll Increase and Performance Increase Next Year, All Years")
+summary(lm(diff_win_pct_next~log.pay.diff,data = paydata.long)) # negative and not significant
+```
+```{r}
+# payroll to winning percentage
+ggplot(paydata.long,aes(x=log.pay,y=win_pct))+
+  geom_point(color="blue",size=1.5)+
+  geom_smooth(method = "lm", formula = y~x, color="red")+
+  xlab("log payroll")+
+  ylab("winning percentage")+
+  theme_bw()+
+  labs("Relationship between Payroll and Performance, All Years")
+summary(lm(win_pct~log.pay,data = paydata.long)) # good prediction
+
+# payroll to increase in winning percentage next year
+ggplot(paydata.long,aes(x=log.pay,y=diff_win_pct_next))+
+  geom_point(color="blue",size=1.5)+
+  geom_smooth(method = "lm", formula = y~x, color="red")+
+  xlab("log payroll")+
+  ylab("increase in winning percentage next year, year on year")+
+  theme_bw()+
+  labs("Relationship between Payroll and Performance Increase Next Year, All Years")
+summary(lm(diff_win_pct_next~log.pay,data = paydata.long)) # not bad prediction? can be spurred
+
+# pay roll to increase in winning percentage current year
+ggplot(paydata.long,aes(x=log.pay,y=diff_win_pct))+
+  geom_point(color="blue",size=1.5)+
+  geom_smooth(method = "lm", formula = y~x, color="red")+
+  xlab("log payroll")+
+  ylab("increase in winning percentage, year on year")+
+  theme_bw()+
+  labs("Relationship between Payroll and Performance Increase Next Year, All Years")
+summary(lm(diff_win_pct~log.pay,data = paydata.long)) # not bad prediction? can be spurred
+
+# The last two prediction power should be taken cautiously. It may stem from some rising small teams
+```
+
+Overall, current payroll predicts current performance well. As for changes in performance, there is weak evidence that increase in current performance is positively correlated to increase in payroll, but still not very predictive. It is surprising that the increase in performance, no matter current or future, is negatively correlated with the current payroll, to some degree. However, we should be cautious about this conclusion as it may be mainly driven by some rising small teams. 
+
+One more thing to note is that correlation does not mean causality. 
+
+```{r}
+save.image("hw1.RData")
+```

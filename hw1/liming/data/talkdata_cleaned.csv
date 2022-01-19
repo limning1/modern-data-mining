@@ -1089,7 +1089,6 @@ age,gender,education,income,sirius,wharton,worktime
 37,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,30
 29,Male,Graduate or professional degree,"Above $150,000",Yes,No,25
 23,Female,Bachelor’s degree or other 4-year degree,"$30,000 - $50,000",Yes,No,32
-25,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,Yes,20
 46,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,20
 60,Male,"Some college, no diploma; or Associate’s degree","$15,000 - $30,000",No,No,56
 46,Female,Bachelor’s degree or other 4-year degree,"$50,000 - $75,000",Yes,No,26
@@ -1472,7 +1471,6 @@ age,gender,education,income,sirius,wharton,worktime
 27,Male,"Some college, no diploma; or Associate’s degree","$50,000 - $75,000",Yes,No,26
 25,Female,"Some college, no diploma; or Associate’s degree","Less than $15,000",Yes,No,23
 22,Female,Bachelor’s degree or other 4-year degree,"Less than $15,000",Yes,No,21
-26,Male,High school graduate (or equivalent),"$15,000 - $30,000",No,Yes,25
 26,Female,Graduate or professional degree,"$30,000 - $50,000",Yes,No,43
 28,Male,High school graduate (or equivalent),"$15,000 - $30,000",Yes,No,22
 24,Male,Bachelor’s degree or other 4-year degree,"$15,000 - $30,000",Yes,No,19
