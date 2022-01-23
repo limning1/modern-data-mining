@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.10.9)  20 JAN 2022 10:25
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2021.10.9)  23 JAN 2022 14:48
 entering extended mode
 **hw1_sol.tex
 (G:\github\modern-data-mining\hw1\liming\codes\hw1_sol.tex
@@ -666,25 +666,8 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layouthoffset=\dimen122
 \Gm@layoutvoffset=\dimen123
 \Gm@dimlist=\toks23
-(G:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg)) (G:\CTEX\MiKTeX\tex\latex\fan
-cyvrb\fancyvrb.sty
-Package: fancyvrb 2008/02/07
-
-Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
-<2008/02/07> (tvz)
-\FV@CodeLineNo=\count115
-\FV@InFile=\read1
-\FV@TabBox=\box28
-\c@FancyVerbLine=\count116
-\FV@StepNumber=\count117
-\FV@OutFile=\write3
-) (G:\CTEX\MiKTeX\tex\latex\framed\framed.sty
-Package: framed 2007/10/04 v 0.95: framed or shaded text with page breaks
-\fb@frw=\dimen124
-\fb@frh=\dimen125
-\FrameRule=\dimen126
-\FrameSep=\dimen127
-) (G:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
+(G:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg)) (G:\CTEX\MiKTeX\tex\latex\gra
+phics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 (G:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -695,67 +678,67 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 )
-\Gin@req@height=\dimen128
-\Gin@req@width=\dimen129
+\Gin@req@height=\dimen124
+\Gin@req@width=\dimen125
 ) (G:\CTEX\MiKTeX\tex\latex\booktabs\booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen130
-\lightrulewidth=\dimen131
-\cmidrulewidth=\dimen132
-\belowrulesep=\dimen133
-\belowbottomsep=\dimen134
-\aboverulesep=\dimen135
-\abovetopsep=\dimen136
-\cmidrulesep=\dimen137
-\cmidrulekern=\dimen138
-\defaultaddspace=\dimen139
-\@cmidla=\count118
-\@cmidlb=\count119
-\@aboverulesep=\dimen140
-\@belowrulesep=\dimen141
-\@thisruleclass=\count120
-\@lastruleclass=\count121
-\@thisrulewidth=\dimen142
+\heavyrulewidth=\dimen126
+\lightrulewidth=\dimen127
+\cmidrulewidth=\dimen128
+\belowrulesep=\dimen129
+\belowbottomsep=\dimen130
+\aboverulesep=\dimen131
+\abovetopsep=\dimen132
+\cmidrulesep=\dimen133
+\cmidrulekern=\dimen134
+\defaultaddspace=\dimen135
+\@cmidla=\count115
+\@cmidlb=\count116
+\@aboverulesep=\dimen136
+\@belowrulesep=\dimen137
+\@thisruleclass=\count117
+\@lastruleclass=\count118
+\@thisrulewidth=\dimen138
 ) (G:\CTEX\MiKTeX\tex\latex\tools\longtable.sty
 Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip48
 \LTright=\skip49
 \LTpre=\skip50
 \LTpost=\skip51
-\LTchunksize=\count122
-\LTcapwidth=\dimen143
-\LT@head=\box29
-\LT@firsthead=\box30
-\LT@foot=\box31
-\LT@lastfoot=\box32
-\LT@cols=\count123
-\LT@rows=\count124
-\c@LT@tables=\count125
-\c@LT@chunks=\count126
+\LTchunksize=\count119
+\LTcapwidth=\dimen139
+\LT@head=\box28
+\LT@firsthead=\box29
+\LT@foot=\box30
+\LT@lastfoot=\box31
+\LT@cols=\count120
+\LT@rows=\count121
+\c@LT@tables=\count122
+\c@LT@chunks=\count123
 \LT@p@ftn=\toks24
 ) (G:\CTEX\MiKTeX\tex\latex\tools\array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen144
-\extrarowheight=\dimen145
+\col@sep=\dimen140
+\extrarowheight=\dimen141
 \NC@list=\toks25
 \extratabsurround=\skip52
 \backup@length=\skip53
 ) (G:\CTEX\MiKTeX\tex\latex\multirow\multirow.sty
-\bigstrutjot=\dimen146
+\bigstrutjot=\dimen142
 ) (G:\CTEX\MiKTeX\tex\latex\wrapfig\wrapfig.sty
-\wrapoverhang=\dimen147
-\WF@size=\dimen148
-\c@WF@wrappedlines=\count127
-\WF@box=\box33
+\wrapoverhang=\dimen143
+\WF@size=\dimen144
+\c@WF@wrappedlines=\count124
+\WF@box=\box32
 \WF@everypar=\toks26
 Package: wrapfig 2003/01/31  v 3.6
 ) (G:\CTEX\MiKTeX\tex\latex\float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count128
+\c@float@type=\count125
 \float@exts=\toks27
-\float@box=\box34
+\float@box=\box33
 \@float@everytoks=\toks28
-\@floatcapt=\box35
+\@floatcapt=\box34
 ) (G:\CTEX\MiKTeX\tex\latex\colortbl\colortbl.sty
 Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
 \everycr=\toks29
@@ -770,36 +753,36 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
 (G:\CTEX\MiKTeX\tex\latex\ltxmisc\varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box36
-\sift@deathcycles=\count129
-\@vwid@loff=\dimen149
-\@vwid@roff=\dimen150
+\@vwid@box=\box35
+\sift@deathcycles=\count126
+\@vwid@loff=\dimen145
+\@vwid@roff=\dimen146
 )
-\c@taburow=\count130
-\tabu@nbcols=\count131
-\tabu@cnt=\count132
-\tabu@Xcol=\count133
-\tabu@alloc=\count134
-\tabu@nested=\count135
-\tabu@target=\dimen151
-\tabu@spreadtarget=\dimen152
-\tabu@naturalX=\dimen153
-\tabucolX=\dimen154
-\tabu@Xsum=\dimen155
-\extrarowdepth=\dimen156
-\abovetabulinesep=\dimen157
-\belowtabulinesep=\dimen158
-\tabustrutrule=\dimen159
+\c@taburow=\count127
+\tabu@nbcols=\count128
+\tabu@cnt=\count129
+\tabu@Xcol=\count130
+\tabu@alloc=\count131
+\tabu@nested=\count132
+\tabu@target=\dimen147
+\tabu@spreadtarget=\dimen148
+\tabu@naturalX=\dimen149
+\tabucolX=\dimen150
+\tabu@Xsum=\dimen151
+\extrarowdepth=\dimen152
+\abovetabulinesep=\dimen153
+\belowtabulinesep=\dimen154
+\tabustrutrule=\dimen155
 \tabu@thebody=\toks30
 \tabu@footnotes=\toks31
-\tabu@box=\box37
-\tabu@arstrutbox=\box38
-\tabu@hleads=\box39
-\tabu@vleads=\box40
+\tabu@box=\box36
+\tabu@arstrutbox=\box37
+\tabu@hleads=\box38
+\tabu@vleads=\box39
 \tabu@cellskip=\skip55
 ) (G:\CTEX\MiKTeX\tex\latex\threeparttable\threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box41
+\@tempboxb=\box40
 ) (G:\CTEX\MiKTeX\tex\latex\threeparttablex\threeparttablex.sty
 Package: threeparttablex 2010/07/14 v0.2 by daleif
 (G:\CTEX\MiKTeX\tex\latex\environ\environ.sty
@@ -807,57 +790,56 @@ Package: environ 2008/06/18 v0.2 A new way to define environments
 )
 \TPTL@width=\skip56
 ) (G:\CTEX\MiKTeX\tex\latex\ulem\ulem.sty
-\UL@box=\box42
-\UL@hyphenbox=\box43
+\UL@box=\box41
+\UL@hyphenbox=\box42
 \UL@skip=\skip57
 \UL@hook=\toks32
-\UL@height=\dimen160
-\UL@pe=\count136
-\UL@pixel=\dimen161
-\ULC@box=\box44
+\UL@height=\dimen156
+\UL@pe=\count133
+\UL@pixel=\dimen157
+\ULC@box=\box43
 Package: ulem 2011/03/18
-\ULdepth=\dimen162
+\ULdepth=\dimen158
 ) (G:\CTEX\MiKTeX\tex\latex\makecell\makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen163
-\c@nlinenum=\count137
+\rotheadsize=\dimen159
+\c@nlinenum=\count134
 \TeXr@lab=\toks33
 ) (G:\github\modern-data-mining\hw1\liming\codes\hw1_sol.aux
 
-LaTeX Warning: Label `tab:unnamed-chunk-12' multiply defined.
+LaTeX Warning: Label `tab:unnamed-chunk-13' multiply defined.
 
 
-LaTeX Warning: Label `tab:unnamed-chunk-12' multiply defined.
+LaTeX Warning: Label `tab:unnamed-chunk-13' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 115.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 75.
 (G:\CTEX\MiKTeX\tex\latex\base\ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 115.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 75.
 (G:\CTEX\MiKTeX\tex\latex\lm\t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \microtypecontext on input line 115.
+LaTeX Info: Redefining \microtypecontext on input line 75.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -872,30 +854,30 @@ File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman
 (RS)
 ) (G:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count138
-\scratchdimen=\dimen164
-\scratchbox=\box45
-\nofMPsegments=\count139
-\nofMParguments=\count140
+\scratchcounter=\count135
+\scratchdimen=\dimen160
+\scratchbox=\box44
+\nofMPsegments=\count136
+\nofMParguments=\count137
 \everyMPshowfont=\toks34
-\MPscratchCnt=\count141
-\MPscratchDim=\dimen165
-\MPnumerator=\count142
-\makeMPintoPDFobject=\count143
+\MPscratchCnt=\count138
+\MPscratchDim=\dimen161
+\MPnumerator=\count139
+\makeMPintoPDFobject=\count140
 \everyMPtoPDFconversion=\toks35
 )
-\AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring OFF on input line 115.
+\AtBeginShipoutBox=\box45
+Package hyperref Info: Link coloring OFF on input line 75.
 (G:\CTEX\MiKTeX\tex\latex\hyperref\nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 (G:\CTEX\MiKTeX\tex\generic\oberdiek\gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count144
+\c@section@level=\count141
 )
-LaTeX Info: Redefining \ref on input line 115.
-LaTeX Info: Redefining \pageref on input line 115.
-LaTeX Info: Redefining \nameref on input line 115.
+LaTeX Info: Redefining \ref on input line 75.
+LaTeX Info: Redefining \pageref on input line 75.
+LaTeX Info: Redefining \nameref on input line 75.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -930,39 +912,37 @@ LaTeX Info: Redefining \nameref on input line 115.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 117.
-
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 77.
 (G:\CTEX\MiKTeX\tex\latex\lm\ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 117.
-
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 77.
 (G:\CTEX\MiKTeX\tex\latex\lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 117
-.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 77.
+
 (G:\CTEX\MiKTeX\tex\latex\lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 117
-.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 77.
+
 (G:\CTEX\MiKTeX\tex\latex\lm\omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 117.
+(Font)              <14.4> on input line 77.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 117.
+(Font)              <10> on input line 77.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 117.
-LaTeX Font Info:    Try loading font information for U+msa on input line 117.
+(Font)              <7> on input line 77.
+LaTeX Font Info:    Try loading font information for U+msa on input line 77.
 (G:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 ) (G:\CTEX\MiKTeX\tex\latex\microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 117.
+LaTeX Font Info:    Try loading font information for U+msb on input line 77.
 (G:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) (G:\CTEX\MiKTeX\tex\latex\microtype\mt-msb.cfg
@@ -975,336 +955,350 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 2.
 )
-\tf@toc=\write4
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 132.
-
+\tf@toc=\write3
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 91.
 (G:\CTEX\MiKTeX\tex\latex\lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 140
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 94--94
+[]\T1/lmtt/m/n/12 ##  [1] "$0.05" "$0.05" "$0.05" "$0.05" "$0.05" "$0.05" "$0.0
+5" "$0.05" "$0.05"[] 
+ []
+
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 111
 .
 (G:\CTEX\MiKTeX\tex\latex\lm\ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
 {G:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-Overfull \hbox (18.07022pt too wide) in paragraph at lines 150--150
-[]\T1/lmtt/m/n/12 ##  [1] "$0.05" "$0.05" "$0.05" "$0.05" "$0.05" "$0.05" "$0.0
-5" "$0.05" "$0.05"[] 
- []
-
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 155.
-
-LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 155.
-
-
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 214--214
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 132--132
 []\T1/lmtt/m/n/12 ##    age gender                                       educat
 ion            income[] 
  []
 
 
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 214--214
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 132--132
 []\T1/lmtt/m/n/12 ## 1:  47                        Graduate or professional deg
 ree $30,000 - $50,000[] 
  []
 
 
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 214--214
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 132--132
 []\T1/lmtt/m/n/12 ## 2:  47                        Graduate or professional deg
 ree $50,000 - $75,000[] 
  []
 
 
-Overfull \hbox (36.58823pt too wide) in paragraph at lines 214--214
+Overfull \hbox (36.58823pt too wide) in paragraph at lines 132--132
 []\T1/lmtt/m/n/12 ## 3:  29        Some college, no diploma; or Associate's deg
 ree $15,000 - $30,000[] 
  []
 
 
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 214--214
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 132--132
 []\T1/lmtt/m/n/12 ## 4:  31                        Graduate or professional deg
 ree $30,000 - $50,000[] 
  []
 
 
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 214--214
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 132--132
 []\T1/lmtt/m/n/12 ## 5:  25        Some college, no diploma; or Associate's deg
 ree Less than $15,000[] 
  []
 
 
-Overfull \hbox (36.58122pt too wide) in paragraph at lines 214--214
+Overfull \hbox (36.58122pt too wide) in paragraph at lines 132--132
 []\T1/lmtt/m/n/12 ## 6:  67        Some college, no diploma; or Associate's deg
 ree $50,000 - $75,000[] 
  []
 
-[2] [3]
-Overfull \hbox (11.89522pt too wide) in paragraph at lines 290--290
+
+Overfull \hbox (11.89522pt too wide) in paragraph at lines 165--165
 []\T1/lmtt/m/n/12 ##    age gender                            education        
     income sirius[] 
  []
 
 
-Overfull \hbox (11.89522pt too wide) in paragraph at lines 290--290
+Overfull \hbox (11.89522pt too wide) in paragraph at lines 165--165
 []\T1/lmtt/m/n/12 ## 1:  25   Male High school graduate (or equivalent) $15,000
  - $30,000     No[] 
  []
 
 
-Overfull \hbox (11.88821pt too wide) in paragraph at lines 290--290
+Overfull \hbox (11.88821pt too wide) in paragraph at lines 165--165
 []\T1/lmtt/m/n/12 ## 2:  26   Male High school graduate (or equivalent) $15,000
  - $30,000     No[] 
  []
 
-[4]
-<hw1_sol_files/figure-latex/unnamed-chunk-2-1.pdf, id=64, 433.62pt x 325.215pt>
-File: hw1_sol_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
-<use hw1_sol_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-2-1.pdf used 
-on input line 365.
+[2]
+<hw1_sol_files/figure-latex/unnamed-chunk-3-1.pdf, id=51, 433.62pt x 325.215pt>
+File: hw1_sol_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use hw1_sol_files/figure-latex/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-3-1.pdf used 
+on input line 195.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[5pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+
+<hw1_sol_files/figure-latex/unnamed-chunk-3-2.pdf, id=52, 433.62pt x 325.215pt>
+File: hw1_sol_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
+<use hw1_sol_files/figure-latex/unnamed-chunk-3-2.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-3-2.pdf used 
+on input line 196.
+(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--197
+[][]
+ []
+
+[3pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.367 \begin{Shaded}
-                    ] [6 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol
-_files/figure-latex/unnamed-chunk-2-1.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-2-2.pdf, id=80, 433.62pt x 325.215pt>
-File: hw1_sol_files/figure-latex/unnamed-chunk-2-2.pdf Graphic file (type pdf)
-<use hw1_sol_files/figure-latex/unnamed-chunk-2-2.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-2-2.pdf used 
-on input line 404.
-(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[7 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/un
-named-chunk-2-2.pdf>] [8]
-<hw1_sol_files/figure-latex/unnamed-chunk-7-1.pdf, id=100, 433.62pt x 325.215pt
->
-File: hw1_sol_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
-<use hw1_sol_files/figure-latex/unnamed-chunk-7-1.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-7-1.pdf used 
-on input line 555.
-(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 555--557
-[][]
- []
-
-[9] [10 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-lat
-ex/unnamed-chunk-7-1.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-8-1.pdf, id=114, 433.62pt x 325.215pt
->
+l.198 \textbf{Notes}
+                    : We map the education and income levels into integers for 
+<G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/unnam
+ed-chunk-3-1.pdf>] [4 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_fi
+les/figure-latex/unnamed-chunk-3-2.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-8-1.pdf, id=79, 433.62pt x 325.215pt>
 File: hw1_sol_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use hw1_sol_files/figure-latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-8-1.pdf used 
-on input line 612.
+on input line 270.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[11pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
-has been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.617 \begin{Shaded}
-                     <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_fil
-es/figure-latex/unnamed-chunk-8-1.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-9-1.pdf, id=126, 433.62pt x 325.215pt
->
+Underfull \hbox (badness 10000) in paragraph at lines 270--272
+[][]
+ []
+
+[5 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/un
+named-chunk-8-1.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-9-1.pdf, id=89, 433.62pt x 325.215pt>
 File: hw1_sol_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use hw1_sol_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-9-1.pdf used 
-on input line 677.
+on input line 293.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[12pdfTeX warning (ext4): destination with the same identifier (name{table.3}) 
-has been already used, duplicate ignored
+[6pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.680 ...ll Variables}\label{bring-all-variables}}
-                                                  ] [13 <G:/github/modern-data-
-mining/hw1/liming/codes/hw1_sol_files/figure-latex/unnamed-chunk-9-1.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-10-1.pdf, id=143, 433.62pt x 325.215p
+l.322 
+       <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-late
+x/unnamed-chunk-9-1.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-10-1.pdf, id=101, 433.62pt x 325.215p
 t>
 File: hw1_sol_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 
 <use hw1_sol_files/figure-latex/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-10-1.pdf used
- on input line 749.
+ on input line 323.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 749--751
-[][]
- []
-
-[14pdfTeX warning (ext4): destination with the same identifier (name{table.4}) 
-has been already used, duplicate ignored
+[7pdfTeX warning (ext4): destination with the same identifier (name{table.3}) h
+as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.751 
-      ] [15 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure
--latex/unnamed-chunk-10-1.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-11-1.pdf, id=158, 433.62pt x 325.215p
+l.358 
+       <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-late
+x/unnamed-chunk-10-1.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-11-1.pdf, id=114, 433.62pt x 325.215p
 t>
 File: hw1_sol_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 
 <use hw1_sol_files/figure-latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-11-1.pdf used
- on input line 808.
+ on input line 359.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[16pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
-has been already used, duplicate ignored
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--361
+[] \T1/lmr/m/n/12 (+20) ##
+ []
+
+[8pdfTeX warning (ext4): destination with the same identifier (name{table.4}) h
+as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.813 \begin{Shaded}
-                     <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_fil
-es/figure-latex/unnamed-chunk-11-1.pdf>] [17] [18pdfTeX warning (ext4): destina
-tion with the same identifier (name{table.6}) has been already used, duplicate 
-ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.928 
-      pdfTeX warning (ext4): destination with the same identifier (name{table.7
-}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.928 
+l.361 
       ]
-<hw1_sol_files/figure-latex/unnamed-chunk-12-1.pdf, id=181, 433.62pt x 325.215p
+<hw1_sol_files/figure-latex/unnamed-chunk-12-1.pdf, id=120, 433.62pt x 325.215p
 t>
 File: hw1_sol_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 
 <use hw1_sol_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-12-1.pdf used
- on input line 942.
+ on input line 382.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[19pdfTeX warning (ext4): destination with the same identifier (name{table.8}) 
+[9pdfTeX warning (ext4): destination with the same identifier (name{table.5}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.385 \subsubsection{By Degree}\label{by-degree}}
+                                                  <G:/github/modern-data-mining
+/hw1/liming/codes/hw1_sol_files/figure-latex/unnamed-chunk-11-1.pdf>] [10pdfTeX
+ warning (ext4): destination with the same identifier (name{table.6}) has been 
+already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.426 
+       <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-late
+x/unnamed-chunk-12-1.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-13-1.pdf, id=143, 433.62pt x 325.215p
+t>
+File: hw1_sol_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+
+<use hw1_sol_files/figure-latex/unnamed-chunk-13-1.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-13-1.pdf used
+ on input line 447.
+(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+
+<hw1_sol_files/figure-latex/unnamed-chunk-13-2.pdf, id=144, 433.62pt x 325.215p
+t>
+File: hw1_sol_files/figure-latex/unnamed-chunk-13-2.pdf Graphic file (type pdf)
+
+<use hw1_sol_files/figure-latex/unnamed-chunk-13-2.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-13-2.pdf used
+ on input line 448.
+(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+
+<hw1_sol_files/figure-latex/unnamed-chunk-13-3.pdf, id=145, 433.62pt x 325.215p
+t>
+File: hw1_sol_files/figure-latex/unnamed-chunk-13-3.pdf Graphic file (type pdf)
+
+<use hw1_sol_files/figure-latex/unnamed-chunk-13-3.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-13-3.pdf used
+ on input line 449.
+(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--451
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--451
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--451
+[] \T1/lmr/m/n/12 (+20) ##
+ []
+
+[11pdfTeX warning (ext4): destination with the same identifier (name{table.7}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.944 \begin{Shaded}
-                     <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_fil
-es/figure-latex/unnamed-chunk-12-1.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-12-2.pdf, id=193, 433.62pt x 325.215p
-t>
-File: hw1_sol_files/figure-latex/unnamed-chunk-12-2.pdf Graphic file (type pdf)
+l.451 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.8
+}) has been already used, duplicate ignored
 
-<use hw1_sol_files/figure-latex/unnamed-chunk-12-2.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-12-2.pdf used
- on input line 956.
-(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.451 
+      ] [12 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure
+-latex/unnamed-chunk-13-1.pdf>] [13 <G:/github/modern-data-mining/hw1/liming/co
+des/hw1_sol_files/figure-latex/unnamed-chunk-13-2.pdf>] [14 <G:/github/modern-d
+ata-mining/hw1/liming/codes/hw1_sol_files/figure-latex/unnamed-chunk-13-3.pdf>]
 
-<hw1_sol_files/figure-latex/unnamed-chunk-12-3.pdf, id=194, 433.62pt x 325.215p
-t>
-File: hw1_sol_files/figure-latex/unnamed-chunk-12-3.pdf Graphic file (type pdf)
-
-<use hw1_sol_files/figure-latex/unnamed-chunk-12-3.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-12-3.pdf used
- on input line 970.
-(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 970--972
-[][]
- []
-
-[20 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
-nnamed-chunk-12-2.pdf>] [21 <G:/github/modern-data-mining/hw1/liming/codes/hw1_
-sol_files/figure-latex/unnamed-chunk-12-3.pdf>] [22]
-<hw1_sol_files/figure-latex/unnamed-chunk-16-1.pdf, id=221, 433.62pt x 325.215p
-t>
-File: hw1_sol_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
-
-<use hw1_sol_files/figure-latex/unnamed-chunk-16-1.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-16-1.pdf used
- on input line 1088.
-(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[23]
-<hw1_sol_files/figure-latex/unnamed-chunk-16-2.pdf, id=227, 433.62pt x 325.215p
-t>
-File: hw1_sol_files/figure-latex/unnamed-chunk-16-2.pdf Graphic file (type pdf)
-
-<use hw1_sol_files/figure-latex/unnamed-chunk-16-2.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-16-2.pdf used
- on input line 1105.
-(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[24 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
-nnamed-chunk-16-1.pdf>] [25 <G:/github/modern-data-mining/hw1/liming/codes/hw1_
-sol_files/figure-latex/unnamed-chunk-16-2.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-16-3.pdf, id=253, 433.62pt x 325.215p
-t>
-File: hw1_sol_files/figure-latex/unnamed-chunk-16-3.pdf Graphic file (type pdf)
-
-<use hw1_sol_files/figure-latex/unnamed-chunk-16-3.pdf>
-Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-16-3.pdf used
- on input line 1148.
-(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[26 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
-nnamed-chunk-16-3.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-17-1.pdf, id=266, 433.62pt x 325.215p
+<hw1_sol_files/figure-latex/unnamed-chunk-17-1.pdf, id=184, 433.62pt x 325.215p
 t>
 File: hw1_sol_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 
 <use hw1_sol_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-17-1.pdf used
- on input line 1189.
+ on input line 503.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[27 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
-nnamed-chunk-17-1.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-17-2.pdf, id=279, 433.62pt x 325.215p
+
+<hw1_sol_files/figure-latex/unnamed-chunk-17-2.pdf, id=185, 433.62pt x 325.215p
 t>
 File: hw1_sol_files/figure-latex/unnamed-chunk-17-2.pdf Graphic file (type pdf)
 
 <use hw1_sol_files/figure-latex/unnamed-chunk-17-2.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-17-2.pdf used
- on input line 1231.
+ on input line 504.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[28] [29 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-la
-tex/unnamed-chunk-17-2.pdf>]
-<hw1_sol_files/figure-latex/unnamed-chunk-17-3.pdf, id=296, 433.62pt x 325.215p
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--505
+[]
+ []
+
+[15]
+Overfull \vbox (24.57814pt too high) has occurred while \output is active []
+
+[16 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
+nnamed-chunk-17-1.pdf> <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_f
+iles/figure-latex/unnamed-chunk-17-2.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-17-3.pdf, id=211, 433.62pt x 325.215p
 t>
 File: hw1_sol_files/figure-latex/unnamed-chunk-17-3.pdf Graphic file (type pdf)
 
 <use hw1_sol_files/figure-latex/unnamed-chunk-17-3.pdf>
 Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-17-3.pdf used
- on input line 1274.
+ on input line 526.
 (pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
-[30 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
+[17 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
 nnamed-chunk-17-3.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1327.
-[31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1327.
+<hw1_sol_files/figure-latex/unnamed-chunk-18-1.pdf, id=224, 433.62pt x 325.215p
+t>
+File: hw1_sol_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+
+<use hw1_sol_files/figure-latex/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-18-1.pdf used
+ on input line 548.
+(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+[18 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
+nnamed-chunk-18-1.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-18-2.pdf, id=237, 433.62pt x 325.215p
+t>
+File: hw1_sol_files/figure-latex/unnamed-chunk-18-2.pdf Graphic file (type pdf)
+
+<use hw1_sol_files/figure-latex/unnamed-chunk-18-2.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-18-2.pdf used
+ on input line 571.
+(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+[19 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
+nnamed-chunk-18-2.pdf>]
+<hw1_sol_files/figure-latex/unnamed-chunk-18-3.pdf, id=251, 433.62pt x 325.215p
+t>
+File: hw1_sol_files/figure-latex/unnamed-chunk-18-3.pdf Graphic file (type pdf)
+
+<use hw1_sol_files/figure-latex/unnamed-chunk-18-3.pdf>
+Package pdftex.def Info: hw1_sol_files/figure-latex/unnamed-chunk-18-3.pdf used
+ on input line 595.
+(pdftex.def)             Requested size: 433.63878pt x 325.22908pt.
+[20 <G:/github/modern-data-mining/hw1/liming/codes/hw1_sol_files/figure-latex/u
+nnamed-chunk-18-3.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 629.
+[21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 629.
 (G:\github\modern-data-mining\hw1\liming\codes\hw1_sol.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1327.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1327.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 629.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 629.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12490 strings out of 495354
- 178336 string characters out of 3183859
- 306725 words of memory out of 3000000
- 15275 multiletter control sequences out of 15000+200000
- 61820 words of font info for 90 fonts, out of 3000000 for 9000
+ 12039 strings out of 495354
+ 171650 string characters out of 3183859
+ 299360 words of memory out of 3000000
+ 14846 multiletter control sequences out of 15000+200000
+ 60556 words of font info for 86 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 35i,11n,35p,557b,455s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 35i,11n,35p,506b,457s stack positions out of 5000i,500n,10000p,200000b,50000s
 {G:/CTEX/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{G:/CTEX/MiKTeX/fonts/enc/dvips/
 lm/lm-ts1.enc}<G:/CTEX/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><G:/CTEX/MiKTeX/
 fonts/type1/public/lm/lmr12.pfb><G:/CTEX/MiKTeX/fonts/type1/public/lm/lmr17.pfb
 ><G:/CTEX/MiKTeX/fonts/type1/public/lm/lmri12.pfb><G:/CTEX/MiKTeX/fonts/type1/p
-ublic/lm/lmtk10.pfb><G:/CTEX/MiKTeX/fonts/type1/public/lm/lmtko10.pfb><G:/CTEX/
-MiKTeX/fonts/type1/public/lm/lmtt12.pfb><G:/CTEX/MiKTeX/fonts/type1/public/lm/l
-mtti10.pfb>
-Output written on hw1_sol.pdf (31 pages, 501583 bytes).
+ublic/lm/lmtt12.pfb>
+Output written on hw1_sol.pdf (21 pages, 392923 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
+ 346 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
  12481 words of extra memory for PDF output out of 14400 (max. 10000000)
 

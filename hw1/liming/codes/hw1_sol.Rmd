@@ -22,7 +22,7 @@ fontsize: 12pt
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = F)
+knitr::opts_chunk$set(echo = F, warning = F)
 knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw1/liming')
 library(data.table)
 library(reshape2)
@@ -49,9 +49,9 @@ talkdata.selected =
               worktime = WorkTimeInSeconds)]
 talkdata$Reward[1:10] # question: 5 cents or 10 cents?
 
-# detect suspect observations
+# detect suspicious observations
 ## age
-talkdata.selected[!age %in% 10:100] # automatic type coersion when matching
+talkdata.selected[!age %in% 10:100] # automatic type coercion when matching
 talkdata.selected[age == "Eighteen (18)", age := "18"] # imputation
 talkdata.selected[age == "27`", age := "27"] # imputation
 talkdata.selected = talkdata.selected[age %in% 10:100] # delete NAs
@@ -81,10 +81,12 @@ talkdata.selected[sirius == "No" & wharton == "Yes"] # These two are weird. Dele
 talkdata.selected = talkdata.selected[!(sirius == "No" & wharton == "Yes")]
 
 fwrite(talkdata.selected,"data/talkdata_cleaned.csv",row.names = F)
-rm(list = ls())
 ## worktime: automatically recorded.
 # possible improvements: use dplyr. get summary stats in one go and make imputation/dropping them.
 # alternatives: do not delete some obs which seems to be valid expect for some missings/errors while we're not running a regression with the covariates
+```
+```{r}
+rm(list = ls())
 ```
 
 ### summary stats
@@ -429,10 +431,14 @@ The log difference is more appropriate in this setup because it measures the pro
 
 ## Exploratory Questions
 ```{r}
-increase.data = paydata.new[year %in% 2010:2014,.(
-  pay.increase = sum(diff_log[-1]), # from 2010 to 2014, increase in log(payroll)
-  win.pct.increase = win_pct[length(win_pct)]-win_pct[1] 
+increase.data = paydata.long[year %in% 2010:2014,.(
+  log.pay.increase = log.pay[length(log.pay)]-log.pay[1], # from 2010 to 2014, increase in log(payroll)
+  pay.increase = payroll[length(payroll)]-payroll[1],
+  win.pct.increase = win_pct[length(win_pct)]-win_pct[1]
 ), by = team]
+increase.data %>%
+  filter(rank(-log.pay.increase)<6) %>%
+  select(team) # top 5 teams in log(payroll) increase
 increase.data %>%
   filter(rank(-pay.increase)<6) %>%
   select(team) # top 5 teams in payroll increase
