@@ -4,6 +4,8 @@ author: "Liming Ning"
 date: "2022/1/16"
 geometry: margin=1in
 output:
+  html_document: 
+    number_sections: true
   pdf_document: 
     keep_tex: true
     fig_caption: yes
@@ -11,8 +13,6 @@ output:
     fig_width: 6
     number_sections: no
     toc: yes
-  html_document: 
-    number_sections: true
   html_notebook: 
     number_sections: true
   word_document: default
@@ -31,6 +31,12 @@ library(tidyverse)
 library(cowplot)
 library(kableExtra)
 library(ggrepel)
+library(skimr)
+library(plotly)
+```
+
+```{r}
+rm(list = ls())
 ```
 
 # Case Study 1: Audience Size
@@ -47,8 +53,15 @@ talkdata.selected =
               sirius = `Answer.Sirius Radio`, 
               wharton = `Answer.Wharton Radio`, 
               worktime = WorkTimeInSeconds)]
-talkdata$Reward[1:10] # question: 5 cents or 10 cents?
+```
+The variable selection and renaming are trivial, so we do not include them in the html file. 
 
+```{r}
+talkdata$Reward[1:10] # question: 5 cents or 10 cents?
+```
+One issue: the reward in the description section in the homework is 0.1, but the reward variable in the data is actually 0.05. Maybe the description is wrong.
+
+```{r}
 # detect suspicious observations
 ## age
 talkdata.selected[!age %in% 10:100] # automatic type coercion when matching
@@ -56,33 +69,49 @@ talkdata.selected[age == "Eighteen (18)", age := "18"] # imputation
 talkdata.selected[age == "27`", age := "27"] # imputation
 talkdata.selected = talkdata.selected[age %in% 10:100] # delete NAs
 talkdata.selected[,age := as.numeric(age)]
+```
+We detect six suspicious observations in ages. \textit{Eighteen (18)} and {27`} are irregular but valid responses, so we impute in their regualar forms; other four cannot be identified, so we exclude them in the following analysis.
 
+```{r}
 ## gender
 unique(talkdata.selected$gender)
 talkdata.selected[!gender %in% c("Male","Female")]
 talkdata.selected = talkdata.selected[gender != ""] # delete blanks
+```
+All six observations detected suspicious in gender are all missing. Although other values for these six observations are not missing, we still exclude them. Our justification is that these observations cannot provide information in the following analysis regarding gender. An alternative is that we do not exclude them, but actually it makes almost no difference because the relative number of samples are quite small.
 
+```{r}
 ## education
 unique(talkdata.selected$education)
 talkdata.selected = talkdata.selected[!education %in% c("Other","select one")] # delete because they are meaningless
+```
+It's plausible that the first five options in education can cover all education levels. Thus the last two options can be considered as not informative, enough for the justification of exclusion. 
 
+```{r}
 ## income
 unique(talkdata.selected$income)
 talkdata.selected = talkdata.selected[income != ""] # delete blanks
+```
 
+```{r}
 ## sirius
 unique(talkdata.selected$sirius)
 talkdata.selected = talkdata.selected[sirius != ""] # delete blanks
+```
 
+```{r}
 ## wharton
 unique(talkdata.selected$wharton)
 talkdata.selected = talkdata.selected[wharton != ""] # delete blanks
 talkdata.selected[sirius == "No" & wharton == "Yes"] # These two are weird. Delete
 talkdata.selected = talkdata.selected[!(sirius == "No" & wharton == "Yes")]
+```
+We delete all observations with at least one missing in income, sirius and wharton. One important finding is that two people fill in "Yes" in wharton while "No" in sirius. This should not happen under our survey setting. It indicates that maybe some surveyors do the survey causally, which casts some doubt on the quality of the survey.
 
+```{r}
 fwrite(talkdata.selected,"data/talkdata_cleaned.csv",row.names = F)
 ## worktime: automatically recorded.
-# possible improvements: use dplyr. get summary stats in one go and make imputation/dropping them.
+# possible improvements: use skimr. get summary stats in one go and make imputation/dropping them.
 # alternatives: do not delete some obs which seems to be valid expect for some missings/errors while we're not running a regression with the covariates
 ```
 ```{r}
@@ -96,7 +125,7 @@ talkdata.selected = fread("data/talkdata_cleaned.csv",encoding = "UTF-8")
 age.stat = talkdata.selected %>% 
   summarise(mean = mean(age),min = min(age),median = median(age),max = max(age),"std. dev." = sd(age))
 worktime.stat = talkdata.selected %>% 
-  summarise(mean = mean(worktime),min = min(age),median = median(worktime),max = max(age), "std. dev." = sd(worktime))
+  summarise(mean = mean(worktime),min = min(worktime),median = median(worktime),max = max(worktime), "std. dev." = sd(worktime))
 cont.var.stat = rbind(age.stat,worktime.stat)
 rownames(cont.var.stat) = c("age","worktime")
 talkdata.size = nrow(talkdata.selected)
@@ -115,7 +144,10 @@ worktime.hist = ggplot(talkdata.selected,aes(x=worktime))+
   theme_bw()+
   labs(title = "Histogram for Worktime")
 plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
+```
+For the two integer variables age and worktime, we report their summary statistics table and histograms. Both variables are right-skewed. The valid sample size is 1723. We can see that most participants are 
 
+```{r}
 # categorical variables
 ## mapping
 keywords.edu = data.table(education = unique(talkdata.selected$education))
@@ -198,7 +230,7 @@ ggplot(degreedata,aes(x=number))+
   geom_histogram()+
   theme_bw()+
   labs(title = "Histogram of Granted Degree Number, Pool of All Years") # outliers
-
+# skim(degreedata)
 ```
 ## BS degrees in 2015
 ```{r}
@@ -229,7 +261,7 @@ ggplot(summary.bs.2015,aes(x=sci,weight=number,fill=sex))+
   labs(title = "The Barplot of BS Degrees Granted in 2015, by Sex")
 ```
 
-## Bring in Type of Degree
+## Bring in Type of Degree, 2015
 ```{r}
 summary.2015.sex.degree = degreedata[year==2015,
                           .(number = sum(number)),
@@ -252,6 +284,7 @@ ggplot(summary.2015.sex.degree,aes(x=degree,weight=number,fill=sex))+
   xlab('Degree')+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in 2015, by Sex")
+
 ```
 
 ## Bring All Variables
@@ -267,7 +300,7 @@ summary.sex.time.wide = mutate(summary.sex.time.wide,
                                       Female.per = paste(sprintf('%0.1f',round(Female/(Female+Male)*100,digits = 1)),"%",sep = ""))
 kbl(summary.sex.time.wide, caption = "Summary Statistics for Degrees Granted by Sex, 2006-2016", digits = 2, booktabs = T,align = "lccc") %>%
   kable_styling(latex_options = c("HOLD_position"))%>%
-   footnote(general = "The table reports the summary statistics for the amount of degrees granted within 2006-2016 by sex in the US degree data.",
+   footnote(general = "The table reports the summary statistics for the amount of all degrees granted within 2006-2016 by sex in the US degree data.",
             threeparttable = T)
 
 # barplot
@@ -283,7 +316,93 @@ ggplot()+
   xlab('Year')+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in 2006-2016, by Sex")
+
+# aggregate fields
+agg.field = degreedata[,.(
+  number = sum(number)
+),by = .(degree,sex,year,sci)]
+# p = ggplot(data = degreedata, aes(x=degree, weight = number, fill=sex, frame = year)) +
+#    geom_bar(color = "black", width = .7,position = 'dodge')+
+#   theme_classic()+
+#   ylab('Number')+
+#   xlab('Degree')+
+#   scale_fill_brewer(palette = "Set1")+
+#   theme_bw()
+# 
+# ggplotly(p) # problem: cannot use frame in barplots???
+
+p = ggplot(data = agg.field, aes(x=degree, y = number, group = sex, color = sex,
+                                  frame = year)) +
+   geom_line(size = 1)+
+  theme_classic()+
+  ylab('Number')+
+  xlab('Degree')+
+  theme_bw()
+
+ggplotly(p) 
+
+# make more plots
+# bs
+plot.sci.bs = ggplot(data = agg.field[sci==T&degree=="BS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "SCI Degree, BS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+plot.nonsci.bs = ggplot(data = agg.field[sci==F&degree=="BS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Non-SCI Degree, BS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+#ms
+plot.sci.ms = ggplot(data = agg.field[sci==T&degree=="MS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "SCI Degree, MS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+plot.nonsci.ms = ggplot(data = agg.field[sci==F&degree=="MS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Non-SCI Degree, MS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+#phd
+plot.sci.phd = ggplot(data = agg.field[sci==T&degree=="PhD"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "SCI Degree, PhD")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+plot.nonsci.phd = ggplot(data = agg.field[sci==F&degree=="PhD"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Non-SCI Degree, PhD")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+grid.sci = plot_grid(plot.sci.bs,plot.nonsci.bs,plot.sci.ms,plot.nonsci.ms,plot.sci.phd,plot.nonsci.phd,labels = "AUTO",nrow = 3)
+ggsave(grid.sci,filename = "graphs/grid_scivsnonsci.png",width = 12,height = 18)
 ```
+![](G:/github/modern-data-mining/hw1/liming/graphs/grid_scivsnonsci.png)
+
+
 ## Focus on Data Science 
 ```{r}
 degreedata[, datasci := field %in% c("Computer sciences","Mathematics and statistics")]
@@ -313,7 +432,72 @@ ggplot(summary.ds.timeagg[sci==T],aes(x=datasci,weight=number,fill=sex))+
   xlab('data science')+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in SCI Field, by Sex")
+
+# aggregate fields
+agg.field.scionly = degreedata[sci==T,.(
+  number = sum(number)
+),by = .(degree,sex,year,datasci)]
+
+# make more plots
+# bs
+plot.datasci.bs = ggplot(data = agg.field.scionly[datasci==T&degree=="BS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Data SCI Degree, BS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+plot.nondatasci.bs = ggplot(data = agg.field.scionly[datasci==F&degree=="BS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Non-data SCI Degree, BS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+#ms
+plot.datasci.ms = ggplot(data = agg.field.scionly[datasci==T&degree=="MS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Data SCI Degree, MS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+plot.nondatasci.ms = ggplot(data = agg.field.scionly[datasci==F&degree=="MS"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Non-data SCI Degree, MS")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+#phd
+plot.datasci.phd = ggplot(data = agg.field.scionly[datasci==T&degree=="PhD"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Data SCI Degree, PhD")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+plot.nondatasci.phd = ggplot(data = agg.field.scionly[datasci==F&degree=="PhD"],aes(x=as.factor(year),weight = number,
+                                                               fill=sex)) +
+  geom_bar(color = "black", width = .7, position = "dodge") + 
+  labs(title = "Non-data SCI Degree, PhD")+
+  ylab("Number")+
+  xlab("Degree")+
+  scale_fill_brewer(palette = "Set1")+
+  theme_bw()
+
+grid.datasci = plot_grid(plot.datasci.bs,plot.nondatasci.bs,plot.datasci.ms,plot.nondatasci.ms,plot.datasci.phd,plot.nondatasci.phd,labels = "AUTO",nrow = 3)
+ggsave(grid.datasci,filename = "graphs/grid_datascivsnondatasci.png",width = 12,height = 18)
 ```
+![](G:/github/modern-data-mining/hw1/liming/graphs/grid_datascivsnondatasci.png)
 
 ### By Degree
 ```{r}
