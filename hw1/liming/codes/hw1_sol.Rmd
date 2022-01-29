@@ -41,7 +41,7 @@ rm(list = ls())
 
 # Case Study 1: Audience Size
 ## Data Preparation
-### cleaning
+### Cleaning
 ```{r}
 # selection
 talkdata = fread("data/Survey_results_final.csv", encoding = "UTF-8")
@@ -70,7 +70,7 @@ talkdata.selected[age == "27`", age := "27"] # imputation
 talkdata.selected = talkdata.selected[age %in% 10:100] # delete NAs
 talkdata.selected[,age := as.numeric(age)]
 ```
-We detect six suspicious observations in ages. \textit{Eighteen (18)} and {27`} are irregular but valid responses, so we impute in their regualar forms; other four cannot be identified, so we exclude them in the following analysis.
+We detect six suspicious observations in ages. *Eighteen (18)* and *27`* are irregular but valid responses, so we impute in their regular forms; other four cannot be identified, so we exclude them in the following analysis.
 
 ```{r}
 ## gender
@@ -118,7 +118,7 @@ fwrite(talkdata.selected,"data/talkdata_cleaned.csv",row.names = F)
 rm(list = ls())
 ```
 
-### summary stats
+### Summary stats
 ```{r}
 # age and worktime, integer
 talkdata.selected = fread("data/talkdata_cleaned.csv",encoding = "UTF-8")
@@ -145,7 +145,7 @@ worktime.hist = ggplot(talkdata.selected,aes(x=worktime))+
   labs(title = "Histogram for Worktime")
 plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
 ```
-For the two integer variables age and worktime, we report their summary statistics table and histograms. Both variables are right-skewed. The valid sample size is 1723. We can see that most participants are 
+For the two integer variables age and worktime, we report their summary statistics table and histograms. Both variables are right-skewed. The valid sample size is 1723. We can see that most participants finish this survey with half a minute; also they are young, mostly aging from 20 to 35, possibly because they are more familiar with the Internet.
 
 ```{r}
 # categorical variables
@@ -181,13 +181,16 @@ for (i in 1:length(key.catevar)) {
 }
 plot_grid(plotlist = bar.list,nrow = 2)
 ```
-
-\textbf{Notes}: We map the education and income levels into integers for better exhibition. For education, 1 means \textit {less than 12 years; no high school diploma}, 2 means \textit{	
+We illustrate the barplots of five categorical variables: gender, education, income, sirius and wharton. \textbf{Notes}: We map the education and income levels into integers for better exhibition. For education, 1 means \textit {less than 12 years; no high school diploma}, 2 means \textit{	
 High school graduate (or equivalent)}, 3 means \textit{Some college, no diploma; or Associate’s degree}, 4 means \textit{Bachelor’s degree or other 4-year degree}, 5 means \textit{	
 Graduate or professional degree}. For income, 1 means \textit{Less than \$15,000}, 2 means \textit{	
 \$15,000 - \$30,000}, 3 means \textit{\$30,000 - \$50,000}, 4 means \textit{	
 \$50,000 - \$75,000}, 5 means \textit{
 \$75,000 - \$150,000}, 6 means \textit{Above \$150,000}.
+
+The key variables, sirius and wharton are of our primary interest. Over two thirds of the participants have ever listened to Sirius Radio, indicating that the distribution of the surveys is not inefficient -- what we care about is the answer to wharton conditional on a "Yes" in sirius. 
+
+As for the covariates, it is revealed that the number of males is significantly larger than that of females among the surveyors. Their education levels are generally not high: few of them have a degree higher than bachelor. the income levels of the surveyors concentrate on the interval of \$15,000 - \$75,000 in 2014. It is worth noting that a considerable proportion of surveyors earn less than \$15,000 per year in 2014. The implication is, the sample is affected by self-selection bias, because only people registering as workers in MTurk are exposed to this survey. People with low income and low education level may have less opportunity cost for becoming a surveyor, so the sample may tilt towards them. Since income and education are plausibly correlated with the exposure to wharton business radio programs, the final estimate can be biased.
 
 ## Sample Properties
 ```{r}
@@ -198,8 +201,12 @@ Graduate or professional degree}. For income, 1 means \textit{Less than \$15,000
 ## Final Estimates
 ```{r}
 p = sum(talkdata.selected$wharton=="Yes")/sum(talkdata.selected$sirius=="Yes")
+number = 51.6*p
 sigma = sqrt(p*(1-p)/sum(talkdata.selected$sirius=="Yes")) # use clt
-paste("95% CI: [",round(p-1.96*sigma,digits = 3),", ",round(p+1.96*sigma,digits = 3),"].",sep = "")
+paste("Point estimate for p:", paste0(round(p, digits = 3)*100,"%."))
+paste("95% CI for p: [",paste0(round(p-1.96*sigma,digits = 3)*100,"%"),", ",paste0(round(p+1.96*sigma,digits = 3)*100,"%"),"].",sep = "")
+paste("Point estimate for the number of wharton radio audience:", paste0(round(number, digits = 3)," million."))
+paste("95% CI for the number of wharton radio audience: [",paste0(round((p-1.96*sigma)*51.6,digits = 3)," million"),", ",paste0(round((p+1.96*sigma)*51.6,digits = 3)," million"),"].",sep = "")
 ```
 
 ## New Task
@@ -213,18 +220,39 @@ rm(list = ls())
 
 # Case Study 2: Women in Science
 ## Data Preparation
-```{r}
+```{r,include=F}
 degreedata = read_excel("Data/WomenData_06_16.xlsx")
 degreedata = data.table(degreedata)
 setnames(degreedata,1:5,c("field","degree","sex","year","number"))
 
-# cleaning & summary
 which(rowSums(is.na(degreedata))==1) # no NA
-unique(degreedata$field)
-unique(degreedata$degree)
-unique(degreedata$sex) # no a third sex
-unique(degreedata$year) # conform to the data description
+```
+There is no missing value in the dataset. It is well cleaned beforehand.
 
+```{r}
+# cleaning & summary
+unique(degreedata$field)
+```
+There are ten different fields in the data, where sci-related fields are further divided while non-sci fields are integrated. 
+
+```{r}
+unique(degreedata$degree)
+```
+Three types of degrees are included: bachelor (BS), master (MS) and Doctor of Philosophy (PhD).
+
+```{r}
+unique(degreedata$sex) # no a third sex
+```
+We check in addition if there are a third sex besides male and female which is reported. The answer is no.
+
+```{r}
+unique(degreedata$year) # conform to the data description
+```
+
+11 years' data, 2006-2016, are included in the dataset. It is consistent to the data description.
+
+
+```{r, eval=F}
 summary(degreedata$number)
 ggplot(degreedata,aes(x=number))+
   geom_histogram()+
@@ -232,6 +260,8 @@ ggplot(degreedata,aes(x=number))+
   labs(title = "Histogram of Granted Degree Number, Pool of All Years") # outliers
 # skim(degreedata)
 ```
+
+
 ## BS degrees in 2015
 ```{r}
 degreedata[,sci := field != "Non-S&E"]
@@ -260,6 +290,7 @@ ggplot(summary.bs.2015,aes(x=sci,weight=number,fill=sex))+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of BS Degrees Granted in 2015, by Sex")
 ```
+In 2015, the number of BS degrees in SCI fields granted to males is almost the same as that for females, while males received far fewer BS degrees in non-sci fields than females. From the summary statistics and the barplot of BS degrees in 2015, we can see the preliminary evidence of the underrepresentation for females in sci fields relative to non-sci fields. However, given the balanced distribution in gender in the population, the statement that males are undderrepresented in non-sci field seems to be more acceptable, in an absolute sense.
 
 ## Bring in Type of Degree, 2015
 ```{r}
@@ -284,8 +315,8 @@ ggplot(summary.2015.sex.degree,aes(x=degree,weight=number,fill=sex))+
   xlab('Degree')+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in 2015, by Sex")
-
 ```
+The percentage of females granted bachelor and master degrees is close to 60\%, while that for PhD degrees are just 50\%, aggregating the number in all fields. It is plausible that the proportion of females decreases as the education level gets higher. Since people having a PhD degree generally also have a bachelor degree, we can interpret the pattern as: given two undergrads who only differ in genders, the male may be more likely to further pursue the PhD degree after graduation.
 
 ## Bring All Variables
 ```{r}
@@ -316,7 +347,10 @@ ggplot()+
   xlab('Year')+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in 2006-2016, by Sex")
+```
+The proportion of females granted degrees over 2006-2016 is relatively stable, aggregating all degrees. The number of degrees granted to both genders increase over time, but there is little evidence of time effects on the relative number of degrees granted to two genders. 
 
+```{r}
 # aggregate fields
 agg.field = degreedata[,.(
   number = sum(number)
@@ -331,15 +365,15 @@ agg.field = degreedata[,.(
 # 
 # ggplotly(p) # problem: cannot use frame in barplots???
 
-p = ggplot(data = agg.field, aes(x=degree, y = number, group = sex, color = sex,
-                                  frame = year)) +
-   geom_line(size = 1)+
-  theme_classic()+
-  ylab('Number')+
-  xlab('Degree')+
-  theme_bw()
-
-ggplotly(p) 
+# p = ggplot(data = agg.field, aes(x=degree, y = number, group = sex, color = sex,
+#                                   frame = year)) +
+#    geom_line(size = 1)+
+#   theme_classic()+
+#   ylab('Number')+
+#   xlab('Degree')+
+#   theme_bw()
+# 
+# ggplotly(p) 
 
 # make more plots
 # bs
@@ -401,7 +435,9 @@ grid.sci = plot_grid(plot.sci.bs,plot.nonsci.bs,plot.sci.ms,plot.nonsci.ms,plot.
 ggsave(grid.sci,filename = "graphs/grid_scivsnonsci.png",width = 12,height = 18)
 ```
 ![](G:/github/modern-data-mining/hw1/liming/graphs/grid_scivsnonsci.png)
+From panel A, C and E, males were granted more degrees in SCI fields; with the increase in education level, the difference between number of degrees granted to two genders enlarges, and it is consistent overtime. From panel B, D and F, females were granted more degrees in non-SCI fields; there is no clear evidence of increase in number of degrees granted to males relative to females, with the ascendance of education level. The proportion of females in MS degree is even larger than that in the bachelor degree. 
 
+The number of all degrees granted have a increasing trend in 2006-2016, but one interesting observation is that a stagnation in PhD degree granted in 2007-2010 emerged in both SCI and non-SCI field. There was even a sharp drop in 2010 in non-SCI field. 
 
 ## Focus on Data Science 
 ```{r}
@@ -432,7 +468,10 @@ ggplot(summary.ds.timeagg[sci==T],aes(x=datasci,weight=number,fill=sex))+
   xlab('data science')+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in SCI Field, by Sex")
+```
+Since we have explored the comparison between SCI and non-SCI field, here we focus on the comparison between data science field and  non-data science field within SCI field. It can be seen from the summary statistics table and the barplot aggregated all degrees and all years that the proportion of females granted degrees in data science field is significantly smaller than that in other SCI field. An absolute value of only 27.1\% indicates a severe undderrepresentation for females in data science. 
 
+```{r}
 # aggregate fields
 agg.field.scionly = degreedata[sci==T,.(
   number = sum(number)
@@ -498,9 +537,10 @@ grid.datasci = plot_grid(plot.datasci.bs,plot.nondatasci.bs,plot.datasci.ms,plot
 ggsave(grid.datasci,filename = "graphs/grid_datascivsnondatasci.png",width = 12,height = 18)
 ```
 ![](G:/github/modern-data-mining/hw1/liming/graphs/grid_datascivsnondatasci.png)
+Males were granted more degrees in SCI fields, no matter in data science or non-data science. With the increase in education level, the difference between number of degrees granted to two genders enlarges in non-data science field, and it is consistent overtime. however, in data science field, there is no clear evidence of increase in number of degrees granted to males relative to females, with the ascendance of education level, possibly because that the proportion of males is high enough initially. One observation is that the proportion of females in MS degree is even larger than that in the bachelor and PhD degree in data science field.
 
+```{r, eval=F}
 ### By Degree
-```{r}
 ## 
 summary.ds.bs = degreedata[sci==TRUE&degree=="BS",.(
   number = sum(number)
@@ -567,10 +607,14 @@ ggplot(summary.ds.phd,aes(x=datasci,weight=number,fill=sex))+
   labs(title = "The Barplot of PhD Degrees Granted in SCI Field, by Sex")
 ```
 ## Final Report
-```{r}
 
-```
-## Appendix
+From the above analysis, we have a preliminary conclusion that females are underrepresented in SCI fields relative to non-SCI fields, which is consistent over time. It is more of this case in data science field and higher level of education. 
+
+However, this conclusion is drawn in a relative sense; it does not tell us about fairness because of lack in a prior benchmark. If we believe that a "fair" division should be half to half, we have the conclusion that males are underrepresented in non-SCI fields, and the distribution is quite fair in the whole SCI field. Therefore, we should take the conclusion in this analysis more cautiously.
+
+One concern about the data set is that it only measures the number of degrees granted in every field. The final goal is to measure the degree females are undderrepresented in science, and the number of degrees granted is only one indicator. The performance in school is left unmeasured, and the situation beyond schooling period is also untouched.
+
+To tailor this analysis more, we can try to incorporate the enrollment data in every field. It can measure the performance in school to some degree, combined with the degree data. We can also collect the gender data in faculty or top researchers in every field. We can get a better understanding of the situation for females in science with these additional information.
 
 # Case Study 3: Major League Baseball
 ## Data Preparation
@@ -620,18 +664,35 @@ increase.data = paydata.long[year %in% 2010:2014,.(
   pay.increase = payroll[length(payroll)]-payroll[1],
   win.pct.increase = win_pct[length(win_pct)]-win_pct[1]
 ), by = team]
+```
+
+```{r}
 increase.data %>%
   filter(rank(-log.pay.increase)<6) %>%
   select(team) # top 5 teams in log(payroll) increase
+```
+
+The teams presented above are the top five teams experiencing the largest increase in log(payroll) in 2010-2014.
+
+```{r}
 increase.data %>%
   filter(rank(-pay.increase)<6) %>%
   select(team) # top 5 teams in payroll increase
+```
+
+The teams presented above are the top five teams experiencing the largest increase in payroll, i.e., the absolute value of payroll in 2010-2014. Four out of five have appeared in the top 5 lists in log(payroll) increase.
+
+```{r}
 increase.data %>%
   filter(rank(-win.pct.increase)<6) %>%
   select(team) # top 5 teams in winning percentage increase
 ```
 
-## prediction
+The teams presented above are the top five teams experiencing the largest increase in winning percentage in 2010-2014.
+
+## Prediction
+Overall, the evidence supporting that the higher increases in payroll on the log scale lead to increased
+performance is not clear.
 ```{r}
 # 2010-2014
 ggplot(increase.data,aes(x=pay.increase,y=win.pct.increase))+
@@ -642,7 +703,10 @@ ggplot(increase.data,aes(x=pay.increase,y=win.pct.increase))+
   ylab("increase in winning percentage, 2010-2014")+
   theme_bw()+
   labs("Relationship between Payroll Increase and Performance Increase, 2010-2014")
-  
+```
+In 2010-2014, the increase in winning percentage seems to be positively correlated with the increase in payroll. However, it is not statistically significant because y=0 is within the error bound.
+
+```{r}
 # all years, year-on-year basis
 paydata.long[,diff_win_pct := c(NA,diff(win_pct)), by = team]
 
@@ -654,7 +718,10 @@ ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct))+
   theme_bw()+
   labs("Relationship between Payroll Increase and Performance Increase, All Years")
 summary(lm(diff_win_pct~log.pay.diff,data = paydata.long)) # not significant
+```
+Next we use the data in all years to figure out the correlation between increase in winning percentage and increase in payroll. Both the qualitative result from the scatter plot and the quantitative result from the regression are consistent with the conclusion above, that is, the positive predictive power for increase in payroll to increase in winning percentage is weak and not significant.
 
+```{r}
 # how about next year?
 paydata.long[,diff_win_pct_next := c(diff(win_pct),NA), by = team]
 
@@ -667,6 +734,10 @@ ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct_next))+
   labs("Relationship between Payroll Increase and Performance Increase Next Year, All Years")
 summary(lm(diff_win_pct_next~log.pay.diff,data = paydata.long)) # negative and not significant
 ```
+If the underlying driven force for the positive correlation between payroll increase and winning percentage increase is the introduction of better players,the correlation is most plausibly expected in the current period. However, according to the efficient wage theory, one may argue that the increase in payroll is to incentivize the current players; if they do not work harder, they may lose their well-paid positions. The positive correlation may lie between payroll increase and lagged winning percentage in this case, since it takes time for players to respond to the incentives. We test this hypothesis with a lag of one year. The result does not approve of this hypothesis, either. 
+
+## Comparison
+We test the preditive power of three alternatives in addition: payroll to winning percentage (a replication of the one we've seen in class), payroll to increase in winning percentage next year, and payroll to increase in winning percentage current year. 
 ```{r}
 # payroll to winning percentage
 ggplot(paydata.long,aes(x=log.pay,y=win_pct))+
@@ -703,7 +774,7 @@ summary(lm(diff_win_pct~log.pay,data = paydata.long)) # not bad prediction? can 
 
 Overall, current payroll predicts current performance well. As for changes in performance, there is weak evidence that increase in current performance is positively correlated to increase in payroll, but still not very predictive. It is surprising that the increase in performance, no matter current or future, is negatively correlated with the current payroll, to some degree. However, we should be cautious about this conclusion as it may be mainly driven by some rising small teams. 
 
-One more thing to note is that correlation does not mean causality. 
+One more thing to note is that correlation does not mean causality. Even if our finding is that the increase in payroll is significantly positively correlated to the increase in winning percentage, we cannot say that it is causality. Just like what we point out in the last section, the introduction of better players or coaches is possibly their common parent. 
 
 ```{r}
 save.image("hw1.RData")
