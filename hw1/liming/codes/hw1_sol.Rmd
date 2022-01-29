@@ -4,18 +4,18 @@ author: "Liming Ning"
 date: "2022/1/16"
 geometry: margin=1in
 output:
-  html_document: 
-    number_sections: true
-  pdf_document: 
-    keep_tex: true
-    fig_caption: yes
-    fig_height: 4.5
-    fig_width: 6
-    number_sections: no
+  html_document:
+    code_folding: show
+    highlight: haddock
+    number_sections: yes
+    theme: lumen
     toc: yes
-  html_notebook: 
-    number_sections: true
-  word_document: default
+    toc_depth: 4
+    toc_float: yes
+  word_document:
+    toc: yes
+    toc_depth: '4'
+urlcolor: blue
 always_allow_html: true
 indent: true 
 fontsize: 12pt
