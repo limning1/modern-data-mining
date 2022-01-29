@@ -11,17 +11,14 @@ output:
     toc: yes
     toc_depth: 4
     toc_float: yes
-  word_document:
-    toc: yes
-    toc_depth: '4'
 urlcolor: blue
 always_allow_html: true
 indent: true 
 fontsize: 12pt
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F, warning = F, message = F)
+```{r setup, include=TRUE, cache=FALSE}
+knitr::opts_chunk$set(echo = T, warning = F, message = F)
 knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw1/liming')
 library(data.table)
 library(reshape2)
@@ -39,8 +36,15 @@ rm(list = ls())
 ```
 
 # Case Study 1: Audience Size
+
+Wharton Talk Show Business Radio Powered by the Wharton School received a generally positive reaction after being launched through the Sirius Radio station in January of 2014. This section aims at estimating the audience size for the show from the survey data via MTURK in May of 2014.
+
 ## Data Preparation
 ### Cleaning
+
+In order to clean the data set, we firstly select and rename the variables Age, Gender, Education Level, Household Income in 2013, Sirius Listener?, Wharton
+Listener? and Time.
+
 ```{r}
 # selection
 talkdata = fread("data/Survey_results_final.csv", encoding = "UTF-8")
@@ -53,15 +57,16 @@ talkdata.selected =
               wharton = `Answer.Wharton Radio`, 
               worktime = WorkTimeInSeconds)]
 ```
-The variable selection and renaming are trivial, so we do not include them in the html file. 
 
-**The first ten rewards**
+*Note: Inconsistent rewards between instruction and data set.We found that the reward in the homework instruction is 0.1, but the reward variable in the data set is 0.05. We will use 0.05 in the following analysis.*
 ```{r}
 talkdata$Reward[1:10] # question: 5 cents or 10 cents?
 ```
-One issue: the reward in the description section in the homework is 0.1, but the reward variable in the data is actually 0.05. Maybe the description is wrong.
 
-**Suspicious ages**
+Then, we handling the missing or wrongly filled values of the selected variables.
+
+**Age**
+There are six suspicious observations in age. *Eighteen (18)* and *27`* are irregular but valid responses, so we transfer them into regular forms. We exclude the other four responses in the following analysis, as they are missing or irrelevant or unreasonable value. Then we transfer Age into numerical data.
 ```{r}
 # detect suspicious observations
 ## age
@@ -71,39 +76,45 @@ talkdata.selected[age == "27`", age := "27"] # imputation
 talkdata.selected = talkdata.selected[age %in% 10:100] # delete NAs
 talkdata.selected[,age := as.numeric(age)]
 ```
-We detect six suspicious observations in ages. *Eighteen (18)* and *27`* are irregular but valid responses, so we impute in their regular forms; other four cannot be identified, so we exclude them in the following analysis.
 
-**Suspicious gender**
+
+**Gender**
+Six respondents ignored the question of gender.We exclude these responses considering that they cannot provide information and may mislead us in the following analysis regarding gender. Alternatively, if we do not exclude them, it hardly makes difference due to the large sample size.
 ```{r}
 ## gender
 unique(talkdata.selected$gender)
 talkdata.selected[!gender %in% c("Male","Female")]
 talkdata.selected = talkdata.selected[gender != ""] # delete blanks
 ```
-All six observations detected suspicious in gender are all missing. Although other values for these six observations are not missing, we still exclude them. Our justification is that these observations cannot provide information in the following analysis regarding gender. An alternative is that we do not exclude them, but actually it makes almost no difference because the relative number of samples are quite small.
 
-**Suspicious education**
+
+**Education**
+It's plausible that the first five options in education cover all education levels. We exclude those responses of *Other* and *Select one*.
 ```{r}
 ## education
 unique(talkdata.selected$education)
 talkdata.selected = talkdata.selected[!education %in% c("Other","select one")] # delete because they are meaningless
 ```
-It's plausible that the first five options in education can cover all education levels. Thus the last two options can be considered as not informative, enough for the justification of exclusion. 
 
-**Suspicious income, sirius and wharton**
+
+**Income**
+We exclude the responses with missing value in income.
 ```{r}
 ## income
 unique(talkdata.selected$income)
 talkdata.selected = talkdata.selected[income != ""] # delete blanks
 ```
 
+**Sirius**
+We exclude the responses with missing value in Sirius.
 ```{r}
 ## sirius
 unique(talkdata.selected$sirius)
 talkdata.selected = talkdata.selected[sirius != ""] # delete blanks
 ```
  
-
+**Wharton**
+We exclude the responses with missing value in Wharton. In addition, we exclude two unreasonable responses in which the answer for Sirius is No and the answer for Wharton is Yes.
 ```{r}
 ## wharton
 unique(talkdata.selected$wharton)
@@ -112,21 +123,19 @@ talkdata.selected[sirius == "No" & wharton == "Yes"] # These two are weird. Dele
 talkdata.selected = talkdata.selected[!(sirius == "No" & wharton == "Yes")]
 ```
 
-We delete all observations with at least one missing in income, sirius and wharton.
-
-One important finding is that two people fill in "Yes" in wharton while "No" in sirius. This should not happen under our survey setting. It indicates that maybe some surveyors do the survey causally, which casts some doubt on the quality of the survey.
-
 ```{r}
 fwrite(talkdata.selected,"data/talkdata_cleaned.csv",row.names = F)
 ## worktime: automatically recorded.
 # possible improvements: use skimr. get summary stats in one go and make imputation/dropping them.
 # alternatives: do not delete some obs which seems to be valid expect for some missings/errors while we're not running a regression with the covariates
 ```
+
 ```{r}
 rm(list = ls())
 ```
 
-### Summary stats
+### Brief Summary
+
 **Integer variables**
 ```{r}
 # age and worktime, integer
