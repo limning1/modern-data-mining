@@ -56,11 +56,13 @@ talkdata.selected =
 ```
 The variable selection and renaming are trivial, so we do not include them in the html file. 
 
+**The first ten rewards**
 ```{r}
 talkdata$Reward[1:10] # question: 5 cents or 10 cents?
 ```
 One issue: the reward in the description section in the homework is 0.1, but the reward variable in the data is actually 0.05. Maybe the description is wrong.
 
+**Suspicious ages**
 ```{r}
 # detect suspicious observations
 ## age
@@ -72,6 +74,7 @@ talkdata.selected[,age := as.numeric(age)]
 ```
 We detect six suspicious observations in ages. *Eighteen (18)* and *27`* are irregular but valid responses, so we impute in their regular forms; other four cannot be identified, so we exclude them in the following analysis.
 
+**Suspicious gender**
 ```{r}
 ## gender
 unique(talkdata.selected$gender)
@@ -80,6 +83,7 @@ talkdata.selected = talkdata.selected[gender != ""] # delete blanks
 ```
 All six observations detected suspicious in gender are all missing. Although other values for these six observations are not missing, we still exclude them. Our justification is that these observations cannot provide information in the following analysis regarding gender. An alternative is that we do not exclude them, but actually it makes almost no difference because the relative number of samples are quite small.
 
+**Suspicious education**
 ```{r}
 ## education
 unique(talkdata.selected$education)
@@ -87,6 +91,7 @@ talkdata.selected = talkdata.selected[!education %in% c("Other","select one")] #
 ```
 It's plausible that the first five options in education can cover all education levels. Thus the last two options can be considered as not informative, enough for the justification of exclusion. 
 
+**Suspicious income, sirius and wharton**
 ```{r}
 ## income
 unique(talkdata.selected$income)
@@ -98,7 +103,7 @@ talkdata.selected = talkdata.selected[income != ""] # delete blanks
 unique(talkdata.selected$sirius)
 talkdata.selected = talkdata.selected[sirius != ""] # delete blanks
 ```
-We delete all observations with at least one missing in income, sirius and wharton. 
+ 
 
 ```{r}
 ## wharton
@@ -107,6 +112,9 @@ talkdata.selected = talkdata.selected[wharton != ""] # delete blanks
 talkdata.selected[sirius == "No" & wharton == "Yes"] # These two are weird. Delete
 talkdata.selected = talkdata.selected[!(sirius == "No" & wharton == "Yes")]
 ```
+
+We delete all observations with at least one missing in income, sirius and wharton.
+
 One important finding is that two people fill in "Yes" in wharton while "No" in sirius. This should not happen under our survey setting. It indicates that maybe some surveyors do the survey causally, which casts some doubt on the quality of the survey.
 
 ```{r}
@@ -120,6 +128,7 @@ rm(list = ls())
 ```
 
 ### Summary stats
+**Integer variables**
 ```{r}
 # age and worktime, integer
 talkdata.selected = fread("data/talkdata_cleaned.csv",encoding = "UTF-8")
@@ -149,6 +158,7 @@ plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
 
 For the two integer variables age and worktime, we report their summary statistics table and histograms. Both variables are right-skewed. The valid sample size is 1723. We can see that most participants finish this survey with half a minute; also they are young, mostly aging from 20 to 35, possibly because they are more familiar with the Internet.
 
+**Categorical variables**
 ```{r}
 # categorical variables
 ## mapping
@@ -233,6 +243,7 @@ rm(list = ls())
 
 # Case Study 2: Women in Science
 ## Data Preparation
+**Any NA?**
 ```{r,include=F}
 degreedata = read_excel("Data/WomenData_06_16.xlsx")
 degreedata = data.table(degreedata)
@@ -242,27 +253,31 @@ which(rowSums(is.na(degreedata))==1) # no NA
 ```
 There is no missing value in the dataset. It is well cleaned beforehand.
 
+**Unique fields**
 ```{r}
 # cleaning & summary
 unique(degreedata$field)
 ```
 There are ten different fields in the data, where sci-related fields are further divided while non-sci fields are integrated. 
 
+**Unique degrees**
 ```{r}
 unique(degreedata$degree)
 ```
 Three types of degrees are included: bachelor (BS), master (MS) and Doctor of Philosophy (PhD).
 
+**Unique sex**
 ```{r}
 unique(degreedata$sex) # no a third sex
 ```
 We check in addition if there are a third sex besides male and female which is reported. The answer is no.
 
+**Unique years**
 ```{r}
 unique(degreedata$year) # conform to the data description
 ```
 
-11 years' data, 2006-2016, are included in the dataset. It is consistent to the data description.
+11 years, 2006-2016, are included in the data set. It is consistent with the data description.
 
 
 ```{r, eval=F}
@@ -371,6 +386,9 @@ The proportion of females granted degrees over 2006-2016 is relatively stable, a
 agg.field = degreedata[,.(
   number = sum(number)
 ),by = .(degree,sex,year,sci)]
+```
+
+```{r, eval=FALSE}
 # p = ggplot(data = degreedata, aes(x=degree, weight = number, fill=sex, frame = year)) +
 #    geom_bar(color = "black", width = .7,position = 'dodge')+
 #   theme_classic()+
@@ -390,7 +408,9 @@ agg.field = degreedata[,.(
 #   theme_bw()
 # 
 # ggplotly(p) 
+```
 
+```{r}
 # make more plots
 # bs
 plot.sci.bs = ggplot(data = agg.field[sci==T&degree=="BS"],aes(x=as.factor(year),weight = number,
@@ -641,7 +661,9 @@ paydata.wide = fread("data/MLPayData_Total.csv", encoding = "UTF-8")
 setnames(paydata.wide,"Team.name.2014","team")
 
 paydata.long = fread("data/baseball.csv", encoding = "UTF-8")
+```
 
+```{r, eval=FALSE}
 # test conversion
 # paydata.wide[,.(p1998:p2014)] # do not try to use .() and : simultaneously. otherwise return a vector step by +1
 
@@ -664,7 +686,9 @@ paydata.long = fread("data/baseball.csv", encoding = "UTF-8")
 # test.long = pay %>%
 #   right_join(win.num, by = c("year","team")) %>%
 #   right_join(win.per, by = c("year","team"))
+```
 
+```{r}
 # create increments
 paydata.long[order(team,year),log.pay := log(payroll)]
 paydata.long[,pay.diff := c(NA,diff(payroll)),by = team]
@@ -683,6 +707,7 @@ increase.data = paydata.long[year %in% 2010:2014,.(
 ), by = team]
 ```
 
+**Top 5 increase in log(payroll)**
 ```{r}
 increase.data %>%
   filter(rank(-log.pay.increase)<6) %>%
@@ -691,6 +716,7 @@ increase.data %>%
 
 The teams presented above are the top five teams experiencing the largest increase in log(payroll) in 2010-2014.
 
+**Top 5 increase in payroll**
 ```{r}
 increase.data %>%
   filter(rank(-pay.increase)<6) %>%
@@ -699,6 +725,7 @@ increase.data %>%
 
 The teams presented above are the top five teams experiencing the largest increase in payroll, i.e., the absolute value of payroll in 2010-2014. Four out of five have appeared in the top 5 lists in log(payroll) increase.
 
+**Top 5 increase in winning percentage**
 ```{r}
 increase.data %>%
   filter(rank(-win.pct.increase)<6) %>%
@@ -710,6 +737,7 @@ The teams presented above are the top five teams experiencing the largest increa
 ## Prediction
 Overall, the evidence supporting that the higher increases in payroll on the log scale lead to increased
 performance is not clear.
+
 ```{r}
 # 2010-2014
 ggplot(increase.data,aes(x=pay.increase,y=win.pct.increase))+
@@ -734,6 +762,10 @@ ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct))+
   ylab("increase in winning percentage, year on year")+
   theme_bw()+
   labs("Relationship between Payroll Increase and Performance Increase, All Years")
+```
+
+**Regression, diff_win_pct~diff_log_pay, current period**
+```{r}
 summary(lm(diff_win_pct~log.pay.diff,data = paydata.long)) # not significant
 ```
 Next we use the data in all years to figure out the correlation between increase in winning percentage and increase in payroll. Both the qualitative result from the scatter plot and the quantitative result from the regression are consistent with the conclusion above, that is, the positive predictive power for increase in payroll to increase in winning percentage is weak and not significant.
@@ -749,14 +781,19 @@ ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct_next))+
   ylab("increase in winning percentage next year, year on year")+
   theme_bw()+
   labs("Relationship between Payroll Increase and Performance Increase Next Year, All Years")
+```
+
+**Regression, diff_win_pct~diff_log_pay, lag 1**
+```{r}
 summary(lm(diff_win_pct_next~log.pay.diff,data = paydata.long)) # negative and not significant
 ```
 If the underlying driven force for the positive correlation between payroll increase and winning percentage increase is the introduction of better players,the correlation is most plausibly expected in the current period. However, according to the efficient wage theory, one may argue that the increase in payroll is to incentivize the current players; if they do not work harder, they may lose their well-paid positions. The positive correlation may lie between payroll increase and lagged winning percentage in this case, since it takes time for players to respond to the incentives. We test this hypothesis with a lag of one year. The result does not approve of this hypothesis, either. 
 
 ## Comparison
 We test the preditive power of three alternatives in addition: payroll to winning percentage (a replication of the one we've seen in class), payroll to increase in winning percentage next year, and payroll to increase in winning percentage current year. 
+
+**payroll to winning percentage**
 ```{r}
-# payroll to winning percentage
 ggplot(paydata.long,aes(x=log.pay,y=win_pct))+
   geom_point(color="blue",size=1.5)+
   geom_smooth(method = "lm", formula = y~x, color="red")+
@@ -765,8 +802,11 @@ ggplot(paydata.long,aes(x=log.pay,y=win_pct))+
   theme_bw()+
   labs("Relationship between Payroll and Performance, All Years")
 summary(lm(win_pct~log.pay,data = paydata.long)) # good prediction
+```
 
-# payroll to increase in winning percentage next year
+
+**payroll to increase in winning percentage, next year**
+```{r}
 ggplot(paydata.long,aes(x=log.pay,y=diff_win_pct_next))+
   geom_point(color="blue",size=1.5)+
   geom_smooth(method = "lm", formula = y~x, color="red")+
@@ -775,8 +815,10 @@ ggplot(paydata.long,aes(x=log.pay,y=diff_win_pct_next))+
   theme_bw()+
   labs("Relationship between Payroll and Performance Increase Next Year, All Years")
 summary(lm(diff_win_pct_next~log.pay,data = paydata.long)) # not bad prediction? can be spurred
+```
 
-# pay roll to increase in winning percentage current year
+**pay roll to increase in winning percentage, current year**
+```{r}
 ggplot(paydata.long,aes(x=log.pay,y=diff_win_pct))+
   geom_point(color="blue",size=1.5)+
   geom_smooth(method = "lm", formula = y~x, color="red")+
