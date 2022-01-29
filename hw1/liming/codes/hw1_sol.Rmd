@@ -46,7 +46,7 @@ rm(list = ls())
 # selection
 talkdata = fread("data/Survey_results_final.csv", encoding = "UTF-8")
 talkdata.selected = 
-  talkdata[,.(age = Answer.Age, # Note: some answers in Age are not numerics. Therefore, typeof Answer.Age is character.
+  talkdata[,.(age = Answer.Age, # Note: some answers in Age are not numeric. Therefore, type of Answer.Age is character.
               gender = Answer.Gender, 
               education = Answer.Education, 
               income = Answer.HouseHoldIncome,
