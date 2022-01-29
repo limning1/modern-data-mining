@@ -749,6 +749,7 @@ ggplot(increase.data,aes(x=pay.increase,y=win.pct.increase))+
   theme_bw()+
   labs("Relationship between Payroll Increase and Performance Increase, 2010-2014")
 ```
+
 In 2010-2014, the increase in winning percentage seems to be positively correlated with the increase in payroll. However, it is not statistically significant because y=0 is within the error bound.
 
 ```{r}
@@ -768,6 +769,7 @@ ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct))+
 ```{r}
 summary(lm(diff_win_pct~log.pay.diff,data = paydata.long)) # not significant
 ```
+
 Next we use the data in all years to figure out the correlation between increase in winning percentage and increase in payroll. Both the qualitative result from the scatter plot and the quantitative result from the regression are consistent with the conclusion above, that is, the positive predictive power for increase in payroll to increase in winning percentage is weak and not significant.
 
 ```{r}
@@ -787,12 +789,14 @@ ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct_next))+
 ```{r}
 summary(lm(diff_win_pct_next~log.pay.diff,data = paydata.long)) # negative and not significant
 ```
+
 If the underlying driven force for the positive correlation between payroll increase and winning percentage increase is the introduction of better players,the correlation is most plausibly expected in the current period. However, according to the efficient wage theory, one may argue that the increase in payroll is to incentivize the current players; if they do not work harder, they may lose their well-paid positions. The positive correlation may lie between payroll increase and lagged winning percentage in this case, since it takes time for players to respond to the incentives. We test this hypothesis with a lag of one year. The result does not approve of this hypothesis, either. 
 
 ## Comparison
 We test the preditive power of three alternatives in addition: payroll to winning percentage (a replication of the one we've seen in class), payroll to increase in winning percentage next year, and payroll to increase in winning percentage current year. 
 
 **payroll to winning percentage**
+
 ```{r}
 ggplot(paydata.long,aes(x=log.pay,y=win_pct))+
   geom_point(color="blue",size=1.5)+
