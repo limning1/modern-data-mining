@@ -22,7 +22,7 @@ fontsize: 12pt
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F, warning = F)
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
 knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw1/liming')
 library(data.table)
 library(reshape2)
@@ -98,6 +98,7 @@ talkdata.selected = talkdata.selected[income != ""] # delete blanks
 unique(talkdata.selected$sirius)
 talkdata.selected = talkdata.selected[sirius != ""] # delete blanks
 ```
+We delete all observations with at least one missing in income, sirius and wharton. 
 
 ```{r}
 ## wharton
@@ -106,7 +107,7 @@ talkdata.selected = talkdata.selected[wharton != ""] # delete blanks
 talkdata.selected[sirius == "No" & wharton == "Yes"] # These two are weird. Delete
 talkdata.selected = talkdata.selected[!(sirius == "No" & wharton == "Yes")]
 ```
-We delete all observations with at least one missing in income, sirius and wharton. One important finding is that two people fill in "Yes" in wharton while "No" in sirius. This should not happen under our survey setting. It indicates that maybe some surveyors do the survey causally, which casts some doubt on the quality of the survey.
+One important finding is that two people fill in "Yes" in wharton while "No" in sirius. This should not happen under our survey setting. It indicates that maybe some surveyors do the survey causally, which casts some doubt on the quality of the survey.
 
 ```{r}
 fwrite(talkdata.selected,"data/talkdata_cleaned.csv",row.names = F)
@@ -145,6 +146,7 @@ worktime.hist = ggplot(talkdata.selected,aes(x=worktime))+
   labs(title = "Histogram for Worktime")
 plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
 ```
+
 For the two integer variables age and worktime, we report their summary statistics table and histograms. Both variables are right-skewed. The valid sample size is 1723. We can see that most participants finish this survey with half a minute; also they are young, mostly aging from 20 to 35, possibly because they are more familiar with the Internet.
 
 ```{r}
@@ -181,12 +183,8 @@ for (i in 1:length(key.catevar)) {
 }
 plot_grid(plotlist = bar.list,nrow = 2)
 ```
-We illustrate the barplots of five categorical variables: gender, education, income, sirius and wharton. \textbf{Notes}: We map the education and income levels into integers for better exhibition. For education, 1 means \textit {less than 12 years; no high school diploma}, 2 means \textit{	
-High school graduate (or equivalent)}, 3 means \textit{Some college, no diploma; or Associate’s degree}, 4 means \textit{Bachelor’s degree or other 4-year degree}, 5 means \textit{	
-Graduate or professional degree}. For income, 1 means \textit{Less than \$15,000}, 2 means \textit{	
-\$15,000 - \$30,000}, 3 means \textit{\$30,000 - \$50,000}, 4 means \textit{	
-\$50,000 - \$75,000}, 5 means \textit{
-\$75,000 - \$150,000}, 6 means \textit{Above \$150,000}.
+
+We illustrate the barplots of five categorical variables: gender, education, income, sirius and wharton. **Notes**: We map the education and income levels into integers for better exhibition. For education, 1 means *less than 12 years; no high school diploma*, 2 means *High school graduate (or equivalent)*, 3 means *Some college, no diploma; or Associate’s degree*, 4 means *Bachelor’s degree or other 4-year degree*, 5 means *Graduate or professional degree*. For income, 1 means *Less than \$15,000*, 2 means *\$15,000 - \$30,000*, 3 means *\$30,000 - \$50,000*, 4 means *\$50,000 - \$75,000*, 5 means *\$75,000 - \$150,000*, 6 means *Above \$150,000*.
 
 The key variables, sirius and wharton are of our primary interest. Over two thirds of the participants have ever listened to Sirius Radio, indicating that the distribution of the surveys is not inefficient -- what we care about is the answer to wharton conditional on a "Yes" in sirius. 
 
@@ -213,6 +211,21 @@ paste("95% CI for the number of wharton radio audience: [",paste0(round((p-1.96*
 ```{r}
 # why not contact Sirius for data?
 ```
+
+The key issue is to access the population in Sirius and get to know if they have ever listened to Wharton radio program. The best approach in theory is trying to get the administrative data of Sirius, which allows us to observe audience flow directly. This is unrealistic with only \$1,000 except we have some special relationship with the company. 
+
+A second choice is to do surveys targeted at the population in Sirius. Disseminating surveys on Sirius platform (in a form of advertisement in some corners) or sending invitation emails to Sirius users can be useful, but they are also not practical. For the former, we face the budget constraint; for the latter, we have no access to users' mail addresses. Therefore, we have to rely on third-party platforms. We decide to stick to MTurk. We employ the same structure as the original survey, but modify a bit to enhance the reliability. 
+
+Goal: Estimate the audience size of Wharton Business Radio Show
+
+Method: We choose to launch a survey through Amazon Mechanical Turk. We want to estimate the proportion of Wharton Business Radio listeners to the people who use SiriusXM, p, then we multiply p with the total number of users of SiriusXM.
+
+Details of The Survey: We restrict the surveyors' location to be within US. In the Survey, we will ask about their gender, age, education, income level as usual, in addition to out key questions “Have you ever used SiriusXM? Have you listened to the Wharton Business Radio Show?”. To avoid casual answers by respondents, we will add other questions in the questionnaire as attention tests, such as: **What do you think of the competence of Joe Biden as the president? Please choose "Don't know" directly.  Answer: Extremely good, Good, Normal, Bad, Extremely bad, Don't know.** The survey lasts about two weeks on Amazon Mechanical Turk. 
+
+Cost Estimate: 
+Reward per Assignment*total number of assignments + estimated fees to Mechanical Turk 
+Here we choose a reward of \$0.05 per assignment, and we want about 3000 workers in Mechanical Turk to answer our survey. Based on the Mechanical Turk payment rule, we need to pay about \$60 to Amazon Mechanical Turk. Thus, the cost is about \$210. 
+
 
 ```{r}
 rm(list = ls())
@@ -290,6 +303,7 @@ ggplot(summary.bs.2015,aes(x=sci,weight=number,fill=sex))+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of BS Degrees Granted in 2015, by Sex")
 ```
+
 In 2015, the number of BS degrees in SCI fields granted to males is almost the same as that for females, while males received far fewer BS degrees in non-sci fields than females. From the summary statistics and the barplot of BS degrees in 2015, we can see the preliminary evidence of the underrepresentation for females in sci fields relative to non-sci fields. However, given the balanced distribution in gender in the population, the statement that males are undderrepresented in non-sci field seems to be more acceptable, in an absolute sense.
 
 ## Bring in Type of Degree, 2015
@@ -316,6 +330,7 @@ ggplot(summary.2015.sex.degree,aes(x=degree,weight=number,fill=sex))+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in 2015, by Sex")
 ```
+
 The percentage of females granted bachelor and master degrees is close to 60\%, while that for PhD degrees are just 50\%, aggregating the number in all fields. It is plausible that the proportion of females decreases as the education level gets higher. Since people having a PhD degree generally also have a bachelor degree, we can interpret the pattern as: given two undergrads who only differ in genders, the male may be more likely to further pursue the PhD degree after graduation.
 
 ## Bring All Variables
@@ -348,6 +363,7 @@ ggplot()+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in 2006-2016, by Sex")
 ```
+
 The proportion of females granted degrees over 2006-2016 is relatively stable, aggregating all degrees. The number of degrees granted to both genders increase over time, but there is little evidence of time effects on the relative number of degrees granted to two genders. 
 
 ```{r}
@@ -469,6 +485,7 @@ ggplot(summary.ds.timeagg[sci==T],aes(x=datasci,weight=number,fill=sex))+
   scale_fill_brewer(palette = "Set1")+
   labs(title = "The Barplot of Degrees Granted in SCI Field, by Sex")
 ```
+
 Since we have explored the comparison between SCI and non-SCI field, here we focus on the comparison between data science field and  non-data science field within SCI field. It can be seen from the summary statistics table and the barplot aggregated all degrees and all years that the proportion of females granted degrees in data science field is significantly smaller than that in other SCI field. An absolute value of only 27.1\% indicates a severe undderrepresentation for females in data science. 
 
 ```{r}
