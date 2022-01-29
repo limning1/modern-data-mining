@@ -5,7 +5,7 @@ date: "2022/1/16"
 geometry: margin=1in
 output:
   html_document:
-    code_folding: show
+    code_folding: hide
     highlight: haddock
     number_sections: yes
     theme: lumen
