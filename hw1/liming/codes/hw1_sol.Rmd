@@ -202,11 +202,11 @@ for (i in 1:length(key.catevar)) {
 plot_grid(plotlist = bar.list,nrow = 2)
 ```
 
-We illustrate the barplots of five categorical variables: gender, education, income, sirius and wharton. **Notes**: We map the education and income levels into integers for better exhibition. For education, 1 means *less than 12 years; no high school diploma*, 2 means *High school graduate (or equivalent)*, 3 means *Some college, no diploma; or Associate’s degree*, 4 means *Bachelor’s degree or other 4-year degree*, 5 means *Graduate or professional degree*. For income, 1 means *Less than \$15,000*, 2 means *\$15,000 - \$30,000*, 3 means *\$30,000 - \$50,000*, 4 means *\$50,000 - \$75,000*, 5 means *\$75,000 - \$150,000*, 6 means *Above \$150,000*.
+We then make barplots to illustrate the characteristics of categorical variables gender, education, income, Sirius and Wharton. *Note: We map the education and income levels into integers for better exhibition. In regards to education, 1 represents "less than 12 years; no high school diploma", 2 represents "High school graduate (or equivalent)", 3 represents "Some college, no diploma; or Associate’s degree", 4 represents "Bachelor’s degree or other 4-year degree", 5 represents "Graduate or professional degree". In regards to income, 1 represents "Less than \$15,000", 2 represents "\$15,000 - \$30,000", 3 represents "\$30,000 - \$50,000", 4 represents "\$50,000 - \$75,000", 5 represents "\$75,000 - \$150,000", 6 represents "Above \$150,000".*
 
-The key variables, sirius and wharton are of our primary interest. Over two thirds of the participants have ever listened to Sirius Radio, indicating that the distribution of the surveys is not inefficient -- what we care about is the answer to wharton conditional on a "Yes" in sirius. 
+The key variables, Sirius and Wharton, are of our primary interest. Over two thirds of the respondents had ever listened to Sirius Radio, indicating that the distribution of the survey was not inefficient, and our concern is the data of Wharton providing a "Yes" in Sirius. 
 
-As for the covariates, it is revealed that the number of males is significantly larger than that of females among the surveyors. Their education levels are generally not high: few of them have a degree higher than bachelor. the income levels of the surveyors concentrate on the interval of \$15,000 - \$75,000 in 2014. It is worth noting that a considerable proportion of surveyors earn less than \$15,000 per year in 2014. The implication is, the sample is affected by self-selection bias, because only people registering as workers in MTurk are exposed to this survey. People with low income and low education level may have less opportunity cost for becoming a surveyor, so the sample may tilt towards them. Since income and education are plausibly correlated with the exposure to wharton business radio programs, the final estimate can be biased.
+As for the covariates, it is revealed that the number of male respondents was significantly larger than that of female respondents. Education levels were generally not high, as few of them had a degree higher than bachelor. Income levels of the respondents were concentrated on the interval of \$15,000 - \$75,000 in 2014, and a considerable proportion of respondents earned less than \$15,000 per year. Self-selection bias is implicated to exist in the data set, because only people working at MTurk are exposed to this survey. People with low income and low education level may have less opportunity cost for becoming a surveyor, so the sample may tilt towards them. Since income and education are plausibly correlated with the exposure to wharton business radio programs, the final estimate can be biased.
 
 ## Sample Properties
 ```{r}
@@ -215,6 +215,9 @@ As for the covariates, it is revealed that the number of males is significantly 
 ```
 
 ## Final Estimates
+
+Assuming that the sample is a random sample of the MTURK population, and that the proportion of Wharton listeners vs. Sirius listeners in the general population is the same as that in the MTURK population, we then come to our conclusion of Wharton audience size.
+
 ```{r}
 p = sum(talkdata.selected$wharton=="Yes")/sum(talkdata.selected$sirius=="Yes")
 number = 51.6*p
@@ -225,6 +228,8 @@ paste("Point estimate for the number of wharton radio audience:", paste0(round(n
 paste("95% CI for the number of wharton radio audience: [",paste0(round((p-1.96*sigma)*51.6,digits = 3)," million"),", ",paste0(round((p+1.96*sigma)*51.6,digits = 3)," million"),"].",sep = "")
 ```
 
+executive sunmmary TBD
+
 ## New Task
 ```{r}
 # why not contact Sirius for data?
@@ -234,14 +239,14 @@ The key issue is to access the population in Sirius and get to know if they have
 
 A second choice is to do surveys targeted at the population in Sirius. Disseminating surveys on Sirius platform (in a form of advertisement in some corners) or sending invitation emails to Sirius users can be useful, but they are also not practical. For the former, we face the budget constraint; for the latter, we have no access to users' mail addresses. Therefore, we have to rely on third-party platforms. We decide to stick to MTurk. We employ the same structure as the original survey, but modify a bit to enhance the reliability. 
 
-Goal: Estimate the audience size of Wharton Business Radio Show
+**Goal** Estimate the audience size of Wharton Business Radio Show
 
-Method: We choose to launch a survey through Amazon Mechanical Turk. We want to estimate the proportion of Wharton Business Radio listeners to the people who use SiriusXM, p, then we multiply p with the total number of users of SiriusXM.
+**Method** We choose to launch a survey through Amazon Mechanical Turk. We want to estimate the proportion of Wharton Business Radio listeners to the people who use SiriusXM, p, then we multiply p with the total number of users of SiriusXM.
 
-Details of The Survey: We restrict the surveyors' location to be within US. In the Survey, we will ask about their gender, age, education, income level as usual, in addition to out key questions “Have you ever used SiriusXM? Have you listened to the Wharton Business Radio Show?”. To avoid casual answers by respondents, we will add other questions in the questionnaire as attention tests, such as: **What do you think of the competence of Joe Biden as the president? Please choose "Don't know" directly.  Answer: Extremely good, Good, Normal, Bad, Extremely bad, Don't know.** The survey lasts about two weeks on Amazon Mechanical Turk. 
+**Details of The Survey** We restrict the surveyors' location to be within US. In the Survey, we will ask about their gender, age, education, income level as usual, in addition to out key questions “Have you ever used SiriusXM? Have you listened to the Wharton Business Radio Show?”. To avoid casual answers by respondents, we will add other questions in the questionnaire as attention tests, such as: *What do you think of the competence of Joe Biden as the president? Please choose "Don't know" directly.  Answer: Extremely good, Good, Normal, Bad, Extremely bad, Don't know.* The survey lasts about two weeks on Amazon Mechanical Turk. 
 
-Cost Estimate: 
-Reward per Assignment*total number of assignments + estimated fees to Mechanical Turk 
+**Cost Estimate**  Reward per Assignment*total number of assignments + estimated fees to Mechanical Turk
+
 Here we choose a reward of \$0.05 per assignment, and we want about 3000 workers in Mechanical Turk to answer our survey. Based on the Mechanical Turk payment rule, we need to pay about \$60 to Amazon Mechanical Turk. Thus, the cost is about \$210. 
 
 
@@ -250,8 +255,20 @@ rm(list = ls())
 ```
 
 # Case Study 2: Women in Science
+
+This section aims at answer several questions about women in science. The data set is assembled from NSF about various degrees granted in the U.S. from 2006 to 2016. The questions are listed below:
+
+**Are women underrepresented in science in general?**
+
+**How does gender relate to the type of educational degree pursued?**
+
+**Does the number of higher degrees increase over the years?**
+
 ## Data Preparation
-**Any NA?**
+**Data cleaning**
+
+Fistly, we import the spreadsheat and clean the data.
+
 ```{r,include=F}
 degreedata = read_excel("Data/WomenData_06_16.xlsx")
 degreedata = data.table(degreedata)
@@ -259,7 +276,7 @@ setnames(degreedata,1:5,c("field","degree","sex","year","number"))
 
 which(rowSums(is.na(degreedata))==1) # no NA
 ```
-There is no missing value in the dataset. It is well cleaned beforehand.
+There is no missing value in the data set. It is well cleaned beforehand.
 
 **Unique fields**
 ```{r}
@@ -327,7 +344,7 @@ ggplot(summary.bs.2015,aes(x=sci,weight=number,fill=sex))+
   labs(title = "The Barplot of BS Degrees Granted in 2015, by Sex")
 ```
 
-In 2015, the number of BS degrees in SCI fields granted to males is almost the same as that for females, while males received far fewer BS degrees in non-sci fields than females. From the summary statistics and the barplot of BS degrees in 2015, we can see the preliminary evidence of the underrepresentation for females in sci fields relative to non-sci fields. However, given the balanced distribution in gender in the population, the statement that males are undderrepresented in non-sci field seems to be more acceptable, in an absolute sense.
+In 2015, the number of BS degrees in SCI fields granted to males is approximately the same as that of females, while males received far fewer BS degrees in non-sci fields than females. From the summary statistics and the bar chart of BS degrees in 2015, we can see the preliminary evidence of the underrepresentation for females in sci fields relative to non-sci fields. However, given the balanced distribution in gender in the population, the statement that males are undderrepresented in non-sci field seems to be more acceptable, in an absolute sense.
 
 ## Bring in Type of Degree, 2015
 ```{r}
@@ -354,7 +371,7 @@ ggplot(summary.2015.sex.degree,aes(x=degree,weight=number,fill=sex))+
   labs(title = "The Barplot of Degrees Granted in 2015, by Sex")
 ```
 
-The percentage of females granted bachelor and master degrees is close to 60\%, while that for PhD degrees are just 50\%, aggregating the number in all fields. It is plausible that the proportion of females decreases as the education level gets higher. Since people having a PhD degree generally also have a bachelor degree, we can interpret the pattern as: given two undergrads who only differ in genders, the male may be more likely to further pursue the PhD degree after graduation.
+The percentage of females granted bachelor and master degrees is close to 60\%, while that for PhD degrees are just 50\%, aggregating the number in all fields. It is plausible that the proportion of females decreases as the education level gets higher. Since people having a PhD degree generally also have a bachelor degree, a reasonable interpretation of the pattern is that given two undergrads who only differ in genders, the male may be more likely to further pursue the PhD degree after graduation.
 
 ## Bring All Variables
 ```{r}
@@ -514,7 +531,7 @@ ggplot(summary.ds.timeagg[sci==T],aes(x=datasci,weight=number,fill=sex))+
   labs(title = "The Barplot of Degrees Granted in SCI Field, by Sex")
 ```
 
-Since we have explored the comparison between SCI and non-SCI field, here we focus on the comparison between data science field and  non-data science field within SCI field. It can be seen from the summary statistics table and the barplot aggregated all degrees and all years that the proportion of females granted degrees in data science field is significantly smaller than that in other SCI field. An absolute value of only 27.1\% indicates a severe undderrepresentation for females in data science. 
+Since we have explored the comparison between SCI and non-SCI field, here we focus on the comparison between data science field and  non-data science field within SCI field. It can be seen from the summary statistics table and the bar chart aggregated all degrees and all years that the proportion of females granted degrees in data science field is significantly smaller than that in other SCI field. An absolute value of only 27.1\% indicates a severe undderrepresentation for females in data science. 
 
 ```{r}
 # aggregate fields
@@ -662,7 +679,10 @@ One concern about the data set is that it only measures the number of degrees gr
 To tailor this analysis more, we can try to incorporate the enrollment data in every field. It can measure the performance in school to some degree, combined with the degree data. We can also collect the gender data in faculty or top researchers in every field. We can get a better understanding of the situation for females in science with these additional information.
 
 # Case Study 3: Major League Baseball
-## Data Preparation
+
+This section aims to explore how payroll affects performance among Major League Baseball teams. The data is prepared in two formats record payroll, winning numbers/percentage by team from 1998 to 2014.
+
+## EDA: Relationship between payroll changes and performance
 ```{r}
 rm(list = ls())
 paydata.wide = fread("data/MLPayData_Total.csv", encoding = "UTF-8")
@@ -696,6 +716,10 @@ paydata.long = fread("data/baseball.csv", encoding = "UTF-8")
 #   right_join(win.per, by = c("year","team"))
 ```
 
+The log difference is more appropriate in this setup because it measures the proportional (relative) change in the payroll. The base payrolls in all teams are not the same, so a same increase in absolute amount may incentivize players differently in different teams; the incentive may be bigger in teams with a smaller payroll, but smaller in teams with a larger payroll. The relative changes measured by the difference of logarithm of payroll can alleviate this problem. 
+
+Therefore, we create the log difference in payroll, and a long data table including team, year, diff_log, win_pc.
+
 ```{r}
 # create increments
 paydata.long[order(team,year),log.pay := log(payroll)]
@@ -703,8 +727,6 @@ paydata.long[,pay.diff := c(NA,diff(payroll)),by = team]
 paydata.long[,log.pay.diff := c(NA,diff(log.pay)),by = team]
 paydata.new = paydata.long[,.(team,year,diff_log=log.pay.diff,win_pct)]
 ```
-
-The log difference is more appropriate in this setup because it measures the proportional (relative) change in the payroll. The base payrolls in all teams are not the same, so a same increase in absolute amount may incentivize players differently in different teams; the incentive may be bigger in teams with a smaller payroll, but smaller in teams with a larger payroll. The relative changes measured by the difference of logarithm of payroll can alleviate this problem. 
 
 ## Exploratory Questions
 ```{r}
@@ -778,7 +800,7 @@ ggplot(paydata.long,aes(x=log.pay.diff,y=diff_win_pct))+
 summary(lm(diff_win_pct~log.pay.diff,data = paydata.long)) # not significant
 ```
 
-Next we use the data in all years to figure out the correlation between increase in winning percentage and increase in payroll. Both the qualitative result from the scatter plot and the quantitative result from the regression are consistent with the conclusion above, that is, the positive predictive power for increase in payroll to increase in winning percentage is weak and not significant.
+Then we use the data in all years to figure out the correlation between increase in winning percentage and increase in payroll. Both the qualitative result from the scatter plot and the quantitative result from the regression are consistent with the conclusion above, that is, the positive predictive power for increase in payroll to increase in winning percentage is weak and not significant.
 
 ```{r}
 # how about next year?
@@ -801,7 +823,7 @@ summary(lm(diff_win_pct_next~log.pay.diff,data = paydata.long)) # negative and n
 If the underlying driven force for the positive correlation between payroll increase and winning percentage increase is the introduction of better players,the correlation is most plausibly expected in the current period. However, according to the efficient wage theory, one may argue that the increase in payroll is to incentivize the current players; if they do not work harder, they may lose their well-paid positions. The positive correlation may lie between payroll increase and lagged winning percentage in this case, since it takes time for players to respond to the incentives. We test this hypothesis with a lag of one year. The result does not approve of this hypothesis, either. 
 
 ## Comparison
-We test the preditive power of three alternatives in addition: payroll to winning percentage (a replication of the one we've seen in class), payroll to increase in winning percentage next year, and payroll to increase in winning percentage current year. 
+We test the predictive power of three alternatives in addition: payroll to winning percentage (a replication of the one we've seen in class), payroll to increase in winning percentage next year, and payroll to increase in winning percentage current year. 
 
 **payroll to winning percentage**
 
