@@ -247,9 +247,6 @@ Our finding is that Wharton Business Ratio in SiriuXM has gained a considerable 
 The validity of our analysis relies on the assumption that our sample is a good proxy for the whole population. However, sample selection bias does exist, which is the biggest limitation for our study. Since only people who had registered as MTurk workers would be exposed to our survey, a self-selection bias is involved. Generally, young people with limited income and education level have a larger probability of becoming MTurk workers because of their low opportunity cost and familiarity with the Internet, our estimate is biased towards this specific cohort. Also the the sample size is just larger than 1,500, which can further enlarged. Our estimation can be more accurate if we can get administrative data instead of survey data. 
 
 ## New Task
-```{r}
-# why not contact Sirius for data?
-```
 
 The key issue is to access the population in Sirius and get to know if they have ever listened to Wharton radio program. The best approach in theory is trying to get the administrative data of Sirius, which allows us to observe audience flow directly. This is unrealistic with only \$1,000 except we have some special relationship with the company. 
 
@@ -617,6 +614,7 @@ grid.datasci = plot_grid(plot.datasci.bs,plot.nondatasci.bs,plot.datasci.ms,plot
 ggsave(grid.datasci,filename = "graphs/grid_datascivsnondatasci.png",width = 12,height = 18)
 ```
 ![](G:/github/modern-data-mining/hw1/liming/graphs/grid_datascivsnondatasci.png)
+
 Males were granted more degrees in SCI fields, no matter in data science or non-data science. With the increase in education level, the difference between number of degrees granted to two genders enlarges in non-data science field, and it is consistent overtime. however, in data science field, there is no clear evidence of increase in number of degrees granted to males relative to females, with the ascendance of education level, possibly because that the proportion of males is high enough initially. One observation is that the proportion of females in MS degree is even larger than that in the bachelor and PhD degree in data science field.
 
 ```{r, eval=F}
