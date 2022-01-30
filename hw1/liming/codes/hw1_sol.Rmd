@@ -17,7 +17,7 @@ indent: true
 fontsize: 12pt
 ---
 
-```{r setup, include=TRUE, cache=FALSE}
+```{r setup, include=F, cache=FALSE}
 knitr::opts_chunk$set(echo = T, warning = F, message = F)
 knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw1/liming')
 library(data.table)
@@ -58,7 +58,7 @@ talkdata.selected =
               worktime = WorkTimeInSeconds)]
 ```
 
-*Note: Inconsistent rewards between instruction and data set.We found that the reward in the homework instruction is 0.1, but the reward variable in the data set is 0.05. We will use 0.05 in the following analysis.*
+*Note: Inconsistent rewards between instruction and data set. We found that the reward in the homework instruction is 0.1, but the reward variable in the data set is 0.05. We will use 0.05 in the following analysis.*
 ```{r}
 talkdata$Reward[1:10] # question: 5 cents or 10 cents?
 ```
