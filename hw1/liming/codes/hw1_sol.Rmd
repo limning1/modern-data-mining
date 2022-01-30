@@ -135,7 +135,7 @@ rm(list = ls())
 ```
 
 ### Brief Summary
-
+The data set was collected via MTURK in May of 2014, and the survey running for six days with a target maximum sample size of 2000. Respondents were limited to people in United States.
 **Integer variables**
 ```{r}
 # age and worktime, integer
@@ -164,7 +164,7 @@ worktime.hist = ggplot(talkdata.selected,aes(x=worktime))+
 plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
 ```
 
-For the two integer variables age and worktime, we report their summary statistics table and histograms. Both variables are right-skewed. The valid sample size is 1723. We can see that most participants finish this survey with half a minute; also they are young, mostly aging from 20 to 35, possibly because they are more familiar with the Internet.
+The valid sample size is 1723. In regards to age and worktime, we summarize their characteristics through table and histograms. The data of age and worktime are both right-skewed. We can then conclude that most participants finished this survey in half a minute, and their age mostly distributed from 20 to 35. One potential reason may be that youngsters are more familiar with the Internet.
 
 **Categorical variables**
 ```{r}
