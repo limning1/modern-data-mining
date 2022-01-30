@@ -267,9 +267,9 @@ This section aims at answer several questions about women in science. The data s
 ## Data Preparation
 **Data cleaning**
 
-Fistly, we import the spreadsheat and clean the data.
+Firstly, we import the spreadsheet and clean the data.
 
-```{r,include=F}
+```{r,include=T}
 degreedata = read_excel("Data/WomenData_06_16.xlsx")
 degreedata = data.table(degreedata)
 setnames(degreedata,1:5,c("field","degree","sex","year","number"))
@@ -306,6 +306,7 @@ unique(degreedata$year) # conform to the data description
 
 
 ```{r, eval=F}
+# don't run
 summary(degreedata$number)
 ggplot(degreedata,aes(x=number))+
   geom_histogram()+
@@ -414,6 +415,7 @@ agg.field = degreedata[,.(
 ```
 
 ```{r, eval=FALSE}
+# don't run
 # p = ggplot(data = degreedata, aes(x=degree, weight = number, fill=sex, frame = year)) +
 #    geom_bar(color = "black", width = .7,position = 'dodge')+
 #   theme_classic()+
@@ -421,7 +423,7 @@ agg.field = degreedata[,.(
 #   xlab('Degree')+
 #   scale_fill_brewer(palette = "Set1")+
 #   theme_bw()
-# 
+#
 # ggplotly(p) # problem: cannot use frame in barplots???
 
 # p = ggplot(data = agg.field, aes(x=degree, y = number, group = sex, color = sex,
@@ -431,8 +433,8 @@ agg.field = degreedata[,.(
 #   ylab('Number')+
 #   xlab('Degree')+
 #   theme_bw()
-# 
-# ggplotly(p) 
+#
+# ggplotly(p)
 ```
 
 ```{r}
@@ -692,7 +694,7 @@ paydata.long = fread("data/baseball.csv", encoding = "UTF-8")
 ```
 
 ```{r, eval=FALSE}
-# test conversion
+# test conversion, don't run
 # paydata.wide[,.(p1998:p2014)] # do not try to use .() and : simultaneously. otherwise return a vector step by +1
 
 # pay = paydata.wide[,team,p1998:p2014] %>%
