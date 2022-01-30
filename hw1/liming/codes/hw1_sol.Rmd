@@ -136,6 +136,7 @@ rm(list = ls())
 
 ### Brief Summary
 The data set was collected via MTURK in May of 2014, and the survey running for six days with a target maximum sample size of 2000. Respondents were limited to people in United States.
+
 **Integer variables**
 ```{r}
 # age and worktime, integer
@@ -228,7 +229,19 @@ paste("Point estimate for the number of wharton radio audience:", paste0(round(n
 paste("95% CI for the number of wharton radio audience: [",paste0(round((p-1.96*sigma)*51.6,digits = 3)," million"),", ",paste0(round((p+1.96*sigma)*51.6,digits = 3)," million"),"].",sep = "")
 ```
 
-executive sunmmary TBD
+**Executive summary**
+
+In order to estimate the audience size of Wharton Business Radio in SiriusXM, we launched a survey via Amazon Mechanical Turk (MTurk) on May 24, 2014 at an offered price of $0.05 for each answered survey.
+
+The basic idea of the survey is to draw a random sample from the population in the US, and use the sample estimate to proxy for the proportion of Wharton listeners in all Sirius listeners in the population. We asked the surveyors whether they have listened to Sirius Radio, and whether they have listened to Sirius Business Radio by Wharton, in addition to their ages, gender, education level and income level. We requested that only people in United States answer the questions. Each person can only fill in the
+questionnaire once to avoid duplicates. Aside from these restrictions, we opened the survey to everyone in
+MTurk with a hope that the sample would be more randomly chosen. We set it to be run for 6 days with a target maximum sample size of 2000 as our goal. Most of the observations came in within the first two days. 
+
+A total of 1,723 observations come into our final analysis after data cleaning, among which 1,335 are Sirius listeners and 67 are Wharton Business listeners. Assuming that the sample with a Yes in Sirius listeners is a good proxy for the Sirius listeners population, we estimate the Wharton listeners in the Sirius listener population as $\frac{67}{1335} = 5\%$. Given that the audience size of Sirius is about 51.6 million in January 2014, the audience size of Wharton Business Radio is about 2.59 million, if the proportion of Wharton listeners is stable in the first half of 2014. Using central limit theorem, we construct the 95\% confidence interval for the audience size of Wharton Business Radio listeners: [1.985 million, 3.194 million]. 
+
+Our finding is that Wharton Business Ratio in SiriuXM has gained a considerable size of audience in January 2014, about 2-3 million. 
+
+The validity of our analysis relies on the assumption that our sample is a good proxy for the whole population. However, sample selection bias does exist, which is the biggest limitation for our study. Since only people who had registered as MTurk workers would be exposed to our survey, a self-selection bias is involved. Generally, young people with limited income and education level have a larger probability of becoming MTurk workers because of their low opportunity cost and familiarity with the Internet, our estimate is biased towards this specific cohort. Also the the sample size is just larger than 1,500, which can further enlarged. Our estimation can be more accurate if we can get administrative data instead of survey data. 
 
 ## New Task
 ```{r}
@@ -247,7 +260,7 @@ A second choice is to do surveys targeted at the population in Sirius. Dissemina
 
 **Cost Estimate**  Reward per Assignment*total number of assignments + estimated fees to Mechanical Turk
 
-Here we choose a reward of \$0.05 per assignment, and we want about 3000 workers in Mechanical Turk to answer our survey. Based on the Mechanical Turk payment rule, we need to pay about \$60 to Amazon Mechanical Turk. Thus, the cost is about \$210. 
+Here we choose a reward of \$0.05 per assignment, and we want about 6,000 workers in Mechanical Turk to answer our survey. Based on the Mechanical Turk payment rule, we need to pay about \$120 to Amazon Mechanical Turk. Thus, the cost is about \$420. 
 
 
 ```{r}
