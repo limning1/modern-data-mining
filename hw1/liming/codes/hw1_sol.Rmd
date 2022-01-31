@@ -211,12 +211,7 @@ As for the covariates, it is revealed that the number of male respondents was si
 
 ## Sample Properties
 
-i. From the age distribution of U.S. population graph, we can see that about 30% of people are in 0-18, about 21% of people in 19-34, about 38% of people in 35- 64. Compared to the age distribution in our data, we think our age distribution is consistent with the age distribution of U.S. population. From the gender distribution of U.S. population, we notice that there are about 49% of Male and 51% of Female. However, from the gender distribution of our sample, we can see that there are more males than the females. In genernal, our sample is a random sample from U.S. population. 
-
-ii. From the age distribution of Mturk worker graph, we can see that about 38 percent and 37 percent people on MTurk are in there 20's and 30's, respectively. And another 15% are in their 40’s, and roughly 5% are in their 50’s. Compared to the age distribution in our data, we think our age distribution appear to be consistent with the age distribution of MTURK population. From the gender distribution of Mturk worker, we notice that there are about 48% of Male and 52% of Female. However, from the gender distribution of our sample, we can see that there are more males than the females. From the education distribution of Mturk worker, we can see that 30% and 28% of workers have Bachelors degree and some college(no degree) educational attainment, respectively. This education distribution is consistent with our education distribution graph. For the income distribution of Mturk workers, we can see that about 32%of workers' income is less than $10K. With the increase of income range, the number of workers is gradually decreasing, but it is interesting that nearly 14% of workers' income is more than $70K. In genernal, our sample is a random sample from Mturk population. 
-
-
-We collect the demographic data for the US in 2014 from US Census Bureau; as for the Mturk population data, we refer to Difallah et al. (2018) and Ross et al. (2010).
+We collect the demographic data for the US in 2014 from US Census Bureau; as for the Mturk population data, we refer to Difallah et al. (2018) and Ross et al. (2010). 
 
 ### age
 ```{r}
