@@ -1,6 +1,6 @@
 ---
 title: "hw1"
-author: "Liming Ning"
+author: "Liming Ning, Wangbo Tang, Xinran Zhang"
 date: "2022/1/16"
 geometry: margin=1in
 output:
@@ -157,11 +157,11 @@ kbl(cont.var.stat, caption = "Summary Statistics for Non-categorical Variables",
 age.hist = ggplot(talkdata.selected,aes(x=age))+
   geom_histogram()+
   theme_bw()+
-  labs(title = "Histogram for Ages")
+  labs(title = "Histogram for Ages, Sample")
 worktime.hist = ggplot(talkdata.selected,aes(x=worktime))+
   geom_histogram()+
   theme_bw()+
-  labs(title = "Histogram for Worktime")
+  labs(title = "Histogram for Worktime, Sample")
 plot_grid(age.hist,worktime.hist,nrow = 1) # right-skewed
 ```
 
@@ -192,7 +192,7 @@ get.bar = function(data,varname,x.label = varname,y.label = "count",...){
     geom_bar(...)+
     xlab(x.label)+
     theme_bw()+
-    labs(title = paste("Barplot of ",varname,sep = ""))
+    labs(title = paste("Barplot of ",x.label,", Sample",sep = ""))
 }
 
 bar.list = list()
@@ -210,40 +210,143 @@ The key variables, Sirius and Wharton, are of our primary interest. Over two thi
 As for the covariates, it is revealed that the number of male respondents was significantly larger than that of female respondents. Education levels were generally not high, as few of them had a degree higher than bachelor. Income levels of the respondents were concentrated on the interval of \$15,000 - \$75,000 in 2014, and a considerable proportion of respondents earned less than \$15,000 per year. Self-selection bias is implicated to exist in the data set, because only people working at MTurk are exposed to this survey. People with low income and low education level may have less opportunity cost for becoming a surveyor, so the sample may tilt towards them. Since income and education are plausibly correlated with the exposure to wharton business radio programs, the final estimate can be biased.
 
 ## Sample Properties
+
 i. From the age distribution of U.S. population graph, we can see that about 30% of people are in 0-18, about 21% of people in 19-34, about 38% of people in 35- 64. Compared to the age distribution in our data, we think our age distribution is consistent with the age distribution of U.S. population. From the gender distribution of U.S. population, we notice that there are about 49% of Male and 51% of Female. However, from the gender distribution of our sample, we can see that there are more males than the females. In genernal, our sample is a random sample from U.S. population. 
 
 ii. From the age distribution of Mturk worker graph, we can see that about 38 percent and 37 percent people on MTurk are in there 20's and 30's, respectively. And another 15% are in their 40’s, and roughly 5% are in their 50’s. Compared to the age distribution in our data, we think our age distribution appear to be consistent with the age distribution of MTURK population. From the gender distribution of Mturk worker, we notice that there are about 48% of Male and 52% of Female. However, from the gender distribution of our sample, we can see that there are more males than the females. From the education distribution of Mturk worker, we can see that 30% and 28% of workers have Bachelors degree and some college(no degree) educational attainment, respectively. This education distribution is consistent with our education distribution graph. For the income distribution of Mturk workers, we can see that about 32%of workers' income is less than $10K. With the increase of income range, the number of workers is gradually decreasing, but it is interesting that nearly 14% of workers' income is more than $70K. In genernal, our sample is a random sample from Mturk population. 
 
 
-We collect the demographic data for the US in 2014 from US Census Bureau.
+We collect the demographic data for the US in 2014 from US Census Bureau; as for the Mturk population data, we refer to Difallah et al. (2018) and Ross et al. (2010).
 
-### Age
+### age
 ```{r}
-us_age = fread("G:/github/modern-data-mining/hw1/data/us_age.csv", encoding = "UTF-8")
+us_age = fread("data/us_age.csv", encoding = "UTF-8")
 us_age = data.table(melt(us_age))
-us_age = us_age %>% 
-  filter(variable != "Children 0-18")
 us_age[,sum := sum(value),by = .(Location)]
 us_age[,percent := value/sum]
 setnames(us_age,"variable","age")
+us_age[,age := c("19-","19-25","26-34","35-54","55-64","64+")]
 
-us_gender = fread("G:/github/modern-data-mining/hw1/data/us_gender.csv", encoding = "UTF-8")
+mturk_age = fread("data/mturk_age.csv", encoding = "UTF-8")
+mturk_age = data.table(c("20-","20-24","25-34","35-54","54+"),c(0.06,0.19,0.19+0.14,0.12+0.1+0.07+0.08,0.05))
+setnames(mturk_age,1:2,c("age","percent"))
+
+get.bar2 = function(data,varname,yname,title.group,x.label = varname,y.label = "count",...){
+
+  ggplot(data,aes(x=eval(parse(text = varname)),weight=eval(parse(text = yname))))+
+    geom_bar(...)+
+    xlab(x.label)+
+    ylab(y.label)+
+    theme_bw()+
+    labs(title = paste("Barplot of ",x.label,", ",title.group,sep = ""))
+}
+
+
+assign.agegroup = function(age){
+  if(age<19){
+    "19-"
+  }else if(age %in% 19:25){
+    "19-25"
+  }else if(age %in% 26:34){
+    "26-34"
+  }else if(age %in% 35:54){
+    "35-54"
+  }else if(age %in% 55:64){
+    "55-64"
+  }else if(age>64){
+    "64+"
+  }
+}
+
+talkdata.selected[,age_group := sapply(age,assign.agegroup)]
+sample_age_plot = get.bar(talkdata.selected,"age_group",x.label = "age")
+us_age_plot = get.bar2(us_age,"age","percent","US",y.label = "percent")
+mturk_age_plot = get.bar2(mturk_age,"age","percent","MTurk",y.label = "percent")
+
+plot_grid(sample_age_plot,us_age_plot,mturk_age_plot,labels = "AUTO",nrow = 2)
+```
+
+The sample cannot be a random sample from the general population of USA. Clearly the mass on ages smaller than 19 is extremely small in the sample, while the proportion is big in USA population. Except for that, the ages in the sample is generally younger than those in USA population.
+
+Also, the sample seems to be more right-skewed compared with the MTurk population. It may not be a random sample from the USA MTurk population, although the method indicates so. 
+
+### gender
+```{r}
+us_gender = fread("data/us_gender.csv", encoding = "UTF-8")
 us_gender = data.table(melt(us_gender))
-setnames(us_gender,"variable","gender")
+us_gender[,percent := value/sum(value)]
+setnames(us_gender,1,"gender")
 
-us_edu = fread("G:/github/modern-data-mining/hw1/data/us_edu.csv", encoding = "UTF-8")
+mturk_gender = fread("data/mturk_gender.csv", encoding = "UTF-8")
+mturk_gender = data.table(melt(mturk_gender))
+setnames(mturk_gender,1:2,c("gender","percent"))
 
-us_income = read_excel("G:/github/modern-data-mining/hw1/data/us_income.xlsx")
+sample.gender = talkdata.selected[,.(
+  count = length(age)
+),by = gender]
+sample.gender[,percent := count/sum(count)]
+sample.gender[,gender := factor(gender, levels = c("Male","Female"))]
+
+sample_gender_plot = get.bar2(sample.gender,"gender","percent","Sample",y.label = "percent")
+us_gender_plot = get.bar2(us_gender,"gender","percent","US",y.label = "percent")
+mturk_gender_plot = get.bar2(mturk_gender,"gender","percent","MTurk",y.label = "percent")
+
+plot_grid(sample_gender_plot,us_gender_plot,mturk_gender_plot,labels = "AUTO",nrow = 2)
+```
+
+The percent of males is significantly larger than the number of females in the sample, while the number of males is slightly smaller than the percent of females in both the US population and MTurk population. The sample does not seem to be a random sample of both.
+
+### education
+```{r}
+us_edu = fread("data/us_edu.csv", encoding = "UTF-8")
+us_edu[,percent := number/sum(number)]
+
+mturk_edu = fread("data/mturk_edu.csv", encoding = "UTF-8")
+mturk_edu = data.table(c(1:5),c(0.02,0.09,0.26+0.09,0.35,0.14+0.05))
+setnames(mturk_edu,1:2,c("education","percent"))
+
+us_edu_plot = get.bar2(us_edu,"education","percent","US",y.label = "percent")
+mturk_edu_plot = get.bar2(mturk_edu,"education","percent","MTurk",y.label = "percent")
+
+plot_grid(bar.list[[2]],us_edu_plot,mturk_edu_plot,labels = "AUTO",nrow = 2)
+```
+
+We map the education into five levels, as stated above. Compared with the US population, the sample seems to have a higher education level; compared with the MTurk population, their difference is not significant in education. 
+
+### income
+```{r}
+us_income = read_excel("data/us_income.xlsx")
 us_income = us_income %>% 
   filter(!is.na(Total)) %>%
   melt() %>%
   filter(variable != "Total") %>%
   data.table()
 setnames(us_income,"variable","income")
+us_income[,income_group := c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,rep(8,nrow(us_income)-14))]
+us_income = us_income[,.(
+  number = sum(value)
+),by = income_group]
+us_income[,income := c("<10$k","$10k-$20k","$20k-$30k","$30k-$40k","$40k-$50k","$50k-$60k","$60k-$70k",">$70k")]
+us_income[,percent := number/sum(number)]
 
-ggplot(us_age) + 
-  geom_bar(aes(x=age,weight = percent))
+
+mturk_income = fread("data/mturk_income.csv", encoding = "UTF-8")
+mturk_income = data.table(melt(mturk_income,variable.name = "income",value.name = "percent"))
+
+us_income_plot = get.bar2(us_income,"income","percent","US",y.label = "percent")
+mturk_income_plot = get.bar2(mturk_income,"income","percent","MTurk",y.label = "percent")
+
+ggsave(plot_grid(bar.list[[3]],us_income_plot,mturk_income_plot,labels = "AUTO",nrow = 3),filename = "graphs/grid_income.png",width = 12,height = 18)
 ```
+![](G:/github/modern-data-mining/hw1/liming/graphs/grid_income.png)
+
+Note: In regards to income in the sample, 1 represents "Less than \$15,000", 2 represents "\$15,000 - \$30,000", 3 represents "\$30,000 - \$50,000", 4 represents "\$50,000 - \$75,000", 5 represents "\$75,000 - \$150,000", 6 represents "Above \$150,000". The granularity of our data is not the same, so the graphs are not directly comparable. 
+
+It is hard to compare the income distribution of our sample with that of the US population and MTurk population directly due to the granularity issue. However, if we can accept that the sample should be randomly selected from the US MTurk population due to the nature of our survey, we still argue that it is not a random sample from the US population, which is more relevant to the validity of our estimation. We can see that there are more people with low income in the MTurk population; therefore, if we think that the sample is a random sample from the MTurk population, we can derive the conclusion above.
+
+### Conclusion on the randomness
+
+From the above comparison, we conclude that the sample cannot be a random sample from the US population. It can be corroborated by the theory of self-selection bias. As with the MTurk US population, we also find some evidence that its distribution in some variables is different from that of the sample. Therefore, we also think that the sample may also not a random sample from the MTurk US population. This latter should be taken more cautiously because the researches with respect to MTurk we refer to are not conducted in 2014, which is our sample year.
 
 ## Final Estimates
 
