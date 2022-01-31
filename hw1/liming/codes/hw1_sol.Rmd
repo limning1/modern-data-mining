@@ -1,7 +1,10 @@
 ---
 title: "hw1"
-author: "Liming Ning"
-date: "2022/1/16"
+author:
+- Liming Ning
+- Xinran Zhang
+- Wangbo Tang
+date: "2022/1/30"
 geometry: margin=1in
 output:
   html_document:
