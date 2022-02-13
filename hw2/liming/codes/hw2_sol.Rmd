@@ -620,6 +620,7 @@ rm(list = ls())
 names(Auto)
 skim(Auto)
 ```
+
 Everything seems to be fine: no missing values, names of variables are good. The class of each variable matches its nature.
 
 ```{r,eval=F}
@@ -699,7 +700,7 @@ plot(Auto.new2$weight, Auto.new2$log.mpg, pch=16)  #looks better!
 The correlation between mpg and all three variables become more linear after transformation, so our model will consider log(mpg) instead of the original mpg.
 
 
-```{r}
+```{r,eval=F}
 # mpg.hist = ggplot(Auto,aes(x=mpg))+
 #   geom_histogram()+
 #   theme_bw()+
@@ -764,6 +765,7 @@ ggplot(Auto, aes(x = year , y = mpg)) +
   
 summary(fit1)
 ```
+
 `Year` is a significant variable at the .05 level.
 
 `Year` effect: When model year increases by 1 unit, we expect, on average the mpg will increase about 1.2300.
@@ -778,7 +780,7 @@ $$y_i = \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i2} + \epsilon$$
 
 ```{r}
 fit2 <- lm(mpg ~ year + horsepower, data = Auto) 
-stargazer::stargazer(fit2, type=output_format, align=TRUE)
+stargazer::stargazer(fit2, type="text", align=TRUE)
 ```
 
 `Year` is still a significant variable at the .05 level.
@@ -797,6 +799,7 @@ summary(fit3)
 ```{r}
 anova(fit3)
 ```
+
 The interaction effect is significant at .05 level.
 
 `Year` effect: When year increases by 1 unit, we expect, on average the mpg will increase about 2.19.
@@ -829,6 +832,7 @@ levels(Auto1$cylinders)
 ```{r}
 ggplot(Auto1) + geom_boxplot(aes(x = cylinders, y = mpg))
 ```
+
 Our model is: 
 
 $$y_{i|x=3} = \mu_{3} + \epsilon_i$$
@@ -860,7 +864,8 @@ where
 To test $$H_0: \mu_{3} = \mu_{4} = \mu_{5} = \mu_{6} = \mu_{8}$$ is same as to test
 $$H_0: \beta_{4} = \beta_{5} = \beta_{6} = \beta_{8} = 0$$
 
-Now we can use `lm()` to fit the model and carry out the tests
+Now we can use `lm()` to fit the model and carry out the tests:
+
 ```{r}
 fit5 <- lm(mpg ~ cylinders, Auto1)
 summary(fit5)
@@ -897,6 +902,8 @@ setnames(Auto.new,c("horsepower","displacement","weight"),c("horsepower.rec","di
 ```
 
 We include explanatory variables one by one in a stepwise forward manner; when the p-value of the LR test for the new model against the model in the last step is larger than 0.05, we stop the process and get a model output.
+
+**Forward stepwise selection**
 
 ```{r}
 # stepwise forwarding
@@ -948,6 +955,8 @@ while(i<1){
 
 We include the reciprocal of weight, the reciprocal of horsepower, acceleration and origin sequentially, in addition to year and cylinders. Next we are going to examine the output model. 
 
+**Final model**
+
 ```{r}
 fit.prefinal = lm(mpg~.,reg.current)
 stargazer(fit.prefinal,type="text", align=TRUE)
@@ -963,6 +972,8 @@ anova(fit.final1,fit.final2) # The inclusion of year is not necessary.
 
 fit.final = fit.final2
 ```
+
+**Diagnosis**
 
 ```{r}
 par(mfrow=c(1,2), mar=c(5,2,4,2), mgp=c(3,0.5,0))
@@ -1003,7 +1014,11 @@ cov.rest = Auto.new2[,.(
   acceleration,
   origin
 )]
+```
 
+**Forward stepwise selection**
+
+```{r}
 i = 0
 while(i<1){
   new.va = for.onestage(reg.current,cov.rest)
@@ -1014,7 +1029,11 @@ while(i<1){
   reg.current[,(new.va[[1]]) := cov.rest[,new.va[[1]],with=F]]
   cov.rest = cov.rest[,(new.va[[1]]) := NULL]
 }
+```
 
+**Final model**
+
+```{r}
 # final model
 fit.prefinal = lm(log.mpg~.,reg.current)
 stargazer(fit.prefinal,type="text", align=TRUE)
@@ -1029,14 +1048,22 @@ stargazer(fit.final2,type="text", align=TRUE)
 anova(fit.final1,fit.final2) # The inclusion of displacement is not necessary; only significant at 10%.
 
 fit.final = fit.final2
+```
 
+**Diagnosis**
+
+```{r}
 # diagnosis
 
 par(mfrow=c(1,2), mar=c(5,2,4,2), mgp=c(3,0.5,0))
 plot(fit.final, 1, pch=16) # residual plot; the heteroscedasticity concern is well handled
 abline(h=0, col="blue", lwd=2)
 plot(fit.final, 2) # qqplot; less thick tail
+```
 
+**Prediction**
+
+```{r}
 # prediction
 
 new <- data.frame(cylinders="8",displacement=350,horsepower=260,weight=4000,year=83,origin="1")
