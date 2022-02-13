@@ -1,0 +1,371 @@
+---
+title: "test_hw2"
+author: "Liming Ning"
+date: "2022/2/6"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, warning = F)
+knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw2/liming')
+output_format <- ifelse(is.null(knitr::opts_knit$get("rmarkdown.pandoc.to")),
+                        "text", knitr::opts_knit$get("rmarkdown.pandoc.to"))
+options(scipen = 0, digits = 3)  # controls base R output
+
+library(data.table)
+library(reshape2)
+library(readxl)
+library(tidyverse)
+library(cowplot)
+library(kableExtra)
+library(ggrepel)
+library(skimr)
+library(plotly)
+library(RColorBrewer)
+library(ggbiplot)
+library(factoextra)
+library(DescTools)
+library(irlba)
+library(ISLR)
+library(lmtest)
+library(stargazer)
+```
+
+```{r,eval = F}
+rm(list = ls())
+```
+
+# Case 2: Breast cancer sub-type
+
+```{r}
+cancer = fread("data/brca_subtype.csv")
+patient = fread("data/brca_x_patient.csv")
+```
+
+## Summary and transformation
+
+**Number of patients in each subtype**
+```{r}
+cancer[,.(number = length(A1BG)),by = BRCA_Subtype_PAM50]
+```
+
+**Histogram by subtype**
+
+```{r}
+hist.bysubtype = function(gene){
+  luma = ggplot(data = cancer[BRCA_Subtype_PAM50 == "LumA"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "LumA")+
+    theme_bw()
+  lumb = ggplot(data = cancer[BRCA_Subtype_PAM50 == "LumB"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "LumB")+
+    theme_bw()
+  her2 = ggplot(data = cancer[BRCA_Subtype_PAM50 == "Her2"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "Her2")+
+    theme_bw()
+  basal = ggplot(data = cancer[BRCA_Subtype_PAM50 == "Basal"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "Basal")+
+    theme_bw()
+  plot_grid(luma,lumb,her2,basal,nrow = 2)
+}
+
+hist.bysubtype("A1BG")
+hist.bysubtype("A2M")
+hist.bysubtype("NAT1")
+hist.bysubtype("NAT2")
+hist.bysubtype("AADAC")
+```
+
+All the distributions are right-skewed. Outliers are prevalent.
+
+**Transformation**
+```{r}
+# check NA
+notna = !is.na(cancer)
+notna.vec = apply(notna, 2, sum)
+which(notna.vec==0)
+
+# check NULL
+isnull.firstrow = sapply(cancer[1],is.null)
+which(isnull.firstrow == T)
+```
+
+```{r,eval=F}
+# check variability
+var = apply(cancer,2,var)
+remove.col = which(var==0)
+save(remove.col,file = "removecol.RData")
+```
+
+```{r}
+load("removecol.RData")
+```
+
+```{r}
+length(remove.col)
+```
+
+A total of 278 genes needs to be removed due to zero variability.
+
+```{r}
+# remove 
+
+cancer[,(names(remove.col)) := NULL]
+
+# deal with zeros before transforming
+
+get.minpositive = function(vec){
+  min(vec[which(vec>0)])
+}
+min.positiveexp = apply(cancer[,-1], 2, get.minpositive)
+```
+
+```{r,eval=F}
+for (i in 2:ncol(cancer)) {
+  cancer[get(colnames(cancer)[i])==0,colnames(cancer)[i] := min.positiveexp[i-1]/2, with = F]
+}
+save(cancer,file = "cancer.RData")
+```
+
+```{r}
+load("cancer.RData")
+```
+
+```{r}
+# transforming
+log.cancer = cancer[,1] %>% 
+  cbind(log(cancer[,-1]))
+```
+
+## kmeans clustering
+
+```{r}
+set.seed(1) # otherwise the result will be different!!!
+kmeans.cancer = kmeans(log.cancer[,-1],centers = 4)
+hist(kmeans.cancer$cluster)
+```
+
+```{r}
+table(log.cancer$BRCA_Subtype_PAM50,kmeans.cancer$cluster)
+```
+
+Kmeans clustering only separate Basal with others. 
+
+## Spectrum clustering
+
+```{r}
+log.cancer.scaled.centered = scale(log.cancer[,-1],center = T,scale = T)
+svd.cancer.scaled = irlba(log.cancer.scaled.centered,nv = 10)
+
+var.estimate.scaled = svd.cancer.scaled$d^2/(nrow(log.cancer.scaled.centered)-1)
+pve.cancer.scaled = var.estimate.scaled/ncol(log.cancer.scaled.centered)
+plot(pve.cancer.scaled,type = "b")
+```
+
+According to the elbow rule, we can use 3 PCs, as PVE decreases dramatically since PC4. 
+
+**Comparison of scaling choice**
+```{r}
+pc.firsttwo.scaled = data.table(log.cancer.scaled.centered %*% svd.cancer.scaled$v[,1:2])
+setnames(pc.firsttwo.scaled,c("PC1","PC2"))
+
+log.cancer.unscaled.centered = scale(log.cancer[,-1],center = T,scale = F)
+svd.cancer.unscaled = irlba(log.cancer.unscaled.centered,nv = 10)
+pc.firsttwo.unscaled = data.table(log.cancer.unscaled.centered %*% svd.cancer.unscaled$v[,1:2])
+setnames(pc.firsttwo.unscaled,c("PC1","PC2"))
+
+pc.scatter.scaled = ggplot(data = pc.firsttwo.scaled,aes(x=PC1,y=PC2))+ 
+  geom_point()+
+  labs(title = "The First Two PCs, Scaled")+
+  theme_bw()
+
+pc.scatter.unscaled = ggplot(data = pc.firsttwo.unscaled,aes(x=PC1,y=PC2))+ 
+  geom_point()+
+  labs(title = "The First Two PCs, Unscaled")+
+  theme_bw()
+
+plot_grid(pc.scatter.scaled,pc.scatter.unscaled)
+```
+
+We should not scale the original data, since two clusters are obvious in the unscaled scatter plot. Intuitively we should not scale the variables, because scaling means that we assign equal weight for relative variability in every gene. This is generally not innocuous because some important genes may vary more, as they indicate the difference well; others vary a little and are not informative, thus we should not assign much weight on them by scaling. 
+
+## Spectrum clustering, cont'd
+
+**Optimal number of clusters**
+
+```{r}
+pc.firstfour.unscaled = data.table(log.cancer.unscaled.centered %*% svd.cancer.unscaled$v[,1:4])
+setnames(pc.firstfour.unscaled,c("PC1","PC2","PC3","PC4"))
+fviz_nbclust(pc.firstfour.unscaled,kmeans,method = "wss")
+```
+
+We decide to choose $k=4$. On the one hand, The total WSS is no longer decreasing dramatically after $k=4$; on the other hand, this best conforms to our prior knowledge.
+
+**Comparison between true groups and clusters**
+
+```{r}
+set.seed(1)
+kmeans.cancer.4pc = kmeans(pc.firstfour.unscaled,centers = 4)
+cancer.groupcomp = data.table(log.cancer[,1],pc.firstfour.unscaled,cluster = as.factor(kmeans.cancer.4pc$cluster))
+setnames(cancer.groupcomp,1,"real.group")
+
+ggplot(data = cancer.groupcomp,aes(x=PC1,y=PC2,color=real.group,pch=cluster))+
+  geom_point()+
+  theme_bw()
+```
+
+Overall, the clustering result is not bad. Basal is identified more clearly; Her2 is almost unidentified at all. The clustering is not perfect but acceptable.
+
+**Comparison of clustering with original data and PCs**
+
+```{r}
+# original
+kbl(table(log.cancer$BRCA_Subtype_PAM50,kmeans.cancer$cluster), caption = "Discrepancy Table, Original", digits = 2, booktabs = T,align = "lcccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))
+
+# PC
+kbl(table(log.cancer$BRCA_Subtype_PAM50,kmeans.cancer.4pc$cluster), caption = "Discrepancy Table, 4PC", digits = 2, booktabs = T,align = "lcccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))
+```
+
+Judging from the discrepancy tables, PCA seldom helps in kmeans clustering. In theory PCA just makes the information more intensive; if we are using all information with the original data in kmeans, its performance should not be much worse than that using only a few PCs with partial information. If it is the case that PCA does help, it may be attributed to the exclusion of noise. 
+
+**Classification of a new patient**
+
+```{r,eval=F}
+patient[,(names(remove.col)) := NULL]
+
+# deal with zeros
+for (i in 1:ncol(patient)) {
+  patient[get(colnames(patient)[i])==0,colnames(patient)[i] := min.positiveexp[i]/2, with = F]
+}
+save(patient,file = "patient.RData")
+```
+
+```{r}
+load("patient.RData")
+```
+
+```{r}
+# transforming
+log.patient = log(patient)
+
+# centering
+log.patient = log.patient - apply(log.cancer[,-1],2,mean)
+
+patient.firsttwo.unscaled = data.table(as.matrix(log.patient) %*% svd.cancer.scaled$v[,1:2])
+patient.firsttwo.unscaled.mat = rbind(patient.firsttwo.unscaled,patient.firsttwo.unscaled,patient.firsttwo.unscaled,patient.firsttwo.unscaled)
+
+ggplot(data = cancer.groupcomp,aes(x=PC1,y=PC2,color=real.group,pch=cluster))+
+  geom_point()+
+  geom_point(aes(x=patient.firsttwo.unscaled$V1,y=patient.firsttwo.unscaled$V2),color = "black",size=2)+
+  theme_bw()
+
+distance = kmeans.cancer.4pc$centers[,1:2] - patient.firsttwo.unscaled.mat
+distance.square = diag(as.matrix(distance) %*% t(as.matrix(distance)))
+
+which.min(distance.square)
+```
+
+
+# Case 3: Auto data set
+
+## EDA, to be continued
+
+**Summary Statistics**
+```{r}
+auto = data.table(Auto)
+skim(auto)
+```
+
+**Correlations**
+
+```{r}
+auto.corr.mat = data.frame(round(cor(auto[,-"name"]), digits = 2),var1 = names(auto)[-ncol(auto)])
+auto.corr.mat.long = data.table(melt(auto.corr.mat,id.vars = "var1", variable.name = "var2", value.name = "correlation"))
+auto.corr.mat.long = auto.corr.mat.long[,var2 := as.character(var2)]
+auto.corr.mat.long = auto.corr.mat.long[order(var1,var2)]
+
+my_color = brewer.pal(5, "Spectral")
+ggplot(data = auto.corr.mat.long,aes(x=var1,y=var2,fill = correlation))+
+  geom_point(aes(size = abs(correlation)), shape = 21) +
+  geom_text(aes(label = correlation), size = 3, colour = "black", alpha = 0.7)+
+  scale_fill_gradientn(colours = my_color) +
+  xlab("var1")+
+  scale_size_area(max_size = 15, guide = "none") +
+  theme_bw()
+```
+
+Some variables are highly correlated. Pay attention to collineaity problems.
+
+
+**Pairwise scatter plots**
+
+```{r}
+ggplot(data = auto,aes(x=cylinders,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=displacement,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=horsepower,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=weight,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=acceleration,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=year,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=origin,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+```
+
+## Year and mpg
+
+```{r}
+reg.year = lm(mpg~year,data = auto)
+summary(reg.year)
+```
+
+```{r}
+reg.year.horse = lm(mpg~year+horsepower,data = auto)
+summary(reg.year.horse)
+```
+
+```{r}
+reg.year.horse.inter = lm(mpg~year+horsepower+year*horsepower,data = auto)
+summary(reg.year.horse.inter)
+```
+
+## Categorical predictors
+
+```{r}
+reg.cyl.num = lm(mpg~cylinders,data = auto)
+summary(reg.cyl.num)
+```
+
+```{r}
+reg.cyl.fac = lm(mpg~as.factor(cylinders),data = auto)
+stargazer(reg.cyl.fac,type = output_format,keep.stat = c("n", "rsq", "sigma2", "ser"))
+```

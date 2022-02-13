@@ -1,0 +1,929 @@
+---
+title: "hw1"
+author: "Liming Ning, Xinran Zhang"
+date: "2022/2/4"
+geometry: margin=1in
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
+urlcolor: blue
+always_allow_html: true
+indent: true 
+fontsize: 12pt
+---
+
+```{r setup, include=F, cache=FALSE}
+knitr::opts_chunk$set(echo = T, warning = F, message = F)
+knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw2/liming')
+library(data.table)
+library(reshape2)
+library(readxl)
+library(tidyverse)
+library(cowplot)
+library(kableExtra)
+library(ggrepel)
+library(skimr)
+library(plotly)
+library(RColorBrewer)
+library(ggbiplot)
+library(factoextra)
+library(DescTools)
+library(irlba)
+library(ISLR)
+library(lmtest)
+library(stargazer)
+```
+
+```{r}
+rm(list = ls())
+```
+
+
+# Case Study 1: Self esteem
+## Data preparation
+```{r}
+esteem = fread("data/NLSY79.csv")
+skim(esteem)
+```
+
+```{r}
+esteem.isnull = data.frame(matrix(nrow = nrow(esteem),ncol = ncol(esteem)))
+for (i in 1:ncol(esteem)) {
+  esteem.isnull[i] = sapply(esteem[,eval(parse(text = i))], is.null)
+}
+colnames(esteem.isnull) = colnames(esteem)
+apply(esteem.isnull,2,sum)
+```
+
+No Null in the data set.
+
+```{r}
+apply(esteem == "", 2, sum)
+```
+
+56 subjects do not have Job05 information. We decide to exclude them.
+
+```{r}
+esteem = esteem[Income87>=0&HeightFeet05>0&Job05 != ""]
+```
+
+The data is well cleaned. There is no missing value in the data set. It is worth noting that some subjects in the data have  negative income (Income87) and negative height (HeightFeet05), which by common sense are susceptible. These numbers are erroneous and should be excluded. 30 subjects are excluded, relative small compared to the total number of subjects.
+
+## Self esteem evaluation
+### Reversion
+```{r}
+# for (i in c(81,87)) {
+#   for (j in c(1,2,4,6,7)) {
+#     esteem = esteem %>%
+#   mutate_at(vars(paste0("Esteem",i,"_",j)), ~5-.)
+#   }
+# }
+
+for (i in c(81,87)) {
+  for (j in c(1,2,4,6,7)) {
+    esteem[,paste0("Esteem",i,"_",j) := 5-get(paste0("Esteem",i,"_",j))]
+  }
+}
+```
+
+### Brief summary for the esteem measurements
+```{r}
+plot.esteem = list()
+for (i in 1:10) {
+  plot.esteem[[i]] = ggplot(data = esteem)+
+    geom_histogram(aes(x=get(paste0("Esteem",87,"_",i))))+
+    xlab(paste0("Esteem",87,"_",i))+
+    theme_bw()
+}
+
+plot_grid(plotlist = plot.esteem,nrow = 4)
+```
+
+There are ten different dimensions in the evaluation of self esteem in 1987, including the perception of self ability, self value, attitude and so on. These questions can capture most of the components for self esteem. The answer to every question ranges from 1 to 4, where a larger number means a better manifestation of self esteem in this aspect. From the histogram we can see that most subjects score 3 or 4 in each question, indicating that most people have a strong self esteem. The distribution of scores is almost the same across questions, implying a positive correlation between the scores. 
+
+### Correlation between measurements of self esteem
+```{r}
+corr.mat = data.frame(round(cor(esteem[,Esteem87_1:Esteem87_10]), digits = 2),var1 = names(esteem)[37:46])
+corr.mat$var1 = 1:10
+corr.mat.long = melt(corr.mat,id.vars = "var1", variable.name = "var2", value.name = "correlation")
+
+my_color = brewer.pal(5, "Spectral")
+ggplot(data = corr.mat.long,aes(x=as.factor(var1),y=var2,fill = correlation))+
+  geom_point(aes(size = abs(correlation)), shape = 21) +
+  geom_text(aes(label = correlation), size = 3, colour = "black", alpha = 0.7)+
+  scale_fill_gradientn(colours = my_color) +
+  xlab("var1")+
+  scale_size_area(max_size = 15, guide = "none") +
+  theme_bw()
+```
+
+From the correlation matrix, we can see that all ten measures of self esteem are positively correlated more or less. This is reasonable since they are all measuring self esteem and a larger nuber indicates a stronger self esteem for all of them. Despite that, their correlation is not extremely high, implying that they are effectively measuring different aspects of self esteem.
+
+### PCA
+
+**The first two PCs**
+```{r}
+pca.esteem = prcomp(esteem[,Esteem87_1:Esteem87_10], center = T)
+pc.firsttwo = pca.esteem$rotation[,1:2] # the first two PCs
+kbl(pc.firsttwo, caption = "Loadings for PC1 and PC2", digits = 2, booktabs = T,
+    align = "lcc") %>%
+  kable_styling(latex_options = c("HOLD_position"))
+```
+
+```{r}
+round(t(pc.firsttwo) %*% pc.firsttwo, digits = 3)
+```
+
+The result shows that both PCs are unit vector. They are orthogonal, judging from the fact that their inner product is zero (ignoring the rounding errors when the computer converts a decimal number into a binary number). 
+
+**Interpretations for the first two PCs**
+
+The first PC is essentially almost the average of all measures, evaluating the overall self esteem revealed by all questions. The second PC seems to represent the difference between question 8, 9, 10 and question 1, 2, 4. The former are all negative description of self esteem while the latter are all positive description of self esteem. Thus PC2 can be interpreted as measuring the inconsistency when people evaluate themselves facing essentially the same but only literally opposite expressions. 
+
+**Formula for calculating PC scores**
+
+Denote the original response vector for a subject $i$ as $y_i$, and the loading for $PC_j$ is $l_j$.
+
+Subject $i$'s $PC_j$ score: $$y'_j = <y_i,l_j> = y^T_i l_j. $$ 
+
+**Correlation between PC1 and PC2**
+
+```{r}
+round(cor(pca.esteem$x[,1:2]),digits = 3)
+```
+
+PC1 scores and PC2 scores are uncorrelated (ignoring the rounding errors when the computer converts a decimal number into a binary number).
+
+**PVE**
+
+```{r}
+pve.esteem = data.table(t(summary(pca.esteem)$importance))
+pve.esteem[, PC := as.factor(1:10)]
+ggplot(pve.esteem,aes(x=PC,weight = `Standard deviation`))+
+  geom_bar()+
+  ylab("Standard deviation")+
+  theme_bw()
+```
+
+The explanatory power of PCs drops sharply from PC2 on. The first PC accounts for significantly more variance than others, and the explanatory power of other PCs is quite close.
+
+**CPVE**
+
+```{r}
+ggplot(pve.esteem,aes(x=PC,y = `Cumulative Proportion`))+
+  geom_point()+
+  ylab("Cumulative Proportion")+
+  theme_bw()
+```
+
+60\% of the variance is explained by the first two PCs.
+
+**Biplot**
+
+```{r}
+ggbiplot(pca.esteem,obs.scale = 1.5, var.scale = 1, varname.adjust = 2,varname.size = 3)+
+  theme_bw()
+```
+
+Interpretation for PC1: the average of all questions. 
+
+Interpretation for PC2: the difference between question 8, 9, 10 and the rest. 
+### Clustering
+
+**Determine number of clusters**
+
+```{r}
+fviz_nbclust(esteem[,Esteem87_1:Esteem87_10], kmeans, method = "wss")
+```
+
+We choose the number of clusters to be 2. 
+
+**Cluster features**
+
+By prior knowledge, we speculate that the two clusters are for strong self esteem group and weak self esteem group. If this is the case, the common feature should be: one group features relatively high scores in every question while the other group features relatively low scores in every question. 
+
+```{r}
+set.seed(1)
+esteem.cluster2.origin = kmeans(esteem[,Esteem87_1:Esteem87_10], centers = 2)
+esteem.cluster2.origin.center = t(esteem.cluster2.origin$centers)
+colnames(esteem.cluster2.origin.center) = c("cluster1","cluster2")
+
+kbl(esteem.cluster2.origin.center, caption = "Centers for Two Clusters", digits = 2, booktabs = T,
+    align = "lcc") %>%
+  kable_styling(latex_options = c("HOLD_position"))
+```
+
+The information of centers for the two clusters justify our speculation. The average score in each question is much smaller in the second cluster.
+
+**Visualization**
+
+```{r}
+esteem[,cluster2.origin := as.factor(esteem.cluster2.origin$cluster)]
+
+ggplot(data = esteem, aes(x=Esteem87_1,y=Esteem87_2,group = cluster2.origin,color=cluster2.origin))+
+  geom_point()+
+  geom_jitter()+
+  theme_bw()
+```
+
+The boundary of two clusters is not very clear in the scatter plot of two original measurements.
+
+```{r}
+esteem.pcscore = data.table(pca.esteem$x,cluster2.origin = as.factor(esteem.cluster2.origin$cluster))
+
+ggplot(data = esteem.pcscore,aes(x=PC1,y=PC2,group = cluster2.origin,color=cluster2.origin))+
+  geom_point()+
+  geom_jitter()+
+  theme_bw()
+```
+
+The boundary of two clusters is very clear in the scatter plot of scores for two leading PCs. PC2 is almost not informative in identifying groups. It is roughly true that $x=0$ is the boundary. $PC1 >= 0$ belongs to the first group, and $PC1 < 0 $ belongs to the second group.
+
+### Regression
+
+**Prepare variables**
+
+```{r}
+pcscore.asvab = data.frame(prcomp(esteem[,16:26],scale. = T)$x) # should be scaled
+
+esteem[,c("pc1.esteem87","pc1.asvab") := .(esteem.pcscore$PC1,pcscore.asvab$PC1)]
+
+esteem[Income87==0,Income87 := 1] # deal with zeros
+
+esteem.reg = esteem[,.(
+  Gender,
+  Education05,
+  log.Income87 = log(Income87),
+  Job05, # no job87
+  Bmi05 = Weight05/2.20462262/((HeightFeet05+HeightInch05/12)/3.2808399)^2,
+  Imagazine = as.factor(Imagazine),
+  Ilibrary = as.factor(Ilibrary),
+  MotherEd,
+  FatherEd,
+  FamilyIncome78,
+  pc1.asvab,
+  pc1.esteem87
+)]
+
+job.list = unique(esteem.reg[,Job05])
+job.code = data.table(job05.list = job.list, Job05code = as.factor(1:length(job.list)))
+esteem.reg = esteem.reg %>% 
+  left_join(job.code,c("Job05" = "job05.list"))
+esteem.reg[,Job05 := NULL]
+```
+
+**Full regression**
+```{r}
+# full regression
+esteem.fullreg = lm(pc1.esteem87~.,data = esteem.reg)
+summary(esteem.fullreg)
+```
+**only significant variables in the full regression**
+
+```{r}
+esteem.selectedreg1 = lm(pc1.esteem87~Education05+log.Income87+pc1.asvab+Job05code,data = esteem.reg)
+summary(esteem.selectedreg1)
+```
+
+**Model diagnosis**
+
+```{r}
+# homoscedasticity of error
+ggplot()+
+  geom_point(aes(x=esteem.selectedreg1$fitted.values,y=esteem.selectedreg1$residuals))+
+  xlab("fitted values")+
+  ylab("residuals")+
+  labs(title = "Residual plot")+
+  theme_bw()
+```
+
+There is no clear trend for error. Homoscedasticity is roughly met.
+
+```{r}
+# linearity
+plot.edu.esteem = ggplot(data = esteem.reg,aes(x=Education05,y=pc1.esteem87))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "Education05 vs PC1 of Esteem87")+
+  theme_bw()
+plot.income.esteem = ggplot(data = esteem.reg,aes(x=log.Income87,y=pc1.esteem87))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "logIncome87 vs PC1 of Esteem87")+
+  theme_bw()
+plot.asvab.esteem = ggplot(data = esteem.reg,aes(x=pc1.asvab,y=pc1.esteem87))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "PC1 of ASVAB Score vs PC1 of Esteem87")+
+  theme_bw()
+
+plot_grid(plot.edu.esteem,plot.income.esteem,plot.asvab.esteem)
+```
+
+According to the scatter plots presented above, the linearity assumption is roughly met. Note that the prevalence of zero in Income87 makes taking log no longer the most desirable choice. Using the original value instead may be better.
+
+```{r}
+esteem.reg[,Income87 := exp(log.Income87)]
+esteem.reg[Income87 == 1, Income87 := 0]
+
+esteem.selectedreg1.new = lm(pc1.esteem87~Education05+Income87+pc1.asvab+Job05code,data = esteem.reg)
+summary(esteem.selectedreg1.new)
+```
+
+```{r}
+plot.edu.esteem.new = ggplot(data = esteem.reg,aes(x=Education05,y=pc1.esteem87))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "Education05 vs PC1 of Esteem87")+
+  theme_bw()
+plot.income.esteem.new = ggplot(data = esteem.reg,aes(x=Income87,y=pc1.esteem87))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "Income87 vs PC1 of Esteem87")+
+  theme_bw()
+plot.asvab.esteem.new = ggplot(data = esteem.reg,aes(x=pc1.asvab,y=pc1.esteem87))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "PC1 of ASVAB Score vs PC1 of Esteem87")+
+  theme_bw()
+
+plot_grid(plot.edu.esteem.new,plot.income.esteem.new,plot.asvab.esteem.new)
+```
+
+The relationship between Income87 and Esteem seems to be more linear if we use the original scale of Income87.
+
+**Summary**
+
+We find that Education level in 2005, Income in 1987, PC1 of ASVAB test in 1981 and Job type in 2005 are significantly predictive to the overall self esteem measured in 1987. The predictive power of the two variables measured in 2005 cannot be interpreted as causal relationship; instead, we can regard them as having a common determinant with Esteem87 (the common cause can be the corresponding measure in 1987, because one's previous education should be positively correlated with current education, given that the person was an adult back then; so do jobs). 
+
+Education level, Income and ASVAB test score are all positively correlated with self esteem. These are reasonable because they are all signals that show you are "better" than others in a certain field. Also, advantages in these aspects can be converted into wealth, which should be positively correlated with one's life quality (at least materially). \
+
+Job types also significantly correlated with self esteem. Compared to Sales and Related Workers, people working as Cleaning and Building Service Workers, Health Care Technical and Support Workers, Transportation and Material Moving Workers, Entertainment Attendants and Related Workers, Physical Scientists (suspicious as there are only four observations) have significantly less self esteem, possibly because these occupations are representative for low social status (except the last one). Protective Service Workers have more self esteem, possibly because they are physically much stronger; Management Related Workers have more self esteem, which may be attributed to their relatively high social status.
+
+```{r}
+rm(list = ls())
+```
+
+# Case 2: Breast cancer sub-type
+
+```{r}
+cancer = fread("data/brca_subtype.csv")
+patient = fread("data/brca_x_patient.csv")
+```
+
+## Summary and transformation
+
+**Number of patients in each subtype**
+```{r}
+cancer[,.(number = length(A1BG)),by = BRCA_Subtype_PAM50]
+```
+
+**Histogram by subtype**
+
+```{r}
+hist.bysubtype = function(gene){
+  luma = ggplot(data = cancer[BRCA_Subtype_PAM50 == "LumA"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "LumA")+
+    theme_bw()
+  lumb = ggplot(data = cancer[BRCA_Subtype_PAM50 == "LumB"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "LumB")+
+    theme_bw()
+  her2 = ggplot(data = cancer[BRCA_Subtype_PAM50 == "Her2"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "Her2")+
+    theme_bw()
+  basal = ggplot(data = cancer[BRCA_Subtype_PAM50 == "Basal"])+
+    geom_histogram(aes(x=eval(parse(text = gene))))+
+    xlab(gene)+
+    labs(title = "Basal")+
+    theme_bw()
+  plot_grid(luma,lumb,her2,basal,nrow = 2)
+}
+
+hist.bysubtype("A1BG")
+hist.bysubtype("A2M")
+hist.bysubtype("NAT1")
+hist.bysubtype("NAT2")
+hist.bysubtype("AADAC")
+```
+
+All the distributions are right-skewed. Outliers are prevalent.
+
+**Transformation**
+```{r}
+# check NA
+notna = !is.na(cancer)
+notna.vec = apply(notna, 2, sum)
+which(notna.vec==0)
+
+# check NULL
+isnull.firstrow = sapply(cancer[1],is.null)
+which(isnull.firstrow == T)
+```
+
+```{r,eval=F}
+# check variability
+var = apply(cancer,2,var)
+remove.col = which(var==0)
+save(remove.col,file = "removecol.RData")
+```
+
+```{r}
+load("removecol.RData")
+```
+
+```{r}
+length(remove.col)
+```
+
+A total of 278 genes needs to be removed due to zero variability.
+
+```{r}
+# remove 
+
+cancer[,(names(remove.col)) := NULL]
+
+# deal with zeros before transforming
+
+get.minpositive = function(vec){
+  min(vec[which(vec>0)])
+}
+min.positiveexp = apply(cancer[,-1], 2, get.minpositive)
+```
+
+```{r,eval=F}
+for (i in 2:ncol(cancer)) {
+  cancer[get(colnames(cancer)[i])==0,colnames(cancer)[i] := min.positiveexp[i-1]/2, with = F]
+}
+save(cancer,file = "cancer.RData")
+```
+
+```{r}
+load("cancer.RData")
+```
+
+```{r}
+# transforming
+log.cancer = cancer[,1] %>% 
+  cbind(log(cancer[,-1]))
+```
+
+## kmeans clustering
+
+```{r}
+set.seed(1)
+kmeans.cancer = kmeans(log.cancer[,-1],centers = 4)
+table(log.cancer$BRCA_Subtype_PAM50,kmeans.cancer$cluster)
+```
+
+Kmeans clustering only separate Basal with others. 
+
+## Spectrum clustering
+
+```{r}
+log.cancer.scaled.centered = scale(log.cancer[,-1],center = T,scale = T)
+svd.cancer.scaled = irlba(log.cancer.scaled.centered,nv = 10)
+
+var.estimate.scaled = svd.cancer.scaled$d^2/(nrow(log.cancer.scaled.centered)-1)
+pve.cancer.scaled = var.estimate.scaled/ncol(log.cancer.scaled.centered)
+plot(pve.cancer.scaled,type = "b")
+```
+
+According to the elbow rule, we can use 3 PCs, as PVE decreases dramatically since PC4. 
+
+**Comparison of scaling choice**
+```{r}
+pc.firsttwo.scaled = data.table(log.cancer.scaled.centered %*% svd.cancer.scaled$v[,1:2])
+setnames(pc.firsttwo.scaled,c("PC1","PC2"))
+
+log.cancer.unscaled.centered = scale(log.cancer[,-1],center = T,scale = F)
+svd.cancer.unscaled = irlba(log.cancer.unscaled.centered,nv = 10)
+pc.firsttwo.unscaled = data.table(log.cancer.unscaled.centered %*% svd.cancer.unscaled$v[,1:2])
+setnames(pc.firsttwo.unscaled,c("PC1","PC2"))
+
+pc.scatter.scaled = ggplot(data = pc.firsttwo.scaled,aes(x=PC1,y=PC2))+ 
+  geom_point()+
+  labs(title = "The First Two PCs, Scaled")+
+  theme_bw()
+
+pc.scatter.unscaled = ggplot(data = pc.firsttwo.unscaled,aes(x=PC1,y=PC2))+ 
+  geom_point()+
+  labs(title = "The First Two PCs, Unscaled")+
+  theme_bw()
+
+plot_grid(pc.scatter.scaled,pc.scatter.unscaled)
+```
+
+We should not scale the original data, since two clusters are obvious in the unscaled scatter plot. Intuitively we should not scale the variables, because scaling means that we assign equal weight for relative variability in every gene. This is generally not innocuous because some important genes may vary more, as they indicate the difference well; others vary a little and are not informative, thus we should not assign much weight on them by scaling. 
+
+## Spectrum clustering, cont'd
+
+**Optimal number of clusters**
+
+```{r}
+pc.firstfour.unscaled = data.table(log.cancer.unscaled.centered %*% svd.cancer.unscaled$v[,1:4])
+setnames(pc.firstfour.unscaled,c("PC1","PC2","PC3","PC4"))
+fviz_nbclust(pc.firstfour.unscaled,kmeans,method = "wss")
+```
+
+We decide to choose $k=4$. On the one hand, The total WSS is no longer decreasing dramatically after $k=4$; on the other hand, this best conforms to our prior knowledge.
+
+**Comparison between true groups and clusters**
+
+```{r}
+set.seed(1) # otherwise the result varies
+kmeans.cancer.4pc = kmeans(pc.firstfour.unscaled,centers = 4)
+cancer.groupcomp = data.table(log.cancer[,1],pc.firstfour.unscaled,cluster = as.factor(kmeans.cancer.4pc$cluster))
+setnames(cancer.groupcomp,1,"real.group")
+
+ggplot(data = cancer.groupcomp,aes(x=PC1,y=PC2,color=real.group,pch=cluster))+
+  geom_point()+
+  theme_bw()
+```
+
+Overall, the clustering result is not bad. Basal is identified more clearly; Her2 is almost unidentified at all. The clustering is not perfect but acceptable.
+
+**Comparison of clustering with original data and PCs**
+
+```{r}
+# original
+kbl(table(log.cancer$BRCA_Subtype_PAM50,kmeans.cancer$cluster), caption = "Discrepancy Table, Original", digits = 2, booktabs = T,align = "lcccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))
+
+# PC
+kbl(table(log.cancer$BRCA_Subtype_PAM50,kmeans.cancer.4pc$cluster), caption = "Discrepancy Table, 4PC", digits = 2, booktabs = T,align = "lcccc") %>%
+  kable_styling(latex_options = c("HOLD_position"))
+```
+
+Judging from the discrepancy tables, PCA seldom helps in kmeans clustering. In theory PCA just makes the information more intensive; if we are using all information with the original data in kmeans, its performance should not be much worse than that using only a few PCs with partial information. If it is the case that PCA does help, it may be attributed to the exclusion of noise. 
+
+**Classification of a new patient**
+
+```{r,eval=F}
+patient[,(names(remove.col)) := NULL]
+
+# deal with zeros
+for (i in 1:ncol(patient)) {
+  patient[get(colnames(patient)[i])==0,colnames(patient)[i] := min.positiveexp[i]/2, with = F]
+}
+save(patient,file = "patient.RData")
+```
+
+```{r}
+load("patient.RData")
+```
+
+```{r}
+# transforming
+log.patient = log(patient)
+
+# centering
+log.patient = log.patient - apply(log.cancer[,-1],2,mean)
+
+patient.firsttwo.unscaled = data.table(as.matrix(log.patient) %*% svd.cancer.scaled$v[,1:2])
+patient.firsttwo.unscaled.mat = rbind(patient.firsttwo.unscaled,patient.firsttwo.unscaled,patient.firsttwo.unscaled,patient.firsttwo.unscaled)
+
+ggplot(data = cancer.groupcomp,aes(x=PC1,y=PC2,color=real.group,pch=cluster))+
+  geom_point()+
+  geom_point(aes(x=patient.firsttwo.unscaled$V1,y=patient.firsttwo.unscaled$V2),color = "black",size=2)+
+  theme_bw()
+
+distance = kmeans.cancer.4pc$centers[,1:2] - patient.firsttwo.unscaled.mat
+distance.square = diag(as.matrix(distance) %*% t(as.matrix(distance)))
+
+which.min(distance.square)
+```
+
+The first two PC scores of the patient is closest to the center of cluster 3. According to the discrepancy table, most observations belong to LumA. Therefore, the patient is most possibly categorized into LumA group.
+
+```{r}
+rm(list = ls())
+```
+
+# Case 3: Auto data set
+
+## EDA, to be continued
+
+**Summary Statistics**
+```{r}
+auto = data.table(Auto)
+skim(auto)
+```
+
+**Correlations**
+
+```{r}
+auto.corr.mat = data.frame(round(cor(auto[,-"name"]), digits = 2),var1 = names(auto)[-ncol(auto)])
+auto.corr.mat.long = data.table(melt(auto.corr.mat,id.vars = "var1", variable.name = "var2", value.name = "correlation"))
+auto.corr.mat.long = auto.corr.mat.long[,var2 := as.character(var2)]
+auto.corr.mat.long = auto.corr.mat.long[order(var1,var2)]
+
+my_color = brewer.pal(5, "Spectral")
+ggplot(data = auto.corr.mat.long,aes(x=var1,y=var2,fill = correlation))+
+  geom_point(aes(size = abs(correlation)), shape = 21) +
+  geom_text(aes(label = correlation), size = 3, colour = "black", alpha = 0.7)+
+  scale_fill_gradientn(colours = my_color) +
+  xlab("var1")+
+  scale_size_area(max_size = 15, guide = "none") +
+  theme_bw()
+```
+
+Some variables are highly correlated. Pay attention to collineaity problems.
+
+
+**Pairwise scatter plots**
+
+```{r}
+ggplot(data = auto,aes(x=cylinders,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=displacement,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=horsepower,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=weight,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=acceleration,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=year,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+ggplot(data = auto,aes(x=origin,y=mpg))+
+  geom_point()+
+  geom_smooth()+
+  theme_bw()
+```
+
+## Year and mpg
+
+```{r}
+reg.year = lm(mpg~year,data = auto)
+summary(reg.year)
+```
+
+```{r}
+reg.year.horse = lm(mpg~year+horsepower,data = auto)
+summary(reg.year.horse)
+```
+
+```{r}
+reg.year.horse.inter = lm(mpg~year+horsepower+year*horsepower,data = auto)
+summary(reg.year.horse.inter)
+```
+
+## Categorical predictors
+
+```{r}
+reg.cyl.num = lm(mpg~cylinders,data = auto)
+summary(reg.cyl.num)
+```
+
+```{r}
+reg.cyl.fac = lm(mpg~as.factor(cylinders),data = auto)
+stargazer(reg.cyl.fac,type = "text",keep.stat = c("n", "rsq", "sigma2", "ser"))
+```
+
+The fundamental difference between the above two methods is: when we treat cylinders as a continuous variable, we assume that its correlation with mpg is linear, i.e., a certain difference in the number of cylinders predicts a certain difference in mpg, no matter it is from 5 to 6 or from 7 to 8; when we treat cylinders as a factor, we instead assume that relative to a benchmark, every specific number of cylinders predicts a specific difference in mpg. We discard the linearity assumption in the latter case; in fact, we treat them as several different binary variables.
+
+**Test the alternative usage**
+
+```{r}
+anova(reg.cyl.num,reg.cyl.fac)
+```
+
+## Results
+
+```{r}
+# stepwise forwarding
+for.onestage = function(data1,data2){
+  base =  lm(mpg~.,data = data1)
+  new = list()
+  lr = matrix(nrow = ncol(data2))
+  for (i in 1:ncol(data2)) {
+    new[[i]] = lm(mpg~.+data2[[i]],
+                   data = data1)
+    lr[i] = lrtest(base,new[[i]])[2,5]
+  }
+  loc = which.min(lr)
+  if(lr[loc]<0.05){
+    return(list(colnames(data2[,loc,with=F]),lr[loc]))
+  }else{
+    return('Stop searching')
+  }
+}
+
+# linear terms
+
+reg.current = auto[,.(
+  mpg,
+  year,
+  cylinders = as.factor(cylinders)
+)]
+cov.rest = auto[,.(
+  displacement,
+  horsepower,
+  weight,
+  acceleration,
+  origin = as.factor(origin)
+)]
+
+i = 0
+while(i<1){
+  new.va = for.onestage(reg.current,cov.rest)
+  print(new.va)
+  if(new.va[[1]] == 'Stop searching'){
+    break
+  }
+  reg.current[,(new.va[[1]]) := cov.rest[,new.va[[1]],with=F]]
+  cov.rest = cov.rest[,(new.va[[1]]) := NULL]
+}
+
+# try some higher order terms
+
+for.onestage(reg.current,reg.current[,.("year*horsepower" = year*horsepower)])
+reg.current[,"year*horsepower" := year*horsepower]
+summary(lm(mpg~.,data = reg.current))
+
+
+# elimination
+
+reg.nodisplacement = reg.current[,-"displacement"]
+reg.result.nodisplacement = lm(mpg~.,data = reg.nodisplacement)
+summary(reg.result.nodisplacement)
+```
+**Diagnosis**
+
+```{r}
+plot(reg.result.nodisplacement$fitted.values,reg.result.nodisplacement$residuals)
+```
+
+**Summary**
+
+**Prediction**
+
+```{r}
+new.car = data.table(year = 83, cylinders = factor(8), weight = 4000, origin = factor(1), horsepower = 260, "year*horsepower" = 83*260)
+
+predict(reg.result.nodisplacement,new.car,interval = "prediction",se.fit = T, level = .95)
+```
+
+Do not include the interaction term!
+
+```{r}
+reg.nodisplacement.nointer = reg.nodisplacement[,"year*horsepower" := NULL]
+reg.result.nodisplacement.nointer = lm(mpg~.,data = reg.nodisplacement.nointer)
+summary(reg.result.nodisplacement.nointer)
+
+predict(reg.result.nodisplacement.nointer,new.car,interval = "prediction",se.fit = T, level = .95)
+```
+
+# Simple regression through simulations
+
+## Generate data
+
+```{r}
+x = seq(0,1,length = 40)
+set.seed(1)
+y = 1+1.2*x + rnorm(40,sd = 2)
+ggplot()+
+  geom_point(aes(x=x,y=y))+
+  labs(title = "Scatter Plot, x vs y")+
+  theme_bw()
+```
+
+## Understand the model
+
+```{r}
+sim.reg.result = lm(y~x)
+summary(sim.reg.result)
+```
+
+The true values for $\beta_0$ and $\beta_1$ are 1 and 1.2, respectively, while the estimates are 1.33 and 0.91, respectively. The estimates are not very accurate.
+
+
+The residual standard error is 1.79, deviating considerably from the true value $\sigma = 2$. 
+
+```{r}
+round(confint(sim.reg.result,level = 0.95),digits = 2)
+```
+
+
+The 95\% confidence interval for $\beta_1$ is [-1.03, 2.85]. It captures the true $\beta_1$. 
+
+**Comparison of the true model and the estimate**
+
+```{r}
+ggplot(data.frame(x,y,fitted = sim.reg.result$fitted.values,truemean = 1+1.2*x))+
+  geom_point(aes(x=x,y=y))+
+  labs(title = "Scatter Plot, x vs y")+
+  geom_line(aes(x=x,y=fitted,color="fitted"))+
+  geom_line(aes(x=x,y=truemean,color="true mean"))+
+  scale_color_manual(name="Type",values = c(`fitted`="blue",`true mean`="red"))+
+  theme_bw()
+```
+## Diagnoses
+
+**Residual plot**
+
+```{r}
+ggplot()+
+  geom_point(aes(x=sim.reg.result$fitted.values,y=sim.reg.result$residuals))+
+  xlab("fitted values")+
+  ylab("residuals")+
+  labs(title = "Residual plot")+
+  theme_bw()
+```
+
+
+**QQ plot**
+
+```{r}
+ggplot()+
+  geom_qq(aes(sample=sim.reg.result$residuals))+
+  geom_qq_line(aes(sample=sim.reg.result$residuals))+
+  xlab("Theoretical quantiles")+
+  ylab("Sample quantiles")+
+  labs(title = "QQ plot")+
+  theme_bw()
+```
+
+**Comments**
+
+The sample residuals seem to be uncorrelated with the fitted values, but they have thicker tails than the normal distribution. 
+
+## New simulation
+
+```{r}
+y.matrix = matrix(nrow = 40,ncol = 100)
+result.matrix = data.frame(matrix(nrow = 100,ncol = 4))
+colnames(result.matrix) = c("se","beta1","lower","upper")
+t_star = qt(0.975,38)
+for (i in 1:ncol(y.matrix)) {
+  set.seed(i)
+  y.matrix[,i] = 1+1.2*x+rnorm(40,sd=2)
+  result.coef = summary(lm(y.matrix[,i]~x))$coefficients
+  
+  result.matrix[i,] = c(result.coef[2,2],result.coef[2,1],result.coef[2,1]-result.coef[2,2]*t_star,result.coef[2,1]+result.coef[2,2]*t_star)
+}
+
+skim(result.matrix$beta1)
+```
+
+```{r}
+theory.mean = 1.2
+theory.sd = 2/sqrt((var(x)*39))
+
+comparison.table = data.frame(mean = c(mean(result.matrix$beta1),theory.mean),sd = c(sd(result.matrix$beta1),theory.sd))
+rownames(comparison.table) = c("bootstraping","theory")
+
+kbl(comparison.table, caption = "Comparison between the simulated result (n=100) and the theory result", digits = 2, booktabs = T,
+    align = "lcc") %>%
+  kable_styling(latex_options = c("HOLD_position"))
+```
+
+The sampling distribution is closed to the theoretical distribution, judging from the mean and standard deviation. However, there is still mild difference.
+
+**Illustration of confidence interval**
+
+```{r}
+result.matrix = result.matrix %>% 
+  mutate(number = 1:100,real.mean = rep(1.2,100))
+result.matrix = result.matrix %>%
+  mutate(captured = real.mean>=lower & real.mean <= upper)
+sum(result.matrix$captured)
+```
+
+94\% confidence intervals capture the true beta, which is close to the prediction of the significance, 95\%.
+
+```{r}
+result.matrix.long = result.matrix %>%
+  pivot_longer(c(beta1,lower,upper,real.mean),names_to = "type")
+
+
+ggplot(data = result.matrix.long,aes(x=number,y=value,group=type,color=type))+
+  geom_point()+
+  geom_line()+
+  labs(title = "Point estimates, confidence interval and real value")+
+  theme_bw()
+```
+
