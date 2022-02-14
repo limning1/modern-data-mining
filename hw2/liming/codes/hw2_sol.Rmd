@@ -369,7 +369,7 @@ Job types also significantly correlated with self esteem. Compared to Sales and 
 
 
 
-# Case 2: Breast cancer sub-type
+# Case Study 2: Breast cancer sub-type
 
 ```{r}
 cancer = fread("data/brca_subtype.csv")
@@ -1073,18 +1073,7 @@ abline(h=0, col="blue", lwd=2)
 plot(fit.final, 2) # qqplot; less thick tail
 ```
 
-**Prediction**
-
-```{r}
-# prediction
-
-new <- data.frame(cylinders="8",displacement=350,horsepower=260,weight=4000,year=83,origin="1")
-CIpred <- predict(fit.final, new, interval="prediction", se.fit=TRUE)
-CIpred
-```
-
-
-### Final decision
+### Final Decision
 
 Finally we decide to employ the second model (the one with log(mpg)) because it solve both linearity and heteroscedasticity problems compared with the first model, as well as a larger adjusted $R^2$. The equation is: 
 $$
@@ -1095,9 +1084,27 @@ $$
 
 ### Summary
 
+As to cylinders, let 3 cylinders be the base, on average We expect, the mean mpg with 3 cylinders will be 20.6, the mpg with 4 cylinders will increase 2.93% compared to the mpg with 3 cylinders, the mpg with 5 cylinders will increase 3.35% compared to the mpg with 3 cylinders, the mpg with 6 cylinders will increase 2.02% compared to the mpg with 3 cylinders, the mpg with 8 cylinders will increase 26.0% compared to the mpg with 3 cylinders.
 
+As to weight, When vehicle weight increases by 1 lbs, we expect, on average the mpg will decrease about 0.02%.
+
+As to year, When year increases by 1 unit, we expect, on average the mpg will increase about 4.71%.
+
+As to horsepower, When engine horsepower increases by 1 unit, we expect, on average the mpg will increase about 1.21%.
+
+As to origin, let American be the base, on average We expect, the mean mpg with American origin will be 20, the mpg with European origin will increase 4.71% compared to the mpg with American origin, the mpg with Japanese origin will increase 6.29% compared to the mpg with American origin.
+
+There is also some interaction effect of year and horsepower.
 
 ### Prediction
+
+```{r}
+# prediction
+
+new <- data.frame(cylinders="8",displacement=350,horsepower=260,weight=4000,year=83,origin="1")
+CIpred <- predict(fit.final, new, interval="prediction", se.fit=TRUE)
+CIpred
+```
 
 When we use log(mpg) instead of original mpg, the concerns about heteroscedasticity and thicker tails are much alleviated; the linearity between the dependent variable and explanatory variables is further enhanced. Therefore, we prefer the result with log(mpg). 
 
