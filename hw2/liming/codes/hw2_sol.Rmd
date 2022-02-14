@@ -979,7 +979,9 @@ stargazer(fit.final1,type=output_format, align=TRUE)
 
 fit.final2<-lm(mpg~cylinders+horsepower.rec+weight.rec+acceleration+year:horsepower.rec+origin,reg.current)
 stargazer(fit.final2,type=output_format, align=TRUE)
+```
 
+```{r}
 anova(fit.final1,fit.final2) # The inclusion of year is not necessary.
 ```
 
@@ -1056,7 +1058,9 @@ stargazer(fit.final1,type=output_format, align=TRUE)
 
 fit.final2<-lm(log.mpg~cylinders+weight+year*horsepower+origin,reg.current)
 stargazer(fit.final2,type=output_format, align=TRUE)
+```
 
+```{r}
 anova(fit.final1,fit.final2) # The inclusion of displacement is not necessary; only significant at 10%.
 
 fit.final = fit.final2
@@ -1066,7 +1070,7 @@ fit.final = fit.final2
 
 ```{r}
 # diagnosis
-
+?Auto
 par(mfrow=c(1,2), mar=c(5,2,4,2), mgp=c(3,0.5,0))
 plot(fit.final, 1, pch=16) # residual plot; the heteroscedasticity concern is well handled
 abline(h=0, col="blue", lwd=2)
@@ -1078,23 +1082,31 @@ plot(fit.final, 2) # qqplot; less thick tail
 Finally we decide to employ the second model (the one with log(mpg)) because it solve both linearity and heteroscedasticity problems compared with the first model, as well as a larger adjusted $R^2$. The equation is: 
 $$
 \begin{aligned}
-log.mpg = \alpha &+ \Sigma_i \beta_{1i}cylinder_i + \beta_{2}horsepower + \beta_3 weight + \Sigma_i \beta_{4i} year_i \\&+ \Sigma_i \beta_{5i} year_i \times horsepower + \Sigma_i \beta_{6i} origin_i + \epsilon.
+log.mpg = \alpha &+ \Sigma_i \beta_{1i}cylinder_i + \beta_{2}horsepower + \beta_3 weight + \Sigma_i \beta_{4} year \\&+ \Sigma_i \beta_{5i} year_i \times horsepower + \Sigma_i \beta_{6i} origin_i + \epsilon.
 \end{aligned}
 $$
 
+The detailed specification and result of our final model: 
+
+```{r,results='asis'}
+stargazer(fit.final2,type=output_format, align=TRUE)
+```
+
 ### Summary
 
-As to cylinders, let 3 cylinders be the base, on average We expect, the mean mpg with 3 cylinders will be 20.6, the mpg with 4 cylinders will increase 2.93% compared to the mpg with 3 cylinders, the mpg with 5 cylinders will increase 3.35% compared to the mpg with 3 cylinders, the mpg with 6 cylinders will increase 2.02% compared to the mpg with 3 cylinders, the mpg with 8 cylinders will increase 26.0% compared to the mpg with 3 cylinders.
+As to cylinders, let 3 cylinders be the benchmark, controlling all other explanatory variables. The mean mpg with 3 cylinders is 20.6. On average We expect, the mpg with 4 cylinders will increase by 2.93% compared to the mpg with 3 cylinders; the mpg with 5 cylinders will increase by 3.35% compared to the mpg with 3 cylinders; the mpg with 6 cylinders will increase by 2.02% compared to the mpg with 3 cylinders; the mpg with 8 cylinders will increase by 26.0% compared to the mpg with 3 cylinders. It may be the case that more cylinders can ensure a more complete burning of the fuels. 
 
-As to weight, When vehicle weight increases by 1 lbs, we expect, on average the mpg will decrease about 0.02%.
+As to weight, When vehicle weight increases by 1 lbs, holding others unchanged, we expect, on average the mpg will decrease by 0.02%. This is intuitive as heavier substances need a larger force to move against the friction. 
 
-As to year, When year increases by 1 unit, we expect, on average the mpg will increase about 4.71%.
+As to year, When year increases by 1 unit, given others the same, we expect, on average the mpg will increase by 4.71%. It may reflect that the advancement of technology, which makes all cars more efficient in fuel usage.
 
-As to horsepower, When engine horsepower increases by 1 unit, we expect, on average the mpg will increase about 1.21%.
+As to horsepower, When engine horsepower increases by 1 unit and all other explanatory variables are unchanged, we expect, on average the mpg will increase by 1.21%.
 
-As to origin, let American be the base, on average We expect, the mean mpg with American origin will be 20, the mpg with European origin will increase 4.71% compared to the mpg with American origin, the mpg with Japanese origin will increase 6.29% compared to the mpg with American origin.
+As to origin, let American be the benchmark, controlling others. The mean mpg with American origin is 20. On average We expect, the mpg with European origin will increase by 4.71% compared to the mpg with American origin; the mpg with Japanese origin will increase by 6.29% compared to the mpg with American origin. This possibly reflects the efficiency of cars from three regions: Japanese cars are the most efficient ones while American cars are the least.
 
-There is also some interaction effect of year and horsepower.
+As to displacement and acceleration, given existing explanatory variables, their coefficients are not significantly nonzero. They may have few direct effect on mpg.
+
+There is also some interaction effect of year and horsepower. The negative coefficient indicates that, as time goes by, the positive correlation between mpg and horsepower is weaker. 
 
 ### Prediction
 
