@@ -1,7 +1,7 @@
 ---
-title: "hw1"
+title: "hw2"
 author: "Liming Ning, Xinran Zhang"
-date: "2022/2/4"
+date: "2022/2/13"
 geometry: margin=1in
 output:
   html_document:
@@ -20,6 +20,9 @@ fontsize: 12pt
 ```{r setup, include=F, cache=FALSE}
 knitr::opts_chunk$set(echo = T, warning = F, message = F)
 knitr::opts_knit$set(root.dir = 'G:/github/modern-data-mining/hw2/liming')
+output_format <- ifelse(is.null(knitr::opts_knit$get("rmarkdown.pandoc.to")),
+                        "text", knitr::opts_knit$get("rmarkdown.pandoc.to"))
+options(scipen = 0, digits = 3)  # controls base R output
 library(data.table)
 library(reshape2)
 library(readxl)
@@ -40,9 +43,7 @@ library(stargazer)
 library(GGally)
 ```
 
-```{r}
-rm(list = ls())
-```
+
 
 
 # Case Study 1: Self esteem
@@ -366,9 +367,7 @@ Education level, Income and ASVAB test score are all positively correlated with 
 
 Job types also significantly correlated with self esteem. Compared to Sales and Related Workers, people working as Cleaning and Building Service Workers, Health Care Technical and Support Workers, Transportation and Material Moving Workers, Entertainment Attendants and Related Workers, Physical Scientists (suspicious as there are only four observations) have significantly less self esteem, possibly because these occupations are representative for low social status (except the last one). Protective Service Workers have more self esteem, possibly because they are physically much stronger; Management Related Workers have more self esteem, which may be attributed to their relatively high social status.
 
-```{r}
-rm(list = ls())
-```
+
 
 # Case 2: Breast cancer sub-type
 
@@ -440,8 +439,10 @@ save(remove.col,file = "removecol.RData")
 ```
 
 ```{r}
-load("removecol.RData")
+load("removecol.RData") # if not saved, too slow to run
 ```
+
+**Number of genes removed**
 
 ```{r}
 length(remove.col)
@@ -502,7 +503,7 @@ plot(pve.cancer.scaled,type = "b")
 
 According to the elbow rule, we can use 3 PCs, as PVE decreases dramatically since PC4. 
 
-**Comparison of scaling choice**
+**Comparison of scaling choices**
 ```{r}
 pc.firsttwo.scaled = data.table(log.cancer.scaled.centered %*% svd.cancer.scaled$v[,1:2])
 setnames(pc.firsttwo.scaled,c("PC1","PC2"))
@@ -607,9 +608,7 @@ which.min(distance.square)
 
 The first two PC scores of the patient is closest to the center of cluster 3. According to the discrepancy table, most observations belong to LumA. Therefore, the patient is most possibly categorized into LumA group.
 
-```{r}
-rm(list = ls())
-```
+
 
 # Case study 3: Auto data set
 
@@ -664,13 +663,11 @@ Some explanatory variables are highly correlated. Thus we should pay attention t
 Auto.new = select(Auto, -name)
 Auto.new = Auto.new %>% 
   mutate(origin = as.factor(origin),cylinders = as.factor(cylinders))
-Auto.new2 = Auto.new %>% 
-  mutate(mpg = log(mpg)) %>% 
-  rename(c("mpg" = "log.mpg"))
+```
 
+
+```{r}
 ggpairs(Auto.new)+
-  theme_bw()
-ggpairs(Auto.new2)+
   theme_bw()
 ```
 
@@ -678,9 +675,53 @@ From the pairwise scatter plots, we can see that:
 
 The original mpg is right-skewed. Also it has a lower bound of zero in common sense. Therefore, we may want to use log(mpg) instead of mpg in the following analysis.
 
-`Horsepower`, `displacement` and `weight` may need a transformation; the pairwise plot tells us that mpg may be linearly correlated to their reciprocals. However, when we consider log(mpg) instead of mpg, the non-linearity seems to alleviate. 
+Alternatively, `Horsepower`, `displacement` and `weight` may need a transformation; the pairwise plot tells us that mpg may be linearly correlated to their reciprocals.
 
-We have a closer look at the comparison between mpg and log(mpg) in terms of their relationship with the three variables.
+Next we will examine the effects of two alternative transformations.
+
+```{r}
+Auto.new1 = Auto.new %>% 
+  mutate(horsepower = 1/horsepower, displacement = 1/displacement, weight = 1/weight) %>%
+  rename(c("horsepower" = "horsepower.rec", "displacement" = "displacement.rec", "weight" = "weight.rec"))
+Auto.new2 = Auto.new %>% 
+  mutate(mpg = log(mpg)) %>% 
+  rename(c("mpg" = "log.mpg"))
+```
+
+**Transformation: displacement, horsepower and weight -> their reciprocals**
+
+Here we have a closer look at the comparison between displacement, horsepower, weight and their reciprocals in terms of their relationship with mpg.
+
+```{r}
+ggpairs(Auto.new1)+
+  theme_bw()
+```
+
+```{r message = F, eval=T}
+par(mfrow=c(1,2))
+plot(Auto.new$horsepower, Auto.new$mpg, pch=16) 
+plot(Auto.new1$horsepower.rec, Auto.new1$mpg, pch=16)  #looks better!
+
+par(mfrow=c(1,2))
+plot(Auto.new$displacement, Auto.new$mpg, pch=16) 
+plot(Auto.new1$displacement.rec, Auto.new1$mpg, pch=16)  #looks better!
+
+par(mfrow=c(1,2))
+plot(Auto.new$weight, Auto.new$mpg, pch=16) 
+plot(Auto.new1$weight.rec, Auto.new1$mpg, pch=16)  #looks better!
+```
+
+
+The correlation between mpg and all three variables become more linear after transformation, so our following analysis will consider the reciprocals ones instead of the original ones.
+
+**Transformation: mpg -> log(mpg)**
+
+Here we have a closer look at the comparison between mpg and log(mpg) in terms of their relationship with the three variables.
+
+```{r}
+ggpairs(Auto.new2)+
+  theme_bw()
+```
 
 ```{r message = F, eval=T}
 par(mfrow=c(1,2))
@@ -697,44 +738,8 @@ plot(Auto.new2$weight, Auto.new2$log.mpg, pch=16)  #looks better!
 ```
 
 
-The correlation between mpg and all three variables become more linear after transformation, so our model will consider log(mpg) instead of the original mpg.
+The correlation between mpg and all three variables become more linear after transformation; also, when we consider log(mpg) instead of mpg, the non-linearity seems to alleviate. Our following analysis will consider log(mpg) instead of the original mpg.
 
-
-```{r,eval=F}
-# mpg.hist = ggplot(Auto,aes(x=mpg))+
-#   geom_histogram()+
-#   theme_bw()+
-#   labs(title = "Histogram for MPG")
-# cylinders.bar = ggplot(Auto,aes(x=cylinders))+
-#   geom_bar()+
-#   theme_bw()+
-#   labs(title = "Barplot for Cylinders")
-# displacemnet.hist = ggplot(Auto,aes(x=displacement))+
-#   geom_histogram()+
-#   theme_bw()+
-#   labs(title = "Histogram for Displacement")
-# horsepower.hist = ggplot(Auto,aes(x=horsepower))+
-#   geom_histogram()+
-#   theme_bw()+
-#   labs(title = "Histogram for Horsepower")
-# weight.hist = ggplot(Auto,aes(x=weight))+
-#   geom_histogram()+
-#   theme_bw()+
-#   labs(title = "Histogram for Weight")
-# acceleration.hist = ggplot(Auto,aes(x=acceleration))+
-#   geom_histogram()+
-#   theme_bw()+
-#   labs(title = "Histogram for Acceleration")
-# year.hist = ggplot(Auto,aes(x=year))+
-#   geom_histogram()+
-#   theme_bw()+
-#   labs(title = "Histogram for Year")
-# origin.bar = ggplot(Auto,aes(x=origin))+
-#   geom_bar()+
-#   theme_bw()+
-#   labs(title = "Barplot for Origin")
-# grid.arrange(mpg.hist,cylinders.bar,displacemnet.hist,horsepower.hist,weight.hist,acceleration.hist,year.hist,origin.bar,nrow = 3)
-```
 
 ## What effect does `time` have on `MPG`?
 
@@ -748,9 +753,14 @@ $$y_i = \beta_0 + \beta_1 \cdot x_{i1} + \epsilon$$
 Model assumptions:
 
 1. Linearity: given `Year`, the mean of `MPG` is described as $\textbf{E}(y_i | x_i) = \beta_0 + \beta_1 x_i$
+
 2. Homoscedasticity: the variances of `MPG` are the same for any `Year` i.e. $\textbf{Var}(y_i | x_{i1}) = \sigma_{1}^2$
+
 3. Normality: `MPG` is independent and normally distributed. i.e. $\epsilon_i \overset{iid}{\sim} \mathcal{N}(0, \sigma_{1}^2)$
 
+4. Exogeneity: The error term is uncorrelated with the explanatory variables. 
+
+5. Non-collinearity: none of the explanatory variables are perfectly correlated. 
 
 We now create a model with `lm()`
 ```{r}
@@ -763,7 +773,7 @@ ggplot(Auto, aes(x = year , y = mpg)) +
   labs(title = "Scatter Plot, year ~ mpg") +
   theme_bw()
   
-summary(fit1)
+stargazer::stargazer(fit1, type="text", align=TRUE)
 ```
 
 `Year` is a significant variable at the .05 level.
@@ -789,11 +799,13 @@ stargazer::stargazer(fit2, type="text", align=TRUE)
 
 ### Explain the difference between the two 95% CI's
 
+The reason why the two 95% CI's differ is that, `year` is correlated with new variable `horsepower`. More specifically, they are negatively correlated according to the correlation matrix. Therefore, when `year` is the only explanatory variable, its coefficient estimate will absorb part of the effect of `horsepower` (this is an example of violation of necessary assumptions to derive unbiased estimate in regression models). In this case `horsepower` is negatively correlated with `mpg` and also negatively correlated with `year`. Therefore, when it is not included in the model, the estimate of the coefficient, as well as the confidence interval for `year`, is biased upward.
+
 ### Model 3: `MPG ~ Year * Horsepower`
 
 ```{r}
 fit3 <- lm(mpg ~ year*horsepower, Auto)
-summary(fit3)
+stargazer::stargazer(fit3, type="text", align=TRUE)
 ```
 
 ```{r}
@@ -812,12 +824,15 @@ The interaction effect is significant at .05 level.
 fit4 <- lm(mpg ~ cylinders, data = Auto)
 ggplot(Auto, aes(x = cylinders , y = mpg)) + 
   geom_point() +
-  geom_smooth(method="lm",se=F) + 
-geom_hline(aes(yintercept = mean(mpg)), color = "red") 
-summary(fit4)
+  geom_smooth(aes(color = "fitted line"),method="lm",se=F) + 
+  geom_hline(aes(yintercept = mean(mpg), color = "mean mpg")) +
+  scale_colour_manual(name = "type",values = c("red","blue"))+
+  labs(title = "Scatter Plot, year ~ mpg") +
+  theme_bw()
+stargazer::stargazer(fit4, type="text", align=TRUE)
 ```
 
-Cylinders is significant at the 0.01 level.
+Cylinders is significant at the 0.01 level; however, the correlation between cylinders and mpg is not linear.
 
 `Cylinders` effect: When number of cylinders increases by 1, we expect, on average the mpg will decrease about -3.558.
 
@@ -830,7 +845,7 @@ levels(Auto1$cylinders)
 ```
 
 ```{r}
-ggplot(Auto1) + geom_boxplot(aes(x = cylinders, y = mpg))
+ggplot(Auto1) + geom_boxplot(aes(x = cylinders, y = mpg)) + theme_bw()
 ```
 
 Our model is: 
@@ -868,7 +883,7 @@ Now we can use `lm()` to fit the model and carry out the tests:
 
 ```{r}
 fit5 <- lm(mpg ~ cylinders, Auto1)
-summary(fit5)
+stargazer::stargazer(fit5, type="text", align=TRUE)
 ```
 
 Cylinders is significant at the .01 level.
@@ -889,16 +904,13 @@ We reject the null hypothesis with a p-value much smaller than 0.01. This indica
 
 ## Results
 
-### Describe the final model: use mpg
+### Describe one model: use mpg; take reciprocal of horsepower, displacement and weight
 
 From the scatter plots presented above, we see that taking reciprocal of displacement, weight and horsepower fits the linearity assumption better. Therefore, our final model will consider the transformed ones instead of the original ones.
 
 ```{r}
-Auto.new = data.table(Auto.new)
-
-Auto.new[,":="(horsepower = 1/horsepower, displacement = 1/displacement, weight = 1/weight)]
-
-setnames(Auto.new,c("horsepower","displacement","weight"),c("horsepower.rec","displacement.rec","weight.rec"))
+Auto.new1 = data.table(Auto.new1)
+Auto.new2 = data.table(Auto.new2)
 ```
 
 We include explanatory variables one by one in a stepwise forward manner; when the p-value of the LR test for the new model against the model in the last step is larger than 0.05, we stop the process and get a model output.
@@ -928,12 +940,12 @@ for.onestage = function(data1,data2,yname = colnames(data1)[1]){
 
 # linear terms
 
-reg.current = Auto.new[,.(
+reg.current = Auto.new1[,.(
   mpg,
   year,
   cylinders
 )] # initial covariance matrix
-cov.rest = Auto.new[,.(
+cov.rest = Auto.new1[,.(
   displacement.rec,
   horsepower.rec,
   weight.rec,
@@ -955,7 +967,7 @@ while(i<1){
 
 We include the reciprocal of weight, the reciprocal of horsepower, acceleration and origin sequentially, in addition to year and cylinders. Next we are going to examine the output model. 
 
-**Final model**
+**Final determination of models in this group**
 
 ```{r}
 fit.prefinal = lm(mpg~.,reg.current)
@@ -969,7 +981,11 @@ fit.final2<-lm(mpg~cylinders+horsepower.rec+weight.rec+acceleration+year:horsepo
 stargazer(fit.final2,type="text", align=TRUE)
 
 anova(fit.final1,fit.final2) # The inclusion of year is not necessary.
+```
 
+We choose fit.final2 in this group. 
+
+```{r}
 fit.final = fit.final2
 ```
 
@@ -986,9 +1002,7 @@ The residual plot casts some doubt on the homoscedasticity assumption. There is 
 
 The QQ plots indicates that the residuals have a thicker tail than the normal distribution. 
 
-### Summarize the effects found
-
-### Prediction
+**Prediction**
 
 ```{r}
 new <- data.frame(cylinders="8",displacement.rec=1/350,horsepower.rec=1/260,weight.rec=1/4000,year=83,origin="1",acceleration = mean(Auto.new$acceleration)) # impute acceleration
@@ -999,8 +1013,6 @@ CIpred
 ### Alternative: use log.mpg; no reciprocals
 
 ```{r}
-Auto.new2 = data.table(Auto.new2)
-
 # try to use log(mpg)
 reg.current = Auto.new2[,.(
   log.mpg,
@@ -1031,7 +1043,7 @@ while(i<1){
 }
 ```
 
-**Final model**
+**Final determination of models in this group**
 
 ```{r}
 # final model
@@ -1042,7 +1054,7 @@ stargazer(fit.prefinal,type="text", align=TRUE)
 fit.final1<-lm(log.mpg~.+year:horsepower,reg.current)
 stargazer(fit.final1,type="text", align=TRUE)
 
-fit.final2<-lm(log.mpg~cylinders+horsepower+weight+year*horsepower+origin,reg.current)
+fit.final2<-lm(log.mpg~cylinders+weight+year*horsepower+origin,reg.current)
 stargazer(fit.final2,type="text", align=TRUE)
 
 anova(fit.final1,fit.final2) # The inclusion of displacement is not necessary; only significant at 10%.
@@ -1071,10 +1083,25 @@ CIpred <- predict(fit.final, new, interval="prediction", se.fit=TRUE)
 CIpred
 ```
 
+
+### Final decision
+
+Finally we decide to employ the second model (the one with log(mpg)) because it solve both linearity and heteroscedasticity problems compared with the first model, as well as a larger adjusted $R^2$. The equation is: 
+$$
+\begin{aligned}
+log.mpg = \alpha &+ \Sigma_i \beta_{1i}cylinder_i + \beta_{2}horsepower + \beta_3 weight + \Sigma_i \beta_{4i} year_i \\&+ \Sigma_i \beta_{5i} year_i \times horsepower + \Sigma_i \beta_{6i} origin_i + \epsilon.
+\end{aligned}
+$$
+
+### Summary
+
+
+
+### Prediction
+
 When we use log(mpg) instead of original mpg, the concerns about heteroscedasticity and thicker tails are much alleviated; the linearity between the dependent variable and explanatory variables is further enhanced. Therefore, we prefer the result with log(mpg). 
 
 The point estimate of mpg is `r exp(CIpred$fit[1])`. The 95% confidence interval in this case should be: [`r exp(CIpred$fit[2])`, `r exp(CIpred$fit[3])`]. 
-
 
 # Simple regression through simulations
 
@@ -1149,7 +1176,7 @@ ggplot()+
 
 **Comments**
 
-The sample residuals seem to be uncorrelated with the fitted values, but they have thicker tails than the normal distribution. 
+The sample residuals seem to be uncorrelated with the fitted values, but they have thicker tails than the normal distribution when x is small, but thinner tails when x is big. This should be the result of randomization. 
 
 ## New simulation
 
