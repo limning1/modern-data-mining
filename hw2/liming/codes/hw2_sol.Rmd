@@ -763,7 +763,7 @@ Model assumptions:
 5. Non-collinearity: none of the explanatory variables are perfectly correlated. 
 
 We now create a model with `lm()`
-```{r}
+```{r,results='asis'}
 fit1 <- lm(mpg ~ year, data = Auto)    # model specification response ~ x1,.. 
 ggplot(Auto, aes(x = year , y = mpg)) + 
   geom_point() +
@@ -773,7 +773,7 @@ ggplot(Auto, aes(x = year , y = mpg)) +
   labs(title = "Scatter Plot, year ~ mpg") +
   theme_bw()
   
-stargazer::stargazer(fit1, type="text", align=TRUE)
+stargazer::stargazer(fit1, type=output_format, align=TRUE)
 ```
 
 `Year` is a significant variable at the .05 level.
@@ -788,9 +788,9 @@ Let the response $y_i$ be the `MPG` and the explanatory variables be `Year` and 
 $$y_i = \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i2} + \epsilon$$
 
 
-```{r}
+```{r,results='asis'}
 fit2 <- lm(mpg ~ year + horsepower, data = Auto) 
-stargazer::stargazer(fit2, type="text", align=TRUE)
+stargazer::stargazer(fit2, type=output_format, align=TRUE)
 ```
 
 `Year` is still a significant variable at the .05 level.
@@ -803,9 +803,9 @@ The reason why the two 95% CI's differ is that, `year` is correlated with new va
 
 ### Model 3: `MPG ~ Year * Horsepower`
 
-```{r}
+```{r,results='asis'}
 fit3 <- lm(mpg ~ year*horsepower, Auto)
-stargazer::stargazer(fit3, type="text", align=TRUE)
+stargazer::stargazer(fit3, type=output_format, align=TRUE)
 ```
 
 ```{r}
@@ -820,7 +820,7 @@ The interaction effect is significant at .05 level.
 
 ### `cylinders` as a continuous/numeric variable
 
-```{r}
+```{r,results='asis'}
 fit4 <- lm(mpg ~ cylinders, data = Auto)
 ggplot(Auto, aes(x = cylinders , y = mpg)) + 
   geom_point() +
@@ -829,7 +829,7 @@ ggplot(Auto, aes(x = cylinders , y = mpg)) +
   scale_colour_manual(name = "type",values = c("red","blue"))+
   labs(title = "Scatter Plot, year ~ mpg") +
   theme_bw()
-stargazer::stargazer(fit4, type="text", align=TRUE)
+stargazer::stargazer(fit4, type=output_format, align=TRUE)
 ```
 
 Cylinders is significant at the 0.01 level; however, the correlation between cylinders and mpg is not linear.
@@ -881,9 +881,9 @@ $$H_0: \beta_{4} = \beta_{5} = \beta_{6} = \beta_{8} = 0$$
 
 Now we can use `lm()` to fit the model and carry out the tests:
 
-```{r}
+```{r,results='asis'}
 fit5 <- lm(mpg ~ cylinders, Auto1)
-stargazer::stargazer(fit5, type="text", align=TRUE)
+stargazer::stargazer(fit5, type=output_format, align=TRUE)
 ```
 
 Cylinders is significant at the .01 level.
@@ -969,16 +969,16 @@ We include the reciprocal of weight, the reciprocal of horsepower, acceleration 
 
 **Final determination of models in this group**
 
-```{r}
+```{r,results='asis'}
 fit.prefinal = lm(mpg~.,reg.current)
-stargazer(fit.prefinal,type="text", align=TRUE)
+stargazer(fit.prefinal,type=output_format, align=TRUE)
 
 # try an interaction term
 fit.final1<-lm(mpg~.+year:horsepower.rec,reg.current)
-stargazer(fit.final1,type="text", align=TRUE)
+stargazer(fit.final1,type=output_format, align=TRUE)
 
 fit.final2<-lm(mpg~cylinders+horsepower.rec+weight.rec+acceleration+year:horsepower.rec+origin,reg.current)
-stargazer(fit.final2,type="text", align=TRUE)
+stargazer(fit.final2,type=output_format, align=TRUE)
 
 anova(fit.final1,fit.final2) # The inclusion of year is not necessary.
 ```
@@ -1045,17 +1045,17 @@ while(i<1){
 
 **Final determination of models in this group**
 
-```{r}
+```{r,results='asis'}
 # final model
 fit.prefinal = lm(log.mpg~.,reg.current)
-stargazer(fit.prefinal,type="text", align=TRUE)
+stargazer(fit.prefinal,type=output_format, align=TRUE)
 
 # try an interaction term
 fit.final1<-lm(log.mpg~.+year:horsepower,reg.current)
-stargazer(fit.final1,type="text", align=TRUE)
+stargazer(fit.final1,type=output_format, align=TRUE)
 
 fit.final2<-lm(log.mpg~cylinders+weight+year*horsepower+origin,reg.current)
-stargazer(fit.final2,type="text", align=TRUE)
+stargazer(fit.final2,type=output_format, align=TRUE)
 
 anova(fit.final1,fit.final2) # The inclusion of displacement is not necessary; only significant at 10%.
 
